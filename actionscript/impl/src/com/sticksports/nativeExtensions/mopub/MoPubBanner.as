@@ -8,15 +8,20 @@ package com.sticksports.nativeExtensions.mopub
 	{
 // native method names
 
+		private static const initialiseBanner : String = "initialiseBanner";
 		private static const getDisplayDensity : String = "getDisplayDensity";
+		private static const getCreativeWidth : String = "getCreativeWidth";
+		private static const getCreativeHeight : String = "getCreativeHeight";
 		
 		private static const setTestMode : String = "setTestMode";
 		private static const setAdUnitId : String = "setAdUnitId";
+		private static const setPositionX : String = "setPositionX";
+		private static const setPositionY : String = "setPositionY";
+		private static const setSize : String = "setSize";
 		
 		private static const loadBanner : String = "loadBanner";
 		private static const showBanner : String = "showBanner";
 		private static const removeBanner : String = "removeBanner";
-		private static const releaseBanner : String = "releaseBanner";
 
 // class variables
 
@@ -39,9 +44,10 @@ package com.sticksports.nativeExtensions.mopub
 			return _adUnitId;
 		}
 
-		public function set adUnitId( adUnitId : String ) : void
+		public function set adUnitId( value : String ) : void
 		{
-			this._adUnitId = adUnitId;
+			_adUnitId = value;
+			extensionContext.call( setAdUnitId, value );
 		}
 
 		public function get testing() : Boolean
@@ -49,9 +55,10 @@ package com.sticksports.nativeExtensions.mopub
 			return _testing;
 		}
 
-		public function set testing( testing : Boolean ) : void
+		public function set testing( value : Boolean ) : void
 		{
-			this._testing = testing;
+			_testing = value;
+			extensionContext.call( setTestMode, value );
 		}
 
 		public function get x() : Number
@@ -59,9 +66,9 @@ package com.sticksports.nativeExtensions.mopub
 			return _x;
 		}
 
-		public function set x( x : Number ) : void
+		public function set x( value : Number ) : void
 		{
-			this._x = x;
+			_x = value;
 		}
 
 		public function get y() : Number
@@ -69,9 +76,9 @@ package com.sticksports.nativeExtensions.mopub
 			return _y;
 		}
 
-		public function set y( y : Number ) : void
+		public function set y( value : Number ) : void
 		{
-			this._y = y;
+			_y = value;
 		}
 
 		public function get size() : MoPubSize
@@ -79,9 +86,9 @@ package com.sticksports.nativeExtensions.mopub
 			return _size;
 		}
 
-		public function set size( size : MoPubSize ) : void
+		public function set size( value : MoPubSize ) : void
 		{
-			this._size = size;
+			_size = value;
 		}
 
 		public function get creativeWidth() : Number
@@ -94,42 +101,49 @@ package com.sticksports.nativeExtensions.mopub
 			return _creativeHeight;
 		}
 
+		public function get displayDensity() : Number
+		{
+			return extensionContext.call( getDisplayDensity ) as Number;
+		}
+
 // methods
 
-		public function MoPubBanner()
+		public function MoPubBanner( adUnitId : String, size : MoPubSize )
 		{
-			extensionContext = ExtensionContext.createExtensionContext( "com.sticksports.nativeExtensions.MoPubBanner", null );
+			extensionContext = ExtensionContext.createExtensionContext( "com.sticksports.nativeExtensions.MoPub", "banner" );
 			extensionContext.addEventListener( StatusEvent.STATUS, handleStatusEvent );
+			_adUnitId = adUnitId;
+			_size = size;
+			extensionContext.call( initialiseBanner, adUnitId, size.id );
+		}
+		
+		private function handleStatusEvent( event : StatusEvent ) : void
+		{
+			trace( "StatusEvent", event.level );
+			switch( event.level )
+			{
+				case InternalMessages.bannerLoaded :
+					dispatchEvent( new MoPubEvent( MoPubEvent.LOADED ) );
+					break;
+				case InternalMessages.bannerFailedToLoad :
+					dispatchEvent( new MoPubEvent( MoPubEvent.LOAD_FAILED ) );
+					break;
+			}
 		}
 
 		public function load() : void
 		{
-			MoPub.loadBanner( this );
+			extensionContext.call( loadBanner );
 		}
 
 		public function show() : void
 		{
-			MoPub.showBanner( this );
-		}
-		
-		public function loadAndShow() : void
-		{
-			MoPub.loadAndShowBanner( this );
+			extensionContext.call( showBanner );
 		}
 
 		public function remove() : void
 		{
-			MoPub.removeBanner( this );
-		}
-		
-		public function release() : void
-		{
-			MoPub.releaseBanner( this );
-		}
-		
-		public function removeAndRelease() : void
-		{
-			MoPub.removeAndReleaseBanner( this );
+			extensionContext.call( removeBanner );
 		}
 	}
 }

@@ -8,93 +8,134 @@
 
 #import <Foundation/Foundation.h>
 #import "FlashRuntimeExtensions.h"
-#import "MoPubHandler.h"
+#import "MoPub_TypeConversion.h"
+#import "MoPubBanner.h"
 
 #define DEFINE_ANE_FUNCTION(fn) FREObject (fn)(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 
 #define MAP_FUNCTION(fn, data) { (const uint8_t*)(#fn), (data), &(fn) }
 
-MoPubHandler* MoPub_handler;
+MoPub_TypeConversion* converter;
+
+DEFINE_ANE_FUNCTION( initialiseBanner )
+{
+    NSString* adUnitId;
+    if( [converter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
+    
+    CGSize adType;
+    int32_t typeId;
+    if( [converter FREGetObject:argv[1] asInt:&typeId] == FRE_OK )
+    {
+        adType = [MoPubBanner getAdSizeFromSizeId:typeId];
+    }
+    else
+    {
+        adType = MOPUB_BANNER_SIZE;
+    }
+    
+    MoPubBanner* banner = [[MoPubBanner alloc] initWithAdUnitId:adUnitId size:adType];
+    [banner retain];
+    FRESetContextNativeData( context, banner );
+    return NULL;
+}
 
 DEFINE_ANE_FUNCTION( getDisplayDensity )
 {
-    return [MoPub_handler getDisplayDensity];
+    double density = [UIScreen mainScreen].scale;
+    FREObject asDensity;
+    if( [converter FREGetDouble:density asObject:&asDensity] == FRE_OK )
+    {
+        return asDensity;
+    }
+    return NULL;
 }
 
 DEFINE_ANE_FUNCTION( setTestMode )
 {
-    return [MoPub_handler setTestMode:argv[0]];
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        uint32_t test;
+        if( [converter FREGetObject:argv[0] asBoolean:&test] != FRE_OK ) return NULL;
+        BOOL testing = ( test == 1 );
+        [banner setTestMode:testing];
+    }
+    return NULL;
 }
 
 DEFINE_ANE_FUNCTION( loadBanner )
 {
-    return [MoPub_handler loadBannerWithAdUnitId:argv[0] size:argv[1]];
-}
-
-DEFINE_ANE_FUNCTION( setBannerLocation )
-{
-    return [MoPub_handler setLocationX:argv[1] y:argv[2] onBanner:argv[0]];
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        [banner loadBanner];
+    }
+    return NULL;
 }
 
 DEFINE_ANE_FUNCTION( showBanner )
 {
-    return [MoPub_handler showBanner:argv[0]];
-}
-
-DEFINE_ANE_FUNCTION( loadAndShowBanner )
-{
-    return [MoPub_handler loadAndShowBannerWithAdUnitId:argv[0] size:argv[1] x:argv[2] y:argv[3]];
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        [banner showBanner];
+    }
+    return NULL;
 }
 
 DEFINE_ANE_FUNCTION( removeBanner )
 {
-    return [MoPub_handler removeBanner:argv[0]];
-}
-
-DEFINE_ANE_FUNCTION( releaseBanner )
-{
-    return [MoPub_handler releaseBanner:argv[0]];
-}
-
-DEFINE_ANE_FUNCTION( removeAndReleaseBanner )
-{
-    return [MoPub_handler removeAndReleaseBanner:argv[0]];
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        [banner removeBanner];
+    }
+    return NULL;
 }
 
 void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet )
 {
     static FRENamedFunction functionMap[] =
     {
+        MAP_FUNCTION( initialiseBanner, NULL ),
         MAP_FUNCTION( getDisplayDensity, NULL ),
         MAP_FUNCTION( setTestMode, NULL ),
         MAP_FUNCTION( loadBanner, NULL ),
-        MAP_FUNCTION( setBannerLocation, NULL ),
         MAP_FUNCTION( showBanner, NULL ),
-        MAP_FUNCTION( loadAndShowBanner, NULL ),
-        MAP_FUNCTION( removeBanner, NULL ),
-        MAP_FUNCTION( releaseBanner, NULL ),
-        MAP_FUNCTION( removeAndReleaseBanner, NULL )
+        MAP_FUNCTION( removeBanner, NULL )
     };
     
 	*numFunctionsToSet = sizeof( functionMap ) / sizeof( FRENamedFunction );
 	*functionsToSet = functionMap;
-    
-    MoPub_handler = [[MoPubHandler alloc] initWithContext:ctx];
 }
 
 void MoPubContextFinalizer( FREContext ctx )
 {
+    MoPubBanner* banner;
+    FREGetContextNativeData( ctx, (void**)&banner );
+    if( banner != nil )
+    {
+        [banner removeFromSuperview];
+        [banner release];
+    }
 	return;
 }
 
 void MoPubExtensionInitializer( void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet )
 {
-    extDataToSet = NULL;  // This example does not use any extension data.
+    extDataToSet = NULL;
     *ctxInitializerToSet = &MoPubContextInitializer;
     *ctxFinalizerToSet = &MoPubContextFinalizer;
+    
+    converter = [[[MoPub_TypeConversion alloc] init] retain];
 }
 
 void MoPubExtensionFinalizer()
 {
+    [converter release];
     return;
 }

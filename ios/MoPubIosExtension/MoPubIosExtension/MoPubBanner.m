@@ -7,20 +7,21 @@
 //
 
 #import "MoPubBanner.h"
+#import "MoPub_TypeConversion.h"
 #import "MoPub_Messages.h"
 
 @interface MoPubBanner ()
 {
 }
-@property FREContext context;
+@property (nonatomic, assign)FREContext context;
 
 @end
 
 @implementation MoPubBanner
 
-@synthesize context, key;
+@synthesize context;
 
-- (id) initWithContext:( FREContext ) extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size
+- (id) initWithContext:(FREContext)extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size
 {
     self = [super initWithAdUnitId:adUnitId size:size];
     if( self )
@@ -37,12 +38,41 @@
     [super dealloc];
 }
 
-- (void) setOriginX:(double)x y:(double)y
++ (CGSize) getAdSizeFromSizeId:(int) sizeId
 {
-    CGRect frame = self.frame;
-    frame.origin.x = x;
-    frame.origin.y = y;
-    self.frame = frame;
+    switch( sizeId )
+    {
+        case 1:
+            return MOPUB_BANNER_SIZE;
+        case 2:
+            return MOPUB_MEDIUM_RECT_SIZE;
+        case 3:
+            return MOPUB_LEADERBOARD_SIZE;
+        case 4:
+            return MOPUB_WIDE_SKYSCRAPER_SIZE;
+        default:
+            return MOPUB_BANNER_SIZE;
+    }
+}
+
+- (void) setTestMode:(BOOL)value
+{
+    //self.testing = value;
+}
+
+- (void) loadBanner
+{
+    [self loadAd];
+}
+
+- (void) showBanner
+{
+    [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:self];
+}
+
+- (void) removeBanner
+{
+    [self removeFromSuperview];
 }
 
 - (UIViewController *)viewControllerForPresentingModalView
@@ -52,11 +82,11 @@
 
 - (void)adViewDidFailToLoadAd:(MPAdView *)view
 {
-    FREDispatchStatusEventAsync( context, key.UTF8String, bannerLoaded );
+    FREDispatchStatusEventAsync( context, "", bannerLoaded );
 }
 - (void)adViewDidLoadAd:(MPAdView *)view
 {
-    FREDispatchStatusEventAsync( context, key.UTF8String, bannerFailedToLoad );
+    FREDispatchStatusEventAsync( context, "", bannerFailedToLoad );
 }
 
 

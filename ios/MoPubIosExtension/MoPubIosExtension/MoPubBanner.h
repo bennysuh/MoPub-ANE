@@ -13,9 +13,15 @@
 @interface MoPubBanner : MPAdView <MPAdViewDelegate>
 {
 }
-@property (retain) NSString* key;
+
++ (CGSize) getAdSizeFromSizeId:(int) sizeId;
 
 - (id) initWithContext:( FREContext ) extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size;
-- (void) setOriginX:(double)x y:(double)y;
+
+- (void) setTestMode:(BOOL)value;
+
+- (void) loadBanner;
+- (void) showBanner;
+- (void) removeBanner;
 
 @end

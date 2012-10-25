@@ -10,10 +10,6 @@
 #import "MPConstants.h"
 #import <CommonCrypto/CommonDigest.h>
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= MP_IOS_6_0
-#import <AdSupport/AdSupport.h>
-#endif
-
 BOOL MPViewHasHiddenAncestor(UIView *view);
 BOOL MPViewIsDescendantOfKeyWindow(UIView *view);
 BOOL MPViewIntersectsKeyWindow(UIView *view);
@@ -111,19 +107,7 @@ NSString *MPAdvertisingIdentifier()
         return cachedIdentifier;
     }
     
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= MP_IOS_6_0
-    NSString *identifier;
-    if (NSClassFromString(@"ASIdentifierManager")) {
-        identifier = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-        cachedIdentifier = [NSString stringWithFormat:@"ifa:%@", [identifier uppercaseString]];
-    }
-    #if MOPUB_ENABLE_UDID
-    else {
-        identifier = MPSHA1Digest([[UIDevice currentDevice] uniqueIdentifier]);
-        cachedIdentifier = [NSString stringWithFormat:@"sha:%@", [identifier uppercaseString]];
-    }
-    #endif
-#elif MOPUB_ENABLE_UDID
+#if MOPUB_ENABLE_UDID
     NSString *identifier = MPSHA1Digest([[UIDevice currentDevice] uniqueIdentifier]);
     cachedIdentifier = [NSString stringWithFormat:@"sha:%@", [identifier uppercaseString]];
 #endif
@@ -134,12 +118,6 @@ NSString *MPAdvertisingIdentifier()
 
 BOOL MPAdvertisingTrackingEnabled()
 {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= MP_IOS_6_0
-    if (NSClassFromString(@"ASIdentifierManager")) {
-        return [ASIdentifierManager sharedManager].advertisingTrackingEnabled;
-    }
-#endif
-    
     return YES;
 }
 
