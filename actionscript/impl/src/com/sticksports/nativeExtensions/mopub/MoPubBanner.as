@@ -17,7 +17,6 @@ package com.sticksports.nativeExtensions.mopub
 		private static const setAdUnitId : String = "setAdUnitId";
 		private static const setPositionX : String = "setPositionX";
 		private static const setPositionY : String = "setPositionY";
-		private static const setSize : String = "setSize";
 		
 		private static const loadBanner : String = "loadBanner";
 		private static const showBanner : String = "showBanner";
@@ -32,8 +31,6 @@ package com.sticksports.nativeExtensions.mopub
 
 		private var _x : Number = 0;
 		private var _y : Number = 0;
-		private var _creativeWidth : Number;
-		private var _creativeHeight : Number;
 
 		private var _size : MoPubSize = MoPubSize.banner;
 
@@ -69,6 +66,7 @@ package com.sticksports.nativeExtensions.mopub
 		public function set x( value : Number ) : void
 		{
 			_x = value;
+			extensionContext.call( setPositionX, value );
 		}
 
 		public function get y() : Number
@@ -79,26 +77,17 @@ package com.sticksports.nativeExtensions.mopub
 		public function set y( value : Number ) : void
 		{
 			_y = value;
-		}
-
-		public function get size() : MoPubSize
-		{
-			return _size;
-		}
-
-		public function set size( value : MoPubSize ) : void
-		{
-			_size = value;
+			extensionContext.call( setPositionY, value );
 		}
 
 		public function get creativeWidth() : Number
 		{
-			return _creativeWidth;
+			return extensionContext.call( getCreativeWidth ) as Number;
 		}
 
 		public function get creativeHeight() : Number
 		{
-			return _creativeHeight;
+			return extensionContext.call( getCreativeHeight ) as Number;
 		}
 
 		public function get displayDensity() : Number

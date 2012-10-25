@@ -57,7 +57,31 @@
 
 - (void) setTestMode:(BOOL)value
 {
-    //self.testing = value;
+    self.testing = value;
+}
+
+- (void) setPositionX:(double)value
+{
+    CGRect frame = self.frame;
+    frame.origin.x = value;
+    self.frame = frame;
+}
+
+- (void) setPositionY:(double)value
+{
+    CGRect frame = self.frame;
+    frame.origin.y = value;
+    self.frame = frame;
+}
+
+- (double) getCreativeWidth
+{
+    return [self adContentViewSize].width;
+}
+
+- (double) getCreativeHeight
+{
+    return [self adContentViewSize].height;
 }
 
 - (void) loadBanner

@@ -23,6 +23,7 @@
 		private var buttonFormat : TextFormat;
 		
 		private var banner : MoPubBanner;
+		private var bannerCount : int = 0;
 		
 		//iOS
 		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
@@ -98,9 +99,21 @@
 			addChild( tf );
 			
 			tf = createButton( "getDisplayDensity" );
-			tf.x = 10;
+			tf.x = 170;
 			tf.y = 90;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, getDisplayDensity );
+			addChild( tf );
+			
+			tf = createButton( "getSize" );
+			tf.x = 10;
+			tf.y = 130;
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, getSize );
+			addChild( tf );
+			
+			tf = createButton( "moveBanner" );
+			tf.x = 170;
+			tf.y = 130;
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, moveBanner );
 			addChild( tf );
 		}
 		
@@ -133,23 +146,22 @@
 		{
 			feedback.text = "new MoPubBanner( bannerUnitId, MoPubSize.banner );";
 			banner = new MoPubBanner( bannerUnitId, MoPubSize.banner );
-			trace( "1. banner", banner );
+			bannerCount++;
 			banner.x = 0;
-			banner.y = 300;
+			banner.y = 480 - bannerCount * 50;
 			banner.load();
-			trace( "2. banner", banner );
 		}
 		
 		private function loadBanner( event : MouseEvent ) : void
 		{
 			feedback.text = "banner.load();";
-			trace( "3. banner", banner );
 			setBannerListeners( banner );
 			banner.load();
 		}
 				
 		private function showBanner( event : MouseEvent ) : void
 		{
+			
 			feedback.text = "banner.show();";
 			banner.show();
 		}
@@ -169,12 +181,22 @@
 		private function getDisplayDensity( event : MouseEvent ) : void
 		{
 			feedback.appendText( "\nbanner.displayDensity = " + banner.displayDensity );
-			banner = null;
+		}
+		
+		private function getSize( event : MouseEvent ) : void
+		{
+			feedback.appendText( "\nbanner.creativeWidth = " + banner.creativeWidth );
+			feedback.appendText( "\nbanner.creativeHeight = " + banner.creativeHeight );
+		}
+		
+		private function moveBanner( event : MouseEvent ) : void
+		{
+			feedback.appendText( "\nbanner.y = 0" );
+			banner.y = 0;
 		}
 		
 		private function setBannerListeners( banner : MoPubBanner ) : void
 		{
-			trace( "4. banner", banner );
 			banner.addEventListener( MoPubEvent.LOADED, adLoaded );
 			banner.addEventListener( MoPubEvent.LOAD_FAILED, adFailed );
 		}
