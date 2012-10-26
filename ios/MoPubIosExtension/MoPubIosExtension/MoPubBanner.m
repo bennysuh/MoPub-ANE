@@ -24,6 +24,7 @@
 - (id) initWithContext:(FREContext)extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size
 {
     self = [super initWithAdUnitId:adUnitId size:size];
+    
     if( self )
     {
         self.context = extensionContext;
@@ -94,19 +95,21 @@
     [self removeFromSuperview];
 }
 
-- (UIViewController *)viewControllerForPresentingModalView
+- (UIViewController*)viewControllerForPresentingModalView
 {
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 
-- (void)adViewDidFailToLoadAd:(MPAdView *)view
+- (void)adViewDidLoadAd:(MPAdView*)view
 {
+    NSLog( @">>> Banner loaded" );
     FREDispatchStatusEventAsync( context, "", bannerLoaded );
 }
-- (void)adViewDidLoadAd:(MPAdView *)view
+
+- (void)adViewDidFailToLoadAd:(MPAdView*)view
 {
+    NSLog( @">>> Banner failed to load" );
     FREDispatchStatusEventAsync( context, "", bannerFailedToLoad );
 }
-
 
 @end

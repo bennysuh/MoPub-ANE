@@ -33,7 +33,7 @@ DEFINE_ANE_FUNCTION( initialiseBanner )
         adType = MOPUB_BANNER_SIZE;
     }
     
-    MoPubBanner* banner = [[MoPubBanner alloc] initWithAdUnitId:adUnitId size:adType];
+    MoPubBanner* banner = [[MoPubBanner alloc] initWithContext:context adUnitId:adUnitId size:adType];
     [banner retain];
     FRESetContextNativeData( context, banner );
     return NULL;

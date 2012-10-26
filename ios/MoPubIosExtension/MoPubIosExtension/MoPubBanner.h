@@ -28,4 +28,9 @@
 - (void) showBanner;
 - (void) removeBanner;
 
+- (UIViewController*)viewControllerForPresentingModalView;
+- (void)adViewDidLoadAd:(MPAdView*)view;
+- (void)adViewDidFailToLoadAd:(MPAdView*)view;
+
+
 @end
