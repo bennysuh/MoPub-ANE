@@ -55,11 +55,6 @@
     }
 }
 
-- (void) setTestMode:(BOOL)value
-{
-    self.testing = value;
-}
-
 - (void) setPositionX:(double)value
 {
     CGRect frame = self.frame;

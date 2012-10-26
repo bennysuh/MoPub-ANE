@@ -18,7 +18,6 @@
 
 - (id) initWithContext:( FREContext ) extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size;
 
-- (void) setTestMode:(BOOL)value;
 - (void) setPositionX:(double)value;
 - (void) setPositionY:(double)value;
 

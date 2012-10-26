@@ -13,8 +13,9 @@ package com.sticksports.nativeExtensions.mopub
 		private static const getCreativeWidth : String = "getCreativeWidth";
 		private static const getCreativeHeight : String = "getCreativeHeight";
 		
-		private static const setTestMode : String = "setTestMode";
 		private static const setAdUnitId : String = "setAdUnitId";
+		private static const setIgnoresAutorefresh : String = "setIgnoresAutorefresh";
+		private static const setTestMode : String = "setTestMode";
 		private static const setPositionX : String = "setPositionX";
 		private static const setPositionY : String = "setPositionY";
 		
@@ -27,7 +28,8 @@ package com.sticksports.nativeExtensions.mopub
 		private var extensionContext : ExtensionContext = null;
 
 		private var _adUnitId : String;
-		private var _testing : Boolean;
+		private var _ignoresAutorefresh : Boolean = false;
+		private var _testing : Boolean = false;
 
 		private var _x : Number = 0;
 		private var _y : Number = 0;
@@ -45,6 +47,17 @@ package com.sticksports.nativeExtensions.mopub
 		{
 			_adUnitId = value;
 			extensionContext.call( setAdUnitId, value );
+		}
+
+		public function get ignoresAutorefresh() : Boolean
+		{
+			return _ignoresAutorefresh;
+		}
+
+		public function set ignoresAutorefresh( value : Boolean ) : void
+		{
+			_ignoresAutorefresh = value;
+			extensionContext.call( setIgnoresAutorefresh, value );
 		}
 
 		public function get testing() : Boolean

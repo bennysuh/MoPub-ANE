@@ -50,16 +50,41 @@ DEFINE_ANE_FUNCTION( getDisplayDensity )
     return NULL;
 }
 
+DEFINE_ANE_FUNCTION( setIgnoresAutorefresh )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        uint32_t ignore;
+        if( [converter FREGetObject:argv[0] asBoolean:&ignore] != FRE_OK ) return NULL;
+        banner.ignoresAutorefresh = ( ignore == 1 );
+    }
+    return NULL;
+}
+
 DEFINE_ANE_FUNCTION( setTestMode )
 {
     MoPubBanner* banner;
     FREGetContextNativeData( context, (void**)&banner );
     if( banner != nil )
     {
-        uint32_t test;
-        if( [converter FREGetObject:argv[0] asBoolean:&test] != FRE_OK ) return NULL;
-        BOOL testing = ( test == 1 );
-        [banner setTestMode:testing];
+        uint32_t testing;
+        if( [converter FREGetObject:argv[0] asBoolean:&testing] != FRE_OK ) return NULL;
+        banner.testing = ( testing == 1 );
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setAdUnitId )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        NSString* adUnitId;
+        if( [converter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
+        [banner setAdUnitId:adUnitId];
     }
     return NULL;
 }
@@ -162,6 +187,8 @@ void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION( initialiseBanner, NULL ),
         MAP_FUNCTION( getDisplayDensity, NULL ),
         MAP_FUNCTION( setTestMode, NULL ),
+        MAP_FUNCTION( setAdUnitId, NULL ),
+        MAP_FUNCTION( setIgnoresAutorefresh, NULL ),
         MAP_FUNCTION( setPositionX, NULL ),
         MAP_FUNCTION( setPositionY, NULL ),
         MAP_FUNCTION( getCreativeWidth, NULL ),

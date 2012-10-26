@@ -1,12 +1,19 @@
 <extension xmlns="http://ns.adobe.com/air/extension/3.1">
 	<id>com.sticksports.nativeExtensions.MoPub</id>
-	<versionNumber>0.1.0</versionNumber>
+	<versionNumber>0.2.0</versionNumber>
 	<platforms>
 		<platform name="iPhone-ARM">
 			<applicationDeployment>
 				<nativeLibrary>libMoPubIosExtension.a</nativeLibrary>
 				<initializer>MoPubExtensionInitializer</initializer>
 				<finalizer>MoPubExtensionFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>MoPubAndroidExtension.jar</nativeLibrary>
+				<initializer>com.sticksports.nativeExtensions.mopub.MoPubExtension</initializer>
+				<finalizer>com.sticksports.nativeExtensions.mopub.MoPubExtension</finalizer>
 			</applicationDeployment>
 		</platform>
 		<platform name="default">

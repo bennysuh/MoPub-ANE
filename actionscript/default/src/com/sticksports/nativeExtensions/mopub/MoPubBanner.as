@@ -7,7 +7,8 @@ package com.sticksports.nativeExtensions.mopub
 // class variables
 
 		private var _adUnitId : String;
-		private var _testing : Boolean;
+		private var _ignoresAutorefresh : Boolean = false;
+		private var _testing : Boolean = false;
 
 		private var _x : Number = 0;
 		private var _y : Number = 0;
@@ -24,6 +25,16 @@ package com.sticksports.nativeExtensions.mopub
 		public function set adUnitId( value : String ) : void
 		{
 			_adUnitId = value;
+		}
+
+		public function get ignoresAutorefresh() : Boolean
+		{
+			return _ignoresAutorefresh;
+		}
+
+		public function set ignoresAutorefresh( value : Boolean ) : void
+		{
+			_ignoresAutorefresh = value;
 		}
 
 		public function get testing() : Boolean
@@ -54,16 +65,6 @@ package com.sticksports.nativeExtensions.mopub
 		public function set y( value : Number ) : void
 		{
 			_y = value;
-		}
-
-		public function get size() : MoPubSize
-		{
-			return _size;
-		}
-
-		public function set size( value : MoPubSize ) : void
-		{
-			_size = value;
 		}
 
 		public function get creativeWidth() : Number

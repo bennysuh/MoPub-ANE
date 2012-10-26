@@ -26,9 +26,9 @@
 		private var bannerCount : int = 0;
 		
 		//iOS
-		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
+		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
 		// Android
-		//private var bannerUnitId : String = "28e6224444b94a72";
+		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
 		
 		public function MoPubExtensionTest()
 		{
@@ -86,34 +86,34 @@
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, showBanner );
 			addChild( tf );
 			
-			tf = createButton( "removeBanner" );
+			tf = createButton( "moveBanner" );
 			tf.x = 170;
 			tf.y = 50;
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, moveBanner );
+			addChild( tf );
+			
+			tf = createButton( "removeBanner" );
+			tf.x = 10;
+			tf.y = 90;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, removeBanner );
 			addChild( tf );
 			
 			tf = createButton( "releaseBanner" );
-			tf.x = 10;
+			tf.x = 170;
 			tf.y = 90;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, releaseBanner );
 			addChild( tf );
 			
 			tf = createButton( "getDisplayDensity" );
-			tf.x = 170;
-			tf.y = 90;
+			tf.x = 10;
+			tf.y = 130;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, getDisplayDensity );
 			addChild( tf );
 			
 			tf = createButton( "getSize" );
-			tf.x = 10;
-			tf.y = 130;
-			tf.addEventListener( MouseEvent.MOUSE_DOWN, getSize );
-			addChild( tf );
-			
-			tf = createButton( "moveBanner" );
 			tf.x = 170;
 			tf.y = 130;
-			tf.addEventListener( MouseEvent.MOUSE_DOWN, moveBanner );
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, getSize );
 			addChild( tf );
 		}
 		
@@ -149,7 +149,7 @@
 			bannerCount++;
 			banner.x = 0;
 			banner.y = 480 - bannerCount * 50;
-			banner.load();
+			banner.testing = true;
 		}
 		
 		private function loadBanner( event : MouseEvent ) : void

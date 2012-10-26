@@ -12,7 +12,7 @@ package com.sticksports.nativeExtensions.mopub
 		public static const leaderboard : MoPubSize = new MoPubSize( 3 );
 		
 		// 160x600.
-		public static const skyscraper : MoPubSize = new MoPubSize( 4 );
+		public static const wideSkyscraper : MoPubSize = new MoPubSize( 4 );
 		
 		
 		internal var id : int;
