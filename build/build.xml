@@ -28,34 +28,28 @@
 			<src path="../android/src"/>
 			<src path="../gitignore/mopub-client/Android/mopub-android-sdk/src"/>
 			<src path="../gitignore/mopub-client/Android/mopub-android-sdk/gen"/>
+			<src path="../gitignore/mopub-client/Android/extras/src"/>
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar"/>
-				<fileset dir="../android/libs">
-					<include name="**/*.jar"/>
-				</fileset>
+				<pathelement location="../android/libs/FlashRuntimeExtensions.jar"/>
+				<pathelement location="../gitignore/AdMobSDK/GoogleAdMobAdsSdk-6.2.1/GoogleAdMobAdsSdk-6.2.1.jar"/>
+				<pathelement location="../gitignore/MillenialMediaSDK/MMAndroidSDK/MMAdView.jar"/>
 			</classpath>
 		</javac>
-<!--
+
 		<mkdir dir="../android/temp/zip"/>
-		<unzip dest="../android/temp/zip">
-			<fileset dir="../android/libs">
-				<include name="**/*.jar"/>
-				<exclude name="**/FlashRuntimeExtensions.jar"/>
-			</fileset>
-		</unzip>
+		<unzip dest="../android/temp/zip" src="../gitignore/AdMobSDK/GoogleAdMobAdsSdk-6.2.1/GoogleAdMobAdsSdk-6.2.1.jar"/>
+		<unzip dest="../android/temp/zip" src="../gitignore/MillenialMediaSDK/MMAndroidSDK/MMAdView.jar"/>
 		<copy todir="../android/temp/classes/com">
 		    <fileset dir="../android/temp/zip/com"/>
-		</copy>
-		<copy todir="../android/temp/classes/assets" failOnError="false">
-		    <fileset dir="../android/temp/zip/assets"/>
 		</copy>
 		<copy todir="../android/temp/classes/res" failOnError="false">
 			   <fileset dir="../android/temp/zip/res"/>
 		</copy>
--->		
+
 		<mkdir dir="../temp/android/"/>
 		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar"/>
-		<!--<delete dir="../android/temp"/>-->
+		<delete dir="../android/temp"/>
 	</target>
 
 	<target name="swc" description="Build swc library">

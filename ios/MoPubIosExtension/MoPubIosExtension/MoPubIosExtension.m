@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FlashRuntimeExtensions.h"
-#import "MoPub_TypeConversion.h"
+#import "MoPubTypeConversion.h"
 #import "MoPubBanner.h"
 
 #define DEFINE_ANE_FUNCTION(fn) FREObject (fn)(FREContext context, void* functionData, uint32_t argc, FREObject argv[])

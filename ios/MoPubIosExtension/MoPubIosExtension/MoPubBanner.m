@@ -7,8 +7,7 @@
 //
 
 #import "MoPubBanner.h"
-#import "MoPub_TypeConversion.h"
-#import "MoPub_Messages.h"
+#import "MoPubInternalMessages.h"
 
 @interface MoPubBanner ()
 {

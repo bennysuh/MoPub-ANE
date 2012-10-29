@@ -60,6 +60,9 @@
 		<copy todir="../bin/icons">
 		    <fileset dir="./icons"/>
 		</copy>
+		<copy todir="../bin">
+		    <fileset dir="./res"/>
+		</copy>
 
 		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
 			<arg value="-package"/>
@@ -76,6 +79,7 @@
 			<arg value="MoPubExtensionTest-app.xml"/>
 			<arg value="MoPubExtensionTest.swf"/>
 			<arg value="icons"/>
+			<arg value="values"/>
 			<arg line="-extdir ../../bin/"/>
 		</exec>
 	</target>
