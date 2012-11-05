@@ -20,6 +20,8 @@
 
 - (void) setPositionX:(double)value;
 - (void) setPositionY:(double)value;
+- (void) setFrameWidth:(double)value;
+- (void) setFrameHeight:(double)value;
 
 - (double) getCreativeWidth;
 - (double) getCreativeHeight;

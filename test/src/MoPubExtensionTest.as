@@ -26,9 +26,9 @@
 		private var bannerCount : int = 0;
 		
 		//iOS
-		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
+		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
 		// Android
-		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
+		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
 		
 		public function MoPubExtensionTest()
 		{
@@ -148,7 +148,7 @@
 			banner = new MoPubBanner( bannerUnitId, MoPubSize.banner );
 			bannerCount++;
 			banner.x = 0;
-			banner.y = 480 - bannerCount * 50;
+			banner.y = stage.stageHeight - bannerCount * 50;
 			banner.testing = true;
 		}
 		
@@ -192,6 +192,7 @@
 		private function moveBanner( event : MouseEvent ) : void
 		{
 			feedback.appendText( "\nbanner.y = 0" );
+			banner.x = stage.stageWidth / 2;
 			banner.y = 0;
 		}
 		

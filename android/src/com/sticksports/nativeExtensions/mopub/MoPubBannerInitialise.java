@@ -8,16 +8,19 @@ import com.adobe.fre.FREObject;
 
 public class MoPubBannerInitialise implements FREFunction
 {
-
 	@Override
 	public FREObject call( FREContext ctx, FREObject[] args )
 	{
+		if( ResourceFinder.context == null )
+		{
+			ResourceFinder.context = ctx.getActivity();
+		}
+
 		try
 		{
 			MoPubBannerContext context = (MoPubBannerContext) ctx;
 			String adUnitId = args[0].getAsString();
 			context.getBanner().setAdUnitId( adUnitId );
-			
 		}
 		catch ( Exception exception )
 		{

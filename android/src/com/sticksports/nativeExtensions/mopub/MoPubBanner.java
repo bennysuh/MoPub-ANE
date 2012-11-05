@@ -9,12 +9,16 @@ public class MoPubBanner extends MoPubView
 {
 	private int xPos;
 	private int yPos;
+	private int plannedWidth;
+	private int plannedHeight;
 
 	public MoPubBanner( Context context )
 	{
 		super( context );
 		xPos = 0;
 		yPos = 0;
+		plannedWidth = 0;
+		plannedHeight = 0;
 	}
 
 	public MoPubBanner( Context context, AttributeSet attrs )
@@ -42,4 +46,23 @@ public class MoPubBanner extends MoPubView
 		yPos = y;
 	}
 
+	public int getPlannedWidth()
+	{
+		return plannedWidth;
+	}
+	
+	public void setPlannedWidth( int width )
+	{
+		plannedWidth = width;
+	}
+	
+	public int getPlannedHeight()
+	{
+		return plannedHeight;
+	}
+	
+	public void setPlannedHeight( int height )
+	{
+		plannedHeight = height;
+	}
 }

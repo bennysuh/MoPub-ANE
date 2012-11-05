@@ -9,11 +9,12 @@ package com.sticksports.nativeExtensions.mopub
 		private var _adUnitId : String;
 		private var _ignoresAutorefresh : Boolean = false;
 		private var _testing : Boolean = false;
+		private var _nativeAdsOrientation : MoPubNativeAdOrientation = MoPubNativeAdOrientation.any;
 
 		private var _x : Number = 0;
 		private var _y : Number = 0;
-
-		private var _size : MoPubSize = MoPubSize.banner;
+		private var _width : Number = 0;
+		private var _height : Number = 0;
 
 // properties
 
@@ -47,6 +48,16 @@ package com.sticksports.nativeExtensions.mopub
 			_testing = value;
 		}
 
+		public function get nativeAdsOrientation() : MoPubNativeAdOrientation
+		{
+			return _nativeAdsOrientation;
+		}
+
+		public function set nativeAdsOrientation( value : MoPubNativeAdOrientation ) : void
+		{
+			_nativeAdsOrientation = value;
+		}
+
 		public function get x() : Number
 		{
 			return _x;
@@ -65,6 +76,26 @@ package com.sticksports.nativeExtensions.mopub
 		public function set y( value : Number ) : void
 		{
 			_y = value;
+		}
+
+		public function get width() : Number
+		{
+			return _width;
+		}
+
+		public function set width( value : Number ) : void
+		{
+			_width = value;
+		}
+
+		public function get height() : Number
+		{
+			return _height;
+		}
+
+		public function set height( value : Number ) : void
+		{
+			_height = value;
 		}
 
 		public function get creativeWidth() : Number
@@ -87,7 +118,30 @@ package com.sticksports.nativeExtensions.mopub
 		public function MoPubBanner( adUnitId : String, size : MoPubSize )
 		{
 			_adUnitId = adUnitId;
-			_size = size;
+			initSize( size );
+		}
+		
+		private function initSize( size : MoPubSize ) : void
+		{
+			switch( size )
+			{
+				case MoPubSize.banner:
+					_width = 320;
+					_height = 50;
+					break;
+				case MoPubSize.mediumRectangle:
+					_width = 300;
+					_height = 250;
+					break;
+				case MoPubSize.leaderboard:
+					_width = 728;
+					_height = 90;
+					break;
+				case MoPubSize.wideSkyscraper:
+					_width = 160;
+					_height = 600;
+					break;
+			}
 		}
 		
 		public function load() : void

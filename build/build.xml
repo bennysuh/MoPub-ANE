@@ -27,7 +27,6 @@
 		<javac destdir="../android/temp/classes" includeantruntime="false">
 			<src path="../android/src"/>
 			<src path="../gitignore/mopub-client/Android/mopub-android-sdk/src"/>
-			<src path="../gitignore/mopub-client/Android/mopub-android-sdk/gen"/>
 			<src path="../gitignore/mopub-client/Android/extras/src"/>
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar"/>
@@ -43,12 +42,13 @@
 		<copy todir="../android/temp/classes/com">
 		    <fileset dir="../android/temp/zip/com"/>
 		</copy>
-		<copy todir="../android/temp/classes/res" failOnError="false">
-			   <fileset dir="../android/temp/zip/res"/>
-		</copy>
 
 		<mkdir dir="../temp/android/"/>
 		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar"/>
+		<copy todir="../temp/android/res">
+			<fileset dir="../gitignore/mopub-client/Android/mopub-android-sdk/res"/>
+			<fileset dir="../android/temp/zip/res"/>
+		</copy>
 		<delete dir="../android/temp"/>
 	</target>
 

@@ -18,6 +18,9 @@ package com.sticksports.nativeExtensions.mopub
 		private static const setTestMode : String = "setTestMode";
 		private static const setPositionX : String = "setPositionX";
 		private static const setPositionY : String = "setPositionY";
+		private static const setWidth : String = "setWidth";
+		private static const setHeight : String = "setHeight";
+		private static const setLockNativeAdsToOrientation : String = "lockNativeAdsToOrientation";
 		
 		private static const loadBanner : String = "loadBanner";
 		private static const showBanner : String = "showBanner";
@@ -30,11 +33,12 @@ package com.sticksports.nativeExtensions.mopub
 		private var _adUnitId : String;
 		private var _ignoresAutorefresh : Boolean = false;
 		private var _testing : Boolean = false;
+		private var _nativeAdsOrientation : MoPubNativeAdOrientation = MoPubNativeAdOrientation.any;
 
 		private var _x : Number = 0;
 		private var _y : Number = 0;
-
-		private var _size : MoPubSize = MoPubSize.banner;
+		private var _width : Number = 0;
+		private var _height : Number = 0;
 
 // properties
 
@@ -71,6 +75,17 @@ package com.sticksports.nativeExtensions.mopub
 			extensionContext.call( setTestMode, value );
 		}
 
+		public function get nativeAdsOrientation() : MoPubNativeAdOrientation
+		{
+			return _nativeAdsOrientation;
+		}
+
+		public function set nativeAdsOrientation( value : MoPubNativeAdOrientation ) : void
+		{
+			_nativeAdsOrientation = value;
+			extensionContext.call( setLockNativeAdsToOrientation, value.id );
+		}
+
 		public function get x() : Number
 		{
 			return _x;
@@ -91,6 +106,28 @@ package com.sticksports.nativeExtensions.mopub
 		{
 			_y = value;
 			extensionContext.call( setPositionY, value );
+		}
+
+		public function get width() : Number
+		{
+			return _width;
+		}
+
+		public function set width( value : Number ) : void
+		{
+			_width = value;
+			extensionContext.call( setWidth, value );
+		}
+
+		public function get height() : Number
+		{
+			return _height;
+		}
+
+		public function set height( value : Number ) : void
+		{
+			_height = value;
+			extensionContext.call( setHeight, value );
 		}
 
 		public function get creativeWidth() : Number
@@ -115,8 +152,31 @@ package com.sticksports.nativeExtensions.mopub
 			extensionContext = ExtensionContext.createExtensionContext( "com.sticksports.nativeExtensions.MoPub", "banner" );
 			extensionContext.addEventListener( StatusEvent.STATUS, handleStatusEvent );
 			_adUnitId = adUnitId;
-			_size = size;
+			initSize( size );
 			extensionContext.call( initialiseBanner, adUnitId, size.id );
+		}
+		
+		private function initSize( size : MoPubSize ) : void
+		{
+			switch( size )
+			{
+				case MoPubSize.banner:
+					_width = 320;
+					_height = 50;
+					break;
+				case MoPubSize.mediumRectangle:
+					_width = 300;
+					_height = 250;
+					break;
+				case MoPubSize.leaderboard:
+					_width = 728;
+					_height = 90;
+					break;
+				case MoPubSize.wideSkyscraper:
+					_width = 160;
+					_height = 600;
+					break;
+			}
 		}
 		
 		private function handleStatusEvent( event : StatusEvent ) : void

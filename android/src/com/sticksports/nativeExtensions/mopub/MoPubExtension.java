@@ -5,7 +5,6 @@ import com.adobe.fre.FREExtension;
 
 public class MoPubExtension implements FREExtension
 {
-
 	@Override
 	public FREContext createContext( String arg0 )
 	{
@@ -21,5 +20,4 @@ public class MoPubExtension implements FREExtension
 	public void initialize()
 	{
 	}
-
 }

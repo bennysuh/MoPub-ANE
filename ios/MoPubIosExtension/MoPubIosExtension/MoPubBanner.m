@@ -69,6 +69,20 @@
     self.frame = frame;
 }
 
+- (void) setFrameWidth:(double)value
+{
+    CGRect frame = self.frame;
+    frame.size.width = value;
+    self.frame = frame;
+}
+
+- (void) setFrameHeight:(double)value
+{
+    CGRect frame = self.frame;
+    frame.size.height = value;
+    self.frame = frame;
+}
+
 - (double) getCreativeWidth
 {
     return [self adContentViewSize].width;
@@ -101,13 +115,11 @@
 
 - (void)adViewDidLoadAd:(MPAdView*)view
 {
-    NSLog( @">>> Banner loaded" );
     FREDispatchStatusEventAsync( context, "", bannerLoaded );
 }
 
 - (void)adViewDidFailToLoadAd:(MPAdView*)view
 {
-    NSLog( @">>> Banner failed to load" );
     FREDispatchStatusEventAsync( context, "", bannerFailedToLoad );
 }
 

@@ -97,6 +97,8 @@ DEFINE_ANE_FUNCTION( setPositionX )
     {
         double posX;
         if( [converter FREGetObject:argv[0] asDouble:&posX] != FRE_OK ) return NULL;
+        double density = [UIScreen mainScreen].scale;
+        posX = posX / density;
         [banner setPositionX:posX];
     }
     return NULL;
@@ -110,7 +112,59 @@ DEFINE_ANE_FUNCTION( setPositionY )
     {
         double posY;
         if( [converter FREGetObject:argv[0] asDouble:&posY] != FRE_OK ) return NULL;
+        double density = [UIScreen mainScreen].scale;
+        posY = posY / density;
         [banner setPositionY:posY];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setWidth )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        double width;
+        if( [converter FREGetObject:argv[0] asDouble:&width] != FRE_OK ) return NULL;
+        [banner setFrameWidth:width];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setHeight )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        double height;
+        if( [converter FREGetObject:argv[0] asDouble:&height] != FRE_OK ) return NULL;
+        [banner setFrameHeight:height];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( lockNativeAdsToOrientation )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t orientation;
+        if( [converter FREGetObject:argv[0] asInt:&orientation] != FRE_OK ) return NULL;
+        switch( orientation )
+        {
+            case 0:
+                [banner lockNativeAdsToOrientation:MPNativeAdOrientationAny];
+                break;
+            case 1:
+                [banner lockNativeAdsToOrientation:MPNativeAdOrientationPortrait];
+                break;
+            case 2:
+                [banner lockNativeAdsToOrientation:MPNativeAdOrientationLandscape];
+                break;
+        }
     }
     return NULL;
 }
@@ -191,6 +245,9 @@ void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION( setIgnoresAutorefresh, NULL ),
         MAP_FUNCTION( setPositionX, NULL ),
         MAP_FUNCTION( setPositionY, NULL ),
+        MAP_FUNCTION( setWidth, NULL ),
+        MAP_FUNCTION( setHeight, NULL ),
+        MAP_FUNCTION( lockNativeAdsToOrientation, NULL ),
         MAP_FUNCTION( getCreativeWidth, NULL ),
         MAP_FUNCTION( getCreativeHeight, NULL ),
         MAP_FUNCTION( loadBanner, NULL ),

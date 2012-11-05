@@ -14,7 +14,7 @@ import com.mopub.mobileads.MoPubView.OnAdLoadedListener;
 public class MoPubBannerContext extends FREContext implements OnAdLoadedListener, OnAdFailedListener
 {
 	private MoPubBanner banner;
-
+	
 	public MoPubBanner getBanner()
 	{
 		if( banner == null )
@@ -51,6 +51,9 @@ public class MoPubBannerContext extends FREContext implements OnAdLoadedListener
 		functionMap.put( "setIgnoresAutorefresh", new MoPubBannerSetIgnoresAutorefresh() );
 		functionMap.put( "setPositionX", new MoPubBannerSetPositionX() );
 		functionMap.put( "setPositionY", new MoPubBannerSetPositionY() );
+		functionMap.put( "setWidth", new MoPubBannerDoNothing() );
+		functionMap.put( "setHeight", new MoPubBannerDoNothing() );
+		functionMap.put( "lockNativeAdsToOrientation", new MoPubBannerDoNothing() );
 		functionMap.put( "getCreativeWidth", new MoPubBannerGetCreativeWidth() );
 		functionMap.put( "getCreativeHeight", new MoPubBannerGetCreativeHeight() );
 		functionMap.put( "loadBanner", new MoPubBannerLoad() );
