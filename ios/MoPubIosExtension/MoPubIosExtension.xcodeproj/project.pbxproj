@@ -54,6 +54,24 @@
 		79140269163AFDA4004D6EE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140262163AFDA3004D6EE6 /* QuartzCore.framework */; };
 		7914026B163AFDC9004D6EE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */; };
 		7914026E163AFECF004D6EE6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7914026C163AFEC3004D6EE6 /* MessageUI.framework */; };
+		7933D58B1649415600AB429F /* GADAdMobExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5811649415600AB429F /* GADAdMobExtras.h */; };
+		7933D58C1649415600AB429F /* GADAdNetworkExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5821649415600AB429F /* GADAdNetworkExtras.h */; };
+		7933D58D1649415600AB429F /* GADAdSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5831649415600AB429F /* GADAdSize.h */; };
+		7933D58E1649415600AB429F /* GADBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5841649415600AB429F /* GADBannerView.h */; };
+		7933D58F1649415600AB429F /* GADBannerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5851649415600AB429F /* GADBannerViewDelegate.h */; };
+		7933D5901649415600AB429F /* GADInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5861649415600AB429F /* GADInterstitial.h */; };
+		7933D5911649415600AB429F /* GADInterstitialDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5871649415600AB429F /* GADInterstitialDelegate.h */; };
+		7933D5921649415600AB429F /* GADRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5881649415600AB429F /* GADRequest.h */; };
+		7933D5931649415600AB429F /* GADRequestError.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5891649415600AB429F /* GADRequestError.h */; };
+		7933D5941649415600AB429F /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7933D58A1649415600AB429F /* libGoogleAdMobAds.a */; };
+		7933D59F1649417900AB429F /* MPGoogleAdMobAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5951649417900AB429F /* MPGoogleAdMobAdapter.h */; };
+		7933D5A01649417900AB429F /* MPGoogleAdMobAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7933D5961649417900AB429F /* MPGoogleAdMobAdapter.m */; };
+		7933D5A11649417900AB429F /* MPGoogleAdMobInterstitialAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D5971649417900AB429F /* MPGoogleAdMobInterstitialAdapter.h */; };
+		7933D5A21649417900AB429F /* MPGoogleAdMobInterstitialAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7933D5981649417900AB429F /* MPGoogleAdMobInterstitialAdapter.m */; };
+		7933D5A51649417900AB429F /* MPIAdInterstitialAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D59B1649417900AB429F /* MPIAdInterstitialAdapter.h */; };
+		7933D5A61649417900AB429F /* MPIAdInterstitialAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7933D59C1649417900AB429F /* MPIAdInterstitialAdapter.m */; };
+		7933D5A71649417900AB429F /* MPMillennialInterstitialAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7933D59D1649417900AB429F /* MPMillennialInterstitialAdapter.h */; };
+		7933D5A81649417900AB429F /* MPMillennialInterstitialAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7933D59E1649417900AB429F /* MPMillennialInterstitialAdapter.m */; };
 		79A6D48C1636C14D009DA60A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D48B1636C14D009DA60A /* Foundation.framework */; };
 		79A6D4931636C14D009DA60A /* MoPubIosExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D4921636C14D009DA60A /* MoPubIosExtension.m */; };
 		79A6D52E1636DFB1009DA60A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D52A1636DFB1009DA60A /* CoreLocation.framework */; };
@@ -178,6 +196,24 @@
 		79140262163AFDA3004D6EE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		7914026C163AFEC3004D6EE6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		7933D5811649415600AB429F /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdMobExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADAdMobExtras.h"; sourceTree = "<group>"; };
+		7933D5821649415600AB429F /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdNetworkExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADAdNetworkExtras.h"; sourceTree = "<group>"; };
+		7933D5831649415600AB429F /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdSize.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADAdSize.h"; sourceTree = "<group>"; };
+		7933D5841649415600AB429F /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADBannerView.h"; sourceTree = "<group>"; };
+		7933D5851649415600AB429F /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerViewDelegate.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADBannerViewDelegate.h"; sourceTree = "<group>"; };
+		7933D5861649415600AB429F /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADInterstitial.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADInterstitial.h"; sourceTree = "<group>"; };
+		7933D5871649415600AB429F /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADInterstitialDelegate.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADInterstitialDelegate.h"; sourceTree = "<group>"; };
+		7933D5881649415600AB429F /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADRequest.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADRequest.h"; sourceTree = "<group>"; };
+		7933D5891649415600AB429F /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADRequestError.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADRequestError.h"; sourceTree = "<group>"; };
+		7933D58A1649415600AB429F /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
+		7933D5951649417900AB429F /* MPGoogleAdMobAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPGoogleAdMobAdapter.h; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPGoogleAdMobAdapter.h"; sourceTree = "<group>"; };
+		7933D5961649417900AB429F /* MPGoogleAdMobAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPGoogleAdMobAdapter.m; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPGoogleAdMobAdapter.m"; sourceTree = "<group>"; };
+		7933D5971649417900AB429F /* MPGoogleAdMobInterstitialAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPGoogleAdMobInterstitialAdapter.h; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPGoogleAdMobInterstitialAdapter.h"; sourceTree = "<group>"; };
+		7933D5981649417900AB429F /* MPGoogleAdMobInterstitialAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPGoogleAdMobInterstitialAdapter.m; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPGoogleAdMobInterstitialAdapter.m"; sourceTree = "<group>"; };
+		7933D59B1649417900AB429F /* MPIAdInterstitialAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPIAdInterstitialAdapter.h; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPIAdInterstitialAdapter.h"; sourceTree = "<group>"; };
+		7933D59C1649417900AB429F /* MPIAdInterstitialAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPIAdInterstitialAdapter.m; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPIAdInterstitialAdapter.m"; sourceTree = "<group>"; };
+		7933D59D1649417900AB429F /* MPMillennialInterstitialAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPMillennialInterstitialAdapter.h; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPMillennialInterstitialAdapter.h"; sourceTree = "<group>"; };
+		7933D59E1649417900AB429F /* MPMillennialInterstitialAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPMillennialInterstitialAdapter.m; path = "../../gitignore/mopub-client/MoPubiOS/extras/MoPubNetworkAdapters/MPMillennialInterstitialAdapter.m"; sourceTree = "<group>"; };
 		798280F71638070D00DC7413 /* MoPubInternalMessages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoPubInternalMessages.h; sourceTree = "<group>"; };
 		79A6D4881636C14D009DA60A /* libMoPubIosExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMoPubIosExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A6D48B1636C14D009DA60A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -210,6 +246,7 @@
 				79A6D5301636DFB1009DA60A /* StoreKit.framework in Frameworks */,
 				79A6D52F1636DFB1009DA60A /* iAd.framework in Frameworks */,
 				79140210163AEAA5004D6EE6 /* libMMSDK_4.6.1.a in Frameworks */,
+				7933D5941649415600AB429F /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +406,14 @@
 		79140200163AE31C004D6EE6 /* MoPubAdapters */ = {
 			isa = PBXGroup;
 			children = (
+				7933D5951649417900AB429F /* MPGoogleAdMobAdapter.h */,
+				7933D5961649417900AB429F /* MPGoogleAdMobAdapter.m */,
+				7933D5971649417900AB429F /* MPGoogleAdMobInterstitialAdapter.h */,
+				7933D5981649417900AB429F /* MPGoogleAdMobInterstitialAdapter.m */,
+				7933D59B1649417900AB429F /* MPIAdInterstitialAdapter.h */,
+				7933D59C1649417900AB429F /* MPIAdInterstitialAdapter.m */,
+				7933D59D1649417900AB429F /* MPMillennialInterstitialAdapter.h */,
+				7933D59E1649417900AB429F /* MPMillennialInterstitialAdapter.m */,
 				79140203163AE365004D6EE6 /* MPIAdAdapter.h */,
 				79140204163AE365004D6EE6 /* MPIAdAdapter.m */,
 				79140205163AE365004D6EE6 /* MPMillennialAdapter.h */,
@@ -380,6 +425,16 @@
 		7914020A163AE382004D6EE6 /* OtherSDKs */ = {
 			isa = PBXGroup;
 			children = (
+				7933D5811649415600AB429F /* GADAdMobExtras.h */,
+				7933D5821649415600AB429F /* GADAdNetworkExtras.h */,
+				7933D5831649415600AB429F /* GADAdSize.h */,
+				7933D5841649415600AB429F /* GADBannerView.h */,
+				7933D5851649415600AB429F /* GADBannerViewDelegate.h */,
+				7933D5861649415600AB429F /* GADInterstitial.h */,
+				7933D5871649415600AB429F /* GADInterstitialDelegate.h */,
+				7933D5881649415600AB429F /* GADRequest.h */,
+				7933D5891649415600AB429F /* GADRequestError.h */,
+				7933D58A1649415600AB429F /* libGoogleAdMobAds.a */,
 				7914020E163AEAA5004D6EE6 /* libMMSDK_4.6.1.a */,
 				7914020F163AEAA5004D6EE6 /* MMAdView.h */,
 			);
@@ -448,6 +503,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7933D58B1649415600AB429F /* GADAdMobExtras.h in Headers */,
+				7933D58C1649415600AB429F /* GADAdNetworkExtras.h in Headers */,
+				7933D58D1649415600AB429F /* GADAdSize.h in Headers */,
+				7933D58E1649415600AB429F /* GADBannerView.h in Headers */,
+				7933D58F1649415600AB429F /* GADBannerViewDelegate.h in Headers */,
+				7933D5901649415600AB429F /* GADInterstitial.h in Headers */,
+				7933D5911649415600AB429F /* GADInterstitialDelegate.h in Headers */,
+				7933D5921649415600AB429F /* GADRequest.h in Headers */,
+				7933D5931649415600AB429F /* GADRequestError.h in Headers */,
+				7933D59F1649417900AB429F /* MPGoogleAdMobAdapter.h in Headers */,
+				7933D5A11649417900AB429F /* MPGoogleAdMobInterstitialAdapter.h in Headers */,
+				7933D5A51649417900AB429F /* MPIAdInterstitialAdapter.h in Headers */,
+				7933D5A71649417900AB429F /* MPMillennialInterstitialAdapter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +611,10 @@
 				791401FF163AE190004D6EE6 /* CJSONSerializer.m in Sources */,
 				79140208163AE365004D6EE6 /* MPIAdAdapter.m in Sources */,
 				79140209163AE365004D6EE6 /* MPMillennialAdapter.m in Sources */,
+				7933D5A01649417900AB429F /* MPGoogleAdMobAdapter.m in Sources */,
+				7933D5A21649417900AB429F /* MPGoogleAdMobInterstitialAdapter.m in Sources */,
+				7933D5A61649417900AB429F /* MPIAdInterstitialAdapter.m in Sources */,
+				7933D5A81649417900AB429F /* MPMillennialInterstitialAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +684,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
@@ -637,7 +709,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
