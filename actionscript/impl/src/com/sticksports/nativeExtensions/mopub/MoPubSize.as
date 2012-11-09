@@ -14,7 +14,6 @@ package com.sticksports.nativeExtensions.mopub
 		// 160x600.
 		public static const wideSkyscraper : MoPubSize = new MoPubSize( 4 );
 		
-		
 		internal var id : int;
 		
 		public function MoPubSize( id : int )

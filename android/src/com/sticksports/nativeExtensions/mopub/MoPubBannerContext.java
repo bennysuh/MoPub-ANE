@@ -45,17 +45,25 @@ public class MoPubBannerContext extends FREContext implements OnAdLoadedListener
 	{
 		Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
 		functionMap.put( "initialiseBanner", new MoPubBannerInitialise() );
-		functionMap.put( "getDisplayDensity", new MoPubGetDisplayDensity() );
+		
 		functionMap.put( "setTestMode", new MoPubBannerSetTestMode() );
 		functionMap.put( "setAdUnitId", new MoPubBannerSetAdUnitId() );
 		functionMap.put( "setIgnoresAutorefresh", new MoPubBannerSetIgnoresAutorefresh() );
-		functionMap.put( "setPositionX", new MoPubBannerSetPositionX() );
-		functionMap.put( "setPositionY", new MoPubBannerSetPositionY() );
-		functionMap.put( "setWidth", new MoPubBannerDoNothing() );
-		functionMap.put( "setHeight", new MoPubBannerDoNothing() );
 		functionMap.put( "lockNativeAdsToOrientation", new MoPubBannerDoNothing() );
+		
+		functionMap.put( "getPositionX", new MoPubBannerGetPositionX() );
+		functionMap.put( "setPositionX", new MoPubBannerSetPositionX() );
+		functionMap.put( "getPositionY", new MoPubBannerGetPositionY() );
+		functionMap.put( "setPositionY", new MoPubBannerSetPositionY() );
+		functionMap.put( "getWidth", new MoPubBannerGetWidth() );
+		functionMap.put( "setWidth", new MoPubBannerSetWidth() );
+		functionMap.put( "getHeight", new MoPubBannerGetHeight() );
+		functionMap.put( "setHeight", new MoPubBannerSetHeight() );
+		
+		functionMap.put( "setSize", new MoPubBannerSetSize() );
 		functionMap.put( "getCreativeWidth", new MoPubBannerGetCreativeWidth() );
 		functionMap.put( "getCreativeHeight", new MoPubBannerGetCreativeHeight() );
+		
 		functionMap.put( "loadBanner", new MoPubBannerLoad() );
 		functionMap.put( "showBanner", new MoPubBannerShow() );
 		functionMap.put( "removeBanner", new MoPubBannerRemove() );

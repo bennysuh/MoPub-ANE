@@ -10,6 +10,7 @@ package com.sticksports.nativeExtensions.mopub
 		private var _ignoresAutorefresh : Boolean = false;
 		private var _testing : Boolean = false;
 		private var _nativeAdsOrientation : MoPubNativeAdOrientation = MoPubNativeAdOrientation.any;
+		private var _size : MoPubSize;
 
 		private var _x : Number = 0;
 		private var _y : Number = 0;
@@ -98,6 +99,16 @@ package com.sticksports.nativeExtensions.mopub
 			_height = value;
 		}
 
+		public function get size() : MoPubSize
+		{
+			return _size;
+		}
+
+		public function set size( value : MoPubSize ) : void
+		{
+			_size = value;
+		}
+
 		public function get creativeWidth() : Number
 		{
 			return 0;
@@ -108,21 +119,13 @@ package com.sticksports.nativeExtensions.mopub
 			return 0;
 		}
 
-		public function get displayDensity() : Number
-		{
-			return 1;
-		}
-
 // methods
 
 		public function MoPubBanner( adUnitId : String, size : MoPubSize )
 		{
 			_adUnitId = adUnitId;
-			initSize( size );
-		}
-		
-		private function initSize( size : MoPubSize ) : void
-		{
+			_size = size;
+
 			switch( size )
 			{
 				case MoPubSize.banner:

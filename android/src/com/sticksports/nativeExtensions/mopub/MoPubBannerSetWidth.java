@@ -1,7 +1,7 @@
 package com.sticksports.nativeExtensions.mopub;
 
 import android.util.Log;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
@@ -16,13 +16,13 @@ public class MoPubBannerSetWidth implements FREFunction
 		try
 		{
 			MoPubBannerContext context = (MoPubBannerContext) ctx;
-			double width = args[0].getAsDouble();
-			context.getBanner().setPlannedWidth( (int) Math.round( width ) );
+			int width = args[0].getAsInt();
+			context.getBanner().setPlannedWidth( width );
 			
-		    RelativeLayout.LayoutParams params = ( RelativeLayout.LayoutParams ) context.getBanner().getLayoutParams();
+		    FrameLayout.LayoutParams params = ( FrameLayout.LayoutParams ) context.getBanner().getLayoutParams();
 		    if( params != null )
 		    {
-		    	params.width = context.getBanner().getPlannedWidth();
+		    	params.width = width;
 			   	context.getBanner().setLayoutParams(params);
 		    }
 		}

@@ -1,5 +1,6 @@
 ﻿package
 {
+	import flash.system.Capabilities;
 	import com.sticksports.nativeExtensions.mopub.MoPubBanner;
 	import com.sticksports.nativeExtensions.mopub.MoPubEvent;
 	import com.sticksports.nativeExtensions.mopub.MoPubSize;
@@ -29,7 +30,7 @@
 		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
 		// Android
 		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
-		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY6dqvFgw";
+		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYttOiFgw";
 		
 		public function MoPubExtensionTest()
 		{
@@ -105,16 +106,16 @@
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, releaseBanner );
 			addChild( tf );
 			
-			tf = createButton( "getDisplayDensity" );
-			tf.x = 10;
-			tf.y = 130;
-			tf.addEventListener( MouseEvent.MOUSE_DOWN, getDisplayDensity );
-			addChild( tf );
-			
 			tf = createButton( "getSize" );
 			tf.x = 170;
 			tf.y = 130;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, getSize );
+			addChild( tf );
+			
+			tf = createButton( "setSize" );
+			tf.x = 10;
+			tf.y = 130;
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, setSize );
 			addChild( tf );
 		}
 		
@@ -145,17 +146,17 @@
 		
 		private function createBanner( event : MouseEvent ) : void
 		{
-			feedback.text = "new MoPubBanner( bannerUnitId, MoPubSize.banner );";
-			banner = new MoPubBanner( bannerUnitId, MoPubSize.banner );
+			feedback.text = "new MoPubBanner( bannerUnitId, MoPubSize.leaderboard );";
+			banner = new MoPubBanner( bannerUnitId, MoPubSize.leaderboard );
 			bannerCount++;
 			banner.x = 0;
-			banner.y = stage.stageHeight - bannerCount * 50;
+			banner.y = Capabilities.screenResolutionY - bannerCount * 50;
 			banner.testing = true;
 		}
 		
 		private function loadBanner( event : MouseEvent ) : void
 		{
-			feedback.text = "banner.load();";
+			feedback.appendText( "\nbanner.load();" );
 			setBannerListeners( banner );
 			banner.load();
 		}
@@ -163,7 +164,7 @@
 		private function showBanner( event : MouseEvent ) : void
 		{
 			
-			feedback.text = "banner.show();";
+			feedback.appendText( "\nbanner.show();" );
 			banner.show();
 		}
 				
@@ -179,9 +180,10 @@
 			banner = null;
 		}
 		
-		private function getDisplayDensity( event : MouseEvent ) : void
+		private function setSize( event : MouseEvent ) : void
 		{
-			feedback.appendText( "\nbanner.displayDensity = " + banner.displayDensity );
+			feedback.appendText( "\nbanner.size = MoPubSize.banner" );
+			banner.size = MoPubSize.banner;
 		}
 		
 		private function getSize( event : MouseEvent ) : void
@@ -193,7 +195,6 @@
 		private function moveBanner( event : MouseEvent ) : void
 		{
 			feedback.appendText( "\nbanner.y = 0" );
-			banner.x = stage.stageWidth / 2;
 			banner.y = 0;
 		}
 		

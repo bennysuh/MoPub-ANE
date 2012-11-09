@@ -1,13 +1,12 @@
 package com.sticksports.nativeExtensions.mopub;
 
 import android.util.Log;
-import android.widget.FrameLayout;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
-public class MoPubBannerSetHeight implements FREFunction
+public class MoPubBannerGetHeight implements FREFunction
 {
 
 	@Override
@@ -16,15 +15,7 @@ public class MoPubBannerSetHeight implements FREFunction
 		try
 		{
 			MoPubBannerContext context = (MoPubBannerContext) ctx;
-			int height = args[0].getAsInt();
-			context.getBanner().setPlannedHeight( height );
-			
-			FrameLayout.LayoutParams params = ( FrameLayout.LayoutParams ) context.getBanner().getLayoutParams();
-		    if( params != null )
-		    {
-		    	params.height = height;
-			   	context.getBanner().setLayoutParams(params);
-		    }
+			return FREObject.newObject( context.getBanner().getPlannedHeight() );
 		}
 		catch ( Exception exception )
 		{

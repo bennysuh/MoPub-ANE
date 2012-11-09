@@ -9,18 +9,24 @@ package com.sticksports.nativeExtensions.mopub
 // native method names
 
 		private static const initialiseBanner : String = "initialiseBanner";
-		private static const getDisplayDensity : String = "getDisplayDensity";
-		private static const getCreativeWidth : String = "getCreativeWidth";
-		private static const getCreativeHeight : String = "getCreativeHeight";
 		
 		private static const setAdUnitId : String = "setAdUnitId";
 		private static const setIgnoresAutorefresh : String = "setIgnoresAutorefresh";
 		private static const setTestMode : String = "setTestMode";
-		private static const setPositionX : String = "setPositionX";
-		private static const setPositionY : String = "setPositionY";
-		private static const setWidth : String = "setWidth";
-		private static const setHeight : String = "setHeight";
 		private static const setLockNativeAdsToOrientation : String = "lockNativeAdsToOrientation";
+		
+		private static const getPositionX : String = "getPositionX";
+		private static const setPositionX : String = "setPositionX";
+		private static const getPositionY : String = "getPositionY";
+		private static const setPositionY : String = "setPositionY";
+		private static const getWidth : String = "getWidth";
+		private static const setWidth : String = "setWidth";
+		private static const getHeight : String = "getHeight";
+		private static const setHeight : String = "setHeight";
+		
+		private static const setSize : String = "setSize";
+		private static const getCreativeWidth : String = "getCreativeWidth";
+		private static const getCreativeHeight : String = "getCreativeHeight";
 		
 		private static const loadBanner : String = "loadBanner";
 		private static const showBanner : String = "showBanner";
@@ -34,11 +40,7 @@ package com.sticksports.nativeExtensions.mopub
 		private var _ignoresAutorefresh : Boolean = false;
 		private var _testing : Boolean = false;
 		private var _nativeAdsOrientation : MoPubNativeAdOrientation = MoPubNativeAdOrientation.any;
-
-		private var _x : Number = 0;
-		private var _y : Number = 0;
-		private var _width : Number = 0;
-		private var _height : Number = 0;
+		private var _size : MoPubSize;
 
 // properties
 
@@ -86,63 +88,67 @@ package com.sticksports.nativeExtensions.mopub
 			extensionContext.call( setLockNativeAdsToOrientation, value.id );
 		}
 
-		public function get x() : Number
+		public function get x() : int
 		{
-			return _x;
+			return extensionContext.call( getPositionX ) as int;
 		}
 
-		public function set x( value : Number ) : void
+		public function set x( value : int ) : void
 		{
-			_x = value;
 			extensionContext.call( setPositionX, value );
 		}
 
-		public function get y() : Number
+		public function get y() : int
 		{
-			return _y;
+			return extensionContext.call( getPositionY ) as int;
 		}
 
-		public function set y( value : Number ) : void
+		public function set y( value : int ) : void
 		{
-			_y = value;
 			extensionContext.call( setPositionY, value );
 		}
 
-		public function get width() : Number
+		public function get width() : int
 		{
-			return _width;
+			return extensionContext.call( getWidth ) as int;
 		}
 
-		public function set width( value : Number ) : void
+		public function set width( value : int ) : void
 		{
-			_width = value;
+			_size = null;
 			extensionContext.call( setWidth, value );
 		}
 
-		public function get height() : Number
+		public function get height() : int
 		{
-			return _height;
+			return extensionContext.call( getHeight ) as int;
 		}
 
-		public function set height( value : Number ) : void
+		public function set height( value : int ) : void
 		{
-			_height = value;
+			_size = null;
 			extensionContext.call( setHeight, value );
 		}
 
-		public function get creativeWidth() : Number
+		public function get size() : MoPubSize
 		{
-			return extensionContext.call( getCreativeWidth ) as Number;
+			return _size;
 		}
 
-		public function get creativeHeight() : Number
+		public function set size( value : MoPubSize ) : void
 		{
-			return extensionContext.call( getCreativeHeight ) as Number;
+			_size = value;
+			extensionContext.call( setSize, value.id );
 		}
 
-		public function get displayDensity() : Number
+		public function get creativeWidth() : int
 		{
-			return extensionContext.call( getDisplayDensity ) as Number;
+			return extensionContext.call( getCreativeWidth ) as int;
+		}
+
+		public function get creativeHeight() : int
+		{
+			return extensionContext.call( getCreativeHeight ) as int;
 		}
 
 // methods
@@ -152,31 +158,8 @@ package com.sticksports.nativeExtensions.mopub
 			extensionContext = ExtensionContext.createExtensionContext( "com.sticksports.nativeExtensions.MoPub", "banner" );
 			extensionContext.addEventListener( StatusEvent.STATUS, handleStatusEvent );
 			_adUnitId = adUnitId;
-			initSize( size );
+			_size = size;
 			extensionContext.call( initialiseBanner, adUnitId, size.id );
-		}
-		
-		private function initSize( size : MoPubSize ) : void
-		{
-			switch( size )
-			{
-				case MoPubSize.banner:
-					_width = 320;
-					_height = 50;
-					break;
-				case MoPubSize.mediumRectangle:
-					_width = 300;
-					_height = 250;
-					break;
-				case MoPubSize.leaderboard:
-					_width = 728;
-					_height = 90;
-					break;
-				case MoPubSize.wideSkyscraper:
-					_width = 160;
-					_height = 600;
-					break;
-			}
 		}
 		
 		private function handleStatusEvent( event : StatusEvent ) : void
