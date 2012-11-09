@@ -39,17 +39,6 @@ DEFINE_ANE_FUNCTION( initialiseBanner )
     return NULL;
 }
 
-DEFINE_ANE_FUNCTION( getDisplayDensity )
-{
-    double density = [UIScreen mainScreen].scale;
-    FREObject asDensity;
-    if( [converter FREGetDouble:density asObject:&asDensity] == FRE_OK )
-    {
-        return asDensity;
-    }
-    return NULL;
-}
-
 DEFINE_ANE_FUNCTION( setIgnoresAutorefresh )
 {
     MoPubBanner* banner;
@@ -89,62 +78,6 @@ DEFINE_ANE_FUNCTION( setAdUnitId )
     return NULL;
 }
 
-DEFINE_ANE_FUNCTION( setPositionX )
-{
-    MoPubBanner* banner;
-    FREGetContextNativeData( context, (void**)&banner );
-    if( banner != nil )
-    {
-        double posX;
-        if( [converter FREGetObject:argv[0] asDouble:&posX] != FRE_OK ) return NULL;
-        double density = [UIScreen mainScreen].scale;
-        posX = posX / density;
-        [banner setPositionX:posX];
-    }
-    return NULL;
-}
-
-DEFINE_ANE_FUNCTION( setPositionY )
-{
-    MoPubBanner* banner;
-    FREGetContextNativeData( context, (void**)&banner );
-    if( banner != nil )
-    {
-        double posY;
-        if( [converter FREGetObject:argv[0] asDouble:&posY] != FRE_OK ) return NULL;
-        double density = [UIScreen mainScreen].scale;
-        posY = posY / density;
-        [banner setPositionY:posY];
-    }
-    return NULL;
-}
-
-DEFINE_ANE_FUNCTION( setWidth )
-{
-    MoPubBanner* banner;
-    FREGetContextNativeData( context, (void**)&banner );
-    if( banner != nil )
-    {
-        double width;
-        if( [converter FREGetObject:argv[0] asDouble:&width] != FRE_OK ) return NULL;
-        [banner setFrameWidth:width];
-    }
-    return NULL;
-}
-
-DEFINE_ANE_FUNCTION( setHeight )
-{
-    MoPubBanner* banner;
-    FREGetContextNativeData( context, (void**)&banner );
-    if( banner != nil )
-    {
-        double height;
-        if( [converter FREGetObject:argv[0] asDouble:&height] != FRE_OK ) return NULL;
-        [banner setFrameHeight:height];
-    }
-    return NULL;
-}
-
 DEFINE_ANE_FUNCTION( lockNativeAdsToOrientation )
 {
     MoPubBanner* banner;
@@ -169,15 +102,144 @@ DEFINE_ANE_FUNCTION( lockNativeAdsToOrientation )
     return NULL;
 }
 
+DEFINE_ANE_FUNCTION( getPositionX )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t pos = [banner getPositionX];
+        FREObject asPos;
+        if( [converter FREGetInt:pos asObject:&asPos] == FRE_OK )
+        {
+            return asPos;
+        }
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( getPositionY )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t pos = [banner getPositionY];
+        FREObject asPos;
+        if( [converter FREGetInt:pos asObject:&asPos] == FRE_OK )
+        {
+            return asPos;
+        }
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( getWidth )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t width = [banner getFrameWidth];
+        FREObject asWidth;
+        if( [converter FREGetInt:width asObject:&asWidth] == FRE_OK )
+        {
+            return asWidth;
+        }
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( getHeight )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t height = [banner getFrameHeight];
+        FREObject asHeight;
+        if( [converter FREGetInt:height asObject:&asHeight] == FRE_OK )
+        {
+            return asHeight;
+        }
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setPositionX )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t posX;
+        if( [converter FREGetObject:argv[0] asInt:&posX] != FRE_OK ) return NULL;
+        [banner setPositionX:posX];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setPositionY )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t posY;
+        if( [converter FREGetObject:argv[0] asInt:&posY] != FRE_OK ) return NULL;
+        [banner setPositionY:posY];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setWidth )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t width;
+        if( [converter FREGetObject:argv[0] asInt:&width] != FRE_OK ) return NULL;
+        [banner setFrameWidth:width];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setHeight )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t height;
+        if( [converter FREGetObject:argv[0] asInt:&height] != FRE_OK ) return NULL;
+        [banner setFrameHeight:height];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setSize )
+{
+    MoPubBanner* banner;
+    FREGetContextNativeData( context, (void**)&banner );
+    if( banner != nil )
+    {
+        int32_t size;
+        if( [converter FREGetObject:argv[0] asInt:&size] != FRE_OK ) return NULL;
+        [banner setAdSize:size];
+    }
+    return NULL;
+}
+
 DEFINE_ANE_FUNCTION( getCreativeWidth )
 {
     MoPubBanner* banner;
     FREGetContextNativeData( context, (void**)&banner );
     if( banner != nil )
     {
-        double width = [banner getCreativeWidth];
+        int32_t width = [banner getCreativeWidth];
         FREObject asWidth;
-        if( [converter FREGetDouble:width asObject:&asWidth] == FRE_OK )
+        if( [converter FREGetInt:width asObject:&asWidth] == FRE_OK )
         {
             return asWidth;
         }
@@ -191,9 +253,9 @@ DEFINE_ANE_FUNCTION( getCreativeHeight )
     FREGetContextNativeData( context, (void**)&banner );
     if( banner != nil )
     {
-        double height = [banner getCreativeHeight];
+        int32_t height = [banner getCreativeHeight];
         FREObject asHeight;
-        if( [converter FREGetDouble:height asObject:&asHeight] == FRE_OK )
+        if( [converter FREGetInt:height asObject:&asHeight] == FRE_OK )
         {
             return asHeight;
         }
@@ -239,22 +301,30 @@ void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext 
     static FRENamedFunction functionMap[] =
     {
         MAP_FUNCTION( initialiseBanner, NULL ),
-        MAP_FUNCTION( getDisplayDensity, NULL ),
-        MAP_FUNCTION( setTestMode, NULL ),
+        
         MAP_FUNCTION( setAdUnitId, NULL ),
         MAP_FUNCTION( setIgnoresAutorefresh, NULL ),
+        MAP_FUNCTION( setTestMode, NULL ),
+        MAP_FUNCTION( lockNativeAdsToOrientation, NULL ),
+        
+        MAP_FUNCTION( getPositionX, NULL ),
+        MAP_FUNCTION( getPositionY, NULL ),
+        MAP_FUNCTION( getWidth, NULL ),
+        MAP_FUNCTION( getHeight, NULL ),
         MAP_FUNCTION( setPositionX, NULL ),
         MAP_FUNCTION( setPositionY, NULL ),
         MAP_FUNCTION( setWidth, NULL ),
         MAP_FUNCTION( setHeight, NULL ),
-        MAP_FUNCTION( lockNativeAdsToOrientation, NULL ),
+        
+        MAP_FUNCTION( setSize, NULL ),
         MAP_FUNCTION( getCreativeWidth, NULL ),
         MAP_FUNCTION( getCreativeHeight, NULL ),
+        
         MAP_FUNCTION( loadBanner, NULL ),
         MAP_FUNCTION( showBanner, NULL ),
         MAP_FUNCTION( removeBanner, NULL )
     };
-    
+ 
 	*numFunctionsToSet = sizeof( functionMap ) / sizeof( FRENamedFunction );
 	*functionsToSet = functionMap;
 }

@@ -18,13 +18,18 @@
 
 - (id) initWithContext:( FREContext ) extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size;
 
-- (void) setPositionX:(double)value;
-- (void) setPositionY:(double)value;
-- (void) setFrameWidth:(double)value;
-- (void) setFrameHeight:(double)value;
+- (int) getPositionX;
+- (int) getPositionY;
+- (int) getFrameWidth;
+- (int) getFrameHeight;
+- (void) setPositionX:(int)value;
+- (void) setPositionY:(int)value;
+- (void) setFrameWidth:(int)value;
+- (void) setFrameHeight:(int)value;
 
-- (double) getCreativeWidth;
-- (double) getCreativeHeight;
+- (void) setAdSize:(int)value;
+- (int) getCreativeWidth;
+- (int) getCreativeHeight;
 
 - (void) loadBanner;
 - (void) showBanner;
