@@ -38,6 +38,11 @@
     [super dealloc];
 }
 
+- (float) getDisplayDensity
+{
+    return [UIScreen mainScreen].scale;
+}
+
 + (CGSize) getAdSizeFromSizeId:(int) sizeId
 {
     switch( sizeId )
@@ -55,42 +60,70 @@
     }
 }
 
-- (void) setPositionX:(double)value
+- (int) getPositionX
+{
+    return (int) round( self.frame.origin.x * [self getDisplayDensity] );
+}
+
+- (int) getPositionY
+{
+    return (int) round( self.frame.origin.y * [self getDisplayDensity] );
+}
+
+- (int) getFrameWidth
+{
+    return (int) round( self.frame.size.width * [self getDisplayDensity] );
+}
+
+- (int) getFrameHeight
+{
+    return (int) round( self.frame.size.height * [self getDisplayDensity] );
+}
+
+- (void) setPositionX:(int)value
 {
     CGRect frame = self.frame;
-    frame.origin.x = value;
+    frame.origin.x = (float)value / [self getDisplayDensity];
     self.frame = frame;
 }
 
-- (void) setPositionY:(double)value
+- (void) setPositionY:(int)value
 {
     CGRect frame = self.frame;
-    frame.origin.y = value;
+    frame.origin.y = (float) value / [self getDisplayDensity];
     self.frame = frame;
 }
 
-- (void) setFrameWidth:(double)value
+- (void) setFrameWidth:(int)value
 {
     CGRect frame = self.frame;
-    frame.size.width = value;
+    frame.size.width = (float)value / [self getDisplayDensity];
     self.frame = frame;
 }
 
-- (void) setFrameHeight:(double)value
+- (void) setFrameHeight:(int)value
 {
     CGRect frame = self.frame;
-    frame.size.height = value;
+    frame.size.height = (float)value / [self getDisplayDensity];
     self.frame = frame;
 }
 
-- (double) getCreativeWidth
+- (void) setAdSize:(int)value
 {
-    return [self adContentViewSize].width;
+    CGSize size = [MoPubBanner getAdSizeFromSizeId:value];
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
 }
 
-- (double) getCreativeHeight
+- (int) getCreativeWidth
 {
-    return [self adContentViewSize].height;
+    return (int) round( [self adContentViewSize].width * [self getDisplayDensity] );
+}
+
+- (int) getCreativeHeight
+{
+    return (int) round( [self adContentViewSize].height * [self getDisplayDensity] );
 }
 
 - (void) loadBanner

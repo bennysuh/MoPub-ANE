@@ -7,16 +7,16 @@ import com.mopub.mobileads.MoPubView;
 
 public class MoPubBanner extends MoPubView
 {
-	private int xPos;
-	private int yPos;
+	private int posX;
+	private int posY;
 	private int plannedWidth;
 	private int plannedHeight;
 
 	public MoPubBanner( Context context )
 	{
 		super( context );
-		xPos = 0;
-		yPos = 0;
+		posX = 0;
+		posY = 0;
 		plannedWidth = 0;
 		plannedHeight = 0;
 	}
@@ -26,24 +26,24 @@ public class MoPubBanner extends MoPubView
 		super( context, attrs );
 	}
 
-	public int getXPos()
+	public int getPosX()
 	{
-		return xPos;
+		return posX;
 	}
 
-	public void setXPos( int x )
+	public void setPosX( int x )
 	{
-		xPos = x;
+		posX = x;
 	}
 
-	public int getYPos()
+	public int getPosY()
 	{
-		return yPos;
+		return posY;
 	}
 
-	public void setYPos( int y )
+	public void setPosY( int y )
 	{
-		yPos = y;
+		posY = y;
 	}
 
 	public int getPlannedWidth()

@@ -15,11 +15,6 @@
     return FREGetObjectAsInt32( object, value );
 }
 
-- (FREResult) FREGetObject:(FREObject)object asDouble:(double*)value
-{
-    return FREGetObjectAsDouble( object, value );
-}
-
 - (FREResult) FREGetObject:(FREObject)object asBoolean:(uint32_t*)value
 {
     return FREGetObjectAsBool( object, value );
@@ -50,9 +45,9 @@
 }
 
 
-- (FREResult) FREGetDouble:(double)value asObject:(FREObject*)asObject
+- (FREResult) FREGetInt:(int32_t)value asObject:(FREObject*)asObject
 {
-    return FRENewObjectFromDouble( value, asObject );
+    return FRENewObjectFromInt32( value, asObject );
 }
 
 @end

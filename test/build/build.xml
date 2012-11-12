@@ -64,7 +64,8 @@
 		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
 			<arg value="-package"/>
 			<arg value="-target"/>
-			<arg value="apk-captive-runtime"/>
+			<arg value="apk-debug"/>
+			<arg value="-connect"/>
 			<arg value="-storetype"/>
 			<arg value="pkcs12"/>
 			<arg value="-keystore"/>

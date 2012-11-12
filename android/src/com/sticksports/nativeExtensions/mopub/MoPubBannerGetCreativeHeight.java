@@ -15,7 +15,8 @@ public class MoPubBannerGetCreativeHeight implements FREFunction
 		try
 		{
 			MoPubBannerContext context = (MoPubBannerContext) ctx;
-			int height = context.getBanner().getAdHeight();
+			//int height = (int) Math.ceil( context.getBanner().getAdHeight() * ctx.getActivity().getResources().getDisplayMetrics().density );
+			int height = context.getBanner().getPlannedHeight();
 			return FREObject.newObject( height );
 		}
 		catch ( Exception exception )

@@ -15,7 +15,8 @@ public class MoPubBannerGetCreativeWidth implements FREFunction
 		try
 		{
 			MoPubBannerContext context = (MoPubBannerContext) ctx;
-			int width = context.getBanner().getAdWidth();
+			// int width = (int) Math.ceil( context.getBanner().getAdWidth() * ctx.getActivity().getResources().getDisplayMetrics().density );
+			int width = context.getBanner().getPlannedWidth();
 			return FREObject.newObject( width );
 		}
 		catch ( Exception exception )
