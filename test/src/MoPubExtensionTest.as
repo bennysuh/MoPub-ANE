@@ -112,10 +112,10 @@
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, getSize );
 			addChild( tf );
 			
-			tf = createButton( "setSize" );
+			tf = createButton( "matchSize" );
 			tf.x = 10;
 			tf.y = 130;
-			tf.addEventListener( MouseEvent.MOUSE_DOWN, setSize );
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, matchSize );
 			addChild( tf );
 		}
 		
@@ -180,10 +180,11 @@
 			banner = null;
 		}
 		
-		private function setSize( event : MouseEvent ) : void
+		private function matchSize( event : MouseEvent ) : void
 		{
-			feedback.appendText( "\nbanner.size = MoPubSize.banner" );
-			banner.size = MoPubSize.banner;
+			feedback.appendText( "\nbanner.width = banner.creativeWidth\nbanner.height = banner.creativeHeight" );
+			banner.width = banner.creativeWidth;
+			banner.height = banner.creativeHeight;
 		}
 		
 		private function getSize( event : MouseEvent ) : void
