@@ -173,6 +173,12 @@ package com.sticksports.nativeExtensions.mopub
 				case InternalMessages.bannerFailedToLoad :
 					dispatchEvent( new MoPubEvent( MoPubEvent.LOAD_FAILED ) );
 					break;
+				case InternalMessages.bannerAdClicked :
+					dispatchEvent( new MoPubEvent( MoPubEvent.AD_CLICKED ) );
+					break;
+				case InternalMessages.bannerAdClosed :
+					dispatchEvent( new MoPubEvent( MoPubEvent.AD_CLOSED ) );
+					break;
 			}
 		}
 

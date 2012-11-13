@@ -146,6 +146,8 @@
     return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 
+// Delegate
+
 - (void)adViewDidLoadAd:(MPAdView*)view
 {
     FREDispatchStatusEventAsync( context, "", bannerLoaded );
@@ -154,6 +156,17 @@
 - (void)adViewDidFailToLoadAd:(MPAdView*)view
 {
     FREDispatchStatusEventAsync( context, "", bannerFailedToLoad );
+}
+
+//ad clicked
+- (void)willPresentModalViewForAd:(MPAdView *)view
+{
+    FREDispatchStatusEventAsync( context, "", bannerAdClicked );
+}
+// ad closed
+- (void)didDismissModalViewForAd:(MPAdView *)view
+{
+    FREDispatchStatusEventAsync( context, "", bannerAdClosed );
 }
 
 @end

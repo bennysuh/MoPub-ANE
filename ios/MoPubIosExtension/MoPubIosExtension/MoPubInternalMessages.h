@@ -11,5 +11,7 @@
 
 #define bannerLoaded "bannerLoaded"
 #define bannerFailedToLoad "bannerFailedToLoad"
+#define bannerAdClicked "bannerAdClicked"
+#define bannerAdClosed "bannerAdClosed"
 
 #endif
