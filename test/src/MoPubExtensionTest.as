@@ -150,8 +150,8 @@
 			banner = new MoPubBanner( bannerUnitId, MoPubSize.banner );
 			bannerCount++;
 			banner.x = 0;
-			banner.y = Capabilities.screenResolutionY - bannerCount * 100;
-			banner.testing = true;
+			banner.y = Capabilities.screenResolutionY - bannerCount * banner.height;
+			//banner.testing = true;
 		}
 		
 		private function loadBanner( event : MouseEvent ) : void
@@ -176,6 +176,7 @@
 				
 		private function releaseBanner( event : MouseEvent ) : void
 		{
+			removeBannerListeners( banner );
 			feedback.appendText( "\nbanner = null;" );
 			banner = null;
 		}
@@ -189,6 +190,8 @@
 		
 		private function getSize( event : MouseEvent ) : void
 		{
+			feedback.appendText( "\nbanner.width = " + banner.width );
+			feedback.appendText( "\nbanner.height = " + banner.height );
 			feedback.appendText( "\nbanner.creativeWidth = " + banner.creativeWidth );
 			feedback.appendText( "\nbanner.creativeHeight = " + banner.creativeHeight );
 		}
@@ -201,18 +204,23 @@
 		
 		private function setBannerListeners( banner : MoPubBanner ) : void
 		{
-			banner.addEventListener( MoPubEvent.LOADED, adLoaded );
-			banner.addEventListener( MoPubEvent.LOAD_FAILED, adFailed );
+			banner.addEventListener( MoPubEvent.LOADED, eventReceived );
+			banner.addEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
+			banner.addEventListener( MoPubEvent.AD_CLICKED, eventReceived );
+			banner.addEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
-		private function adLoaded( event : MoPubEvent ) : void
+		private function removeBannerListeners( banner : MoPubBanner ) : void
 		{
-			feedback.appendText( "\n  MoPubEvent.LOADED" );
+			banner.removeEventListener( MoPubEvent.LOADED, eventReceived );
+			banner.removeEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
+			banner.removeEventListener( MoPubEvent.AD_CLICKED, eventReceived );
+			banner.removeEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
-		private function adFailed( event : MoPubEvent ) : void
+		private function eventReceived( event : MoPubEvent ) : void
 		{
-			feedback.appendText( "\n  MoPubEvent.LOAD_FAILED" );
+			feedback.appendText( "\n  " + event.type );
 		}
 				
 		private function animate( event : Event ) : void

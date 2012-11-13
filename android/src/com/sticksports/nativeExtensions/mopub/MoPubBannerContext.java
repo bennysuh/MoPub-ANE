@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.mopub.mobileads.MoPubView;
+import com.mopub.mobileads.MoPubView.OnAdClickedListener;
+import com.mopub.mobileads.MoPubView.OnAdClosedListener;
 import com.mopub.mobileads.MoPubView.OnAdFailedListener;
 import com.mopub.mobileads.MoPubView.OnAdLoadedListener;
 
-public class MoPubBannerContext extends FREContext implements OnAdLoadedListener, OnAdFailedListener
+public class MoPubBannerContext extends FREContext implements
+	OnAdLoadedListener, OnAdFailedListener, OnAdClosedListener, OnAdClickedListener
 {
 	private MoPubBanner banner;
 	
@@ -22,6 +25,8 @@ public class MoPubBannerContext extends FREContext implements OnAdLoadedListener
 			banner = new MoPubBanner( this.getActivity() );
 			banner.setOnAdLoadedListener( this );
 			banner.setOnAdFailedListener( this );
+			banner.setOnAdClosedListener( this );
+			banner.setOnAdClickedListener( this );
 		}
 		return banner;
 	}
@@ -78,5 +83,15 @@ public class MoPubBannerContext extends FREContext implements OnAdLoadedListener
 	public void OnAdFailed( MoPubView mpv )
 	{
 		dispatchStatusEventAsync( "", MoPubMessages.bannerFailedToLoad );
+	}
+
+    public void OnAdClosed(MoPubView m)
+	{
+		dispatchStatusEventAsync( "", MoPubMessages.bannerAdClosed );
+	}
+
+    public void OnAdClicked(MoPubView m)
+	{
+		dispatchStatusEventAsync( "", MoPubMessages.bannerAdClicked );
 	}
 }
