@@ -80,6 +80,8 @@
 		79A6D5321636DFE1009DA60A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D52D1636DFB1009DA60A /* UIKit.framework */; };
 		79A6D5351636E4A9009DA60A /* MoPubBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D5341636E4A9009DA60A /* MoPubBanner.m */; };
 		79F66B1B1652882800E917FB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F66B181652881600E917FB /* AdSupport.framework */; };
+		79F66B1E1654051E00E917FB /* MoPubInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 79F66B1C1654051E00E917FB /* MoPubInterstitial.h */; };
+		79F66B1F1654051E00E917FB /* MoPubInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F66B1D1654051E00E917FB /* MoPubInterstitial.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -227,6 +229,8 @@
 		79A6D5331636E4A9009DA60A /* MoPubBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubBanner.h; sourceTree = "<group>"; };
 		79A6D5341636E4A9009DA60A /* MoPubBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubBanner.m; sourceTree = "<group>"; };
 		79F66B181652881600E917FB /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		79F66B1C1654051E00E917FB /* MoPubInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubInterstitial.h; sourceTree = "<group>"; };
+		79F66B1D1654051E00E917FB /* MoPubInterstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubInterstitial.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,6 +500,8 @@
 				79A6D5331636E4A9009DA60A /* MoPubBanner.h */,
 				79A6D5341636E4A9009DA60A /* MoPubBanner.m */,
 				798280F71638070D00DC7413 /* MoPubInternalMessages.h */,
+				79F66B1C1654051E00E917FB /* MoPubInterstitial.h */,
+				79F66B1D1654051E00E917FB /* MoPubInterstitial.m */,
 			);
 			path = MoPubIosExtension;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				7933D5A11649417900AB429F /* MPGoogleAdMobInterstitialAdapter.h in Headers */,
 				7933D5A51649417900AB429F /* MPIAdInterstitialAdapter.h in Headers */,
 				7933D5A71649417900AB429F /* MPMillennialInterstitialAdapter.h in Headers */,
+				79F66B1E1654051E00E917FB /* MoPubInterstitial.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +626,7 @@
 				7933D5A21649417900AB429F /* MPGoogleAdMobInterstitialAdapter.m in Sources */,
 				7933D5A61649417900AB429F /* MPIAdInterstitialAdapter.m in Sources */,
 				7933D5A81649417900AB429F /* MPMillennialInterstitialAdapter.m in Sources */,
+				79F66B1F1654051E00E917FB /* MoPubInterstitial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

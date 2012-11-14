@@ -9,8 +9,8 @@ package com.sticksports.nativeExtensions.mopub
 // native method names
 		private static const initialiseInterstitial : String = "initialiseInterstitial";
 		
-		private static const setTestMode : String = "setTestMode";
-		private static const getIsReady : String = "getIsReady";
+		private static const setTestMode : String = "setInterstitialTestMode";
+		private static const getIsReady : String = "getInterstitialReady";
 		
 		private static const loadInterstitial : String = "loadInterstitial";
 		private static const showInterstitial : String = "showInterstitial";

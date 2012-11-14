@@ -10,6 +10,7 @@
 #import "FlashRuntimeExtensions.h"
 #import "MoPubTypeConversion.h"
 #import "MoPubBanner.h"
+#import "MoPubInterstitial.h"
 
 #define DEFINE_ANE_FUNCTION(fn) FREObject (fn)(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 
@@ -296,47 +297,140 @@ DEFINE_ANE_FUNCTION( removeBanner )
     return NULL;
 }
 
+DEFINE_ANE_FUNCTION( initialiseInterstitial )
+{
+    NSString* adUnitId;
+    if( [converter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
+    
+    MoPubInterstitial* interstitial = [[MoPubInterstitial alloc] initWithContext:context adUnitId:adUnitId];
+    [interstitial retain];
+    FRESetContextNativeData( context, interstitial );
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setInterstitialTestMode )
+{
+    MoPubInterstitial* interstitial;
+    FREGetContextNativeData( context, (void**)&interstitial );
+    if( interstitial != nil )
+    {
+        uint32_t testing;
+        if( [converter FREGetObject:argv[0] asBoolean:&testing] != FRE_OK ) return NULL;
+        interstitial.testing = ( testing == 1 );
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( getInterstitialReady )
+{
+    MoPubInterstitial* interstitial;
+    FREGetContextNativeData( context, (void**)&interstitial );
+    if( interstitial != nil )
+    {
+        BOOL ready = [interstitial getIsReady];
+        FREObject asReady;
+        if( [converter FREGetBool:ready asObject:&asReady] == FRE_OK )
+        {
+            return asReady;
+        }
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( loadInterstitial )
+{
+    MoPubInterstitial* interstitial;
+    FREGetContextNativeData( context, (void**)&interstitial );
+    if( interstitial != nil )
+    {
+        [interstitial loadInterstitial];
+    }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( showInterstitial )
+{
+    MoPubInterstitial* interstitial;
+    FREGetContextNativeData( context, (void**)&interstitial );
+    if( interstitial != nil )
+    {
+        BOOL success = [interstitial showInterstitial];
+        FREObject asSuccess;
+        if( [converter FREGetBool:success asObject:&asSuccess] == FRE_OK )
+        {
+            return asSuccess;
+        }
+    }
+    return NULL;
+}
+
 void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet )
 {
-    static FRENamedFunction functionMap[] =
+    if( strcmp( ctxType, "interstitial" ) == 0 )
     {
-        MAP_FUNCTION( initialiseBanner, NULL ),
+        static FRENamedFunction interstitialFunctionMap[] =
+        {
+            MAP_FUNCTION( initialiseInterstitial, NULL ),
+            
+            MAP_FUNCTION( setInterstitialTestMode, NULL ),
+            MAP_FUNCTION( getInterstitialReady, NULL ),
+            
+            MAP_FUNCTION( loadInterstitial, NULL ),
+            MAP_FUNCTION( showInterstitial, NULL )
+        };
         
-        MAP_FUNCTION( setAdUnitId, NULL ),
-        MAP_FUNCTION( setAutorefresh, NULL ),
-        MAP_FUNCTION( setTestMode, NULL ),
-        MAP_FUNCTION( lockNativeAdsToOrientation, NULL ),
+        *numFunctionsToSet = sizeof( interstitialFunctionMap ) / sizeof( FRENamedFunction );
+        *functionsToSet = interstitialFunctionMap;
+    }
+    else
+    {
+        static FRENamedFunction bannerFunctionMap[] =
+        {
+            MAP_FUNCTION( initialiseBanner, NULL ),
+            
+            MAP_FUNCTION( setAdUnitId, NULL ),
+            MAP_FUNCTION( setAutorefresh, NULL ),
+            MAP_FUNCTION( setTestMode, NULL ),
+            MAP_FUNCTION( lockNativeAdsToOrientation, NULL ),
+            
+            MAP_FUNCTION( getPositionX, NULL ),
+            MAP_FUNCTION( setPositionX, NULL ),
+            MAP_FUNCTION( getPositionY, NULL ),
+            MAP_FUNCTION( setPositionY, NULL ),
+            MAP_FUNCTION( getWidth, NULL ),
+            MAP_FUNCTION( setWidth, NULL ),
+            MAP_FUNCTION( getHeight, NULL ),
+            MAP_FUNCTION( setHeight, NULL ),
+            
+            MAP_FUNCTION( setSize, NULL ),
+            MAP_FUNCTION( getCreativeWidth, NULL ),
+            MAP_FUNCTION( getCreativeHeight, NULL ),
+            
+            MAP_FUNCTION( loadBanner, NULL ),
+            MAP_FUNCTION( showBanner, NULL ),
+            MAP_FUNCTION( removeBanner, NULL )
+        };
         
-        MAP_FUNCTION( getPositionX, NULL ),
-        MAP_FUNCTION( setPositionX, NULL ),
-        MAP_FUNCTION( getPositionY, NULL ),
-        MAP_FUNCTION( setPositionY, NULL ),
-        MAP_FUNCTION( getWidth, NULL ),
-        MAP_FUNCTION( setWidth, NULL ),
-        MAP_FUNCTION( getHeight, NULL ),
-        MAP_FUNCTION( setHeight, NULL ),
-        
-        MAP_FUNCTION( setSize, NULL ),
-        MAP_FUNCTION( getCreativeWidth, NULL ),
-        MAP_FUNCTION( getCreativeHeight, NULL ),
-        
-        MAP_FUNCTION( loadBanner, NULL ),
-        MAP_FUNCTION( showBanner, NULL ),
-        MAP_FUNCTION( removeBanner, NULL )
-    };
- 
-	*numFunctionsToSet = sizeof( functionMap ) / sizeof( FRENamedFunction );
-	*functionsToSet = functionMap;
+        *numFunctionsToSet = sizeof( bannerFunctionMap ) / sizeof( FRENamedFunction );
+        *functionsToSet = bannerFunctionMap;
+    }
 }
 
 void MoPubContextFinalizer( FREContext ctx )
 {
-    MoPubBanner* banner;
+    id banner;
     FREGetContextNativeData( ctx, (void**)&banner );
     if( banner != nil )
     {
-        [banner removeFromSuperview];
-        [banner release];
+        if( [banner isKindOfClass:[MoPubBanner class] ] )
+        {
+            [banner removeFromSuperview];
+            [banner release];
+        }
+        else if( [banner isKindOfClass:[MoPubInterstitial class] ] )
+        {
+            [banner release];
+        }
     }
 	return;
 }

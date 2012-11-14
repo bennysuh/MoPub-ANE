@@ -40,8 +40,8 @@ public class MoPubInterstitialContext extends FREContext implements MoPubInterst
 		Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
 		functionMap.put( "initialiseInterstitial", new MoPubInterstitialInitialise() );
 		
-		functionMap.put( "setTestMode", new MoPubInterstitialSetTestMode() );
-		functionMap.put( "getIsReady", new MoPubInterstitialGetIsReady() );
+		functionMap.put( "setInterstitialTestMode", new MoPubInterstitialSetTestMode() );
+		functionMap.put( "getInterstitialReady", new MoPubInterstitialGetIsReady() );
 		
 		functionMap.put( "loadInterstitial", new MoPubInterstitialLoad() );
 		functionMap.put( "showInterstitial", new MoPubInterstitialShow() );
