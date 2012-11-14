@@ -6,7 +6,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
-public class MoPubBannerSetIgnoresAutorefresh implements FREFunction
+public class MoPubBannerSetAutorefresh implements FREFunction
 {
 
 	@Override
@@ -15,8 +15,8 @@ public class MoPubBannerSetIgnoresAutorefresh implements FREFunction
 		try
 		{
 			MoPubBannerContext context = (MoPubBannerContext) ctx;
-			boolean ignoreAutorefresh = args[0].getAsBool();
-			context.getBanner().setAutorefreshEnabled( !ignoreAutorefresh );
+			boolean autorefresh = args[0].getAsBool();
+			context.getBanner().setAutorefreshEnabled( autorefresh );
 		}
 		catch ( Exception exception )
 		{

@@ -79,6 +79,7 @@
 		79A6D5301636DFB1009DA60A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D52C1636DFB1009DA60A /* StoreKit.framework */; };
 		79A6D5321636DFE1009DA60A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D52D1636DFB1009DA60A /* UIKit.framework */; };
 		79A6D5351636E4A9009DA60A /* MoPubBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D5341636E4A9009DA60A /* MoPubBanner.m */; };
+		79F66B1B1652882800E917FB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F66B181652881600E917FB /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -225,6 +226,7 @@
 		79A6D52D1636DFB1009DA60A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		79A6D5331636E4A9009DA60A /* MoPubBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubBanner.h; sourceTree = "<group>"; };
 		79A6D5341636E4A9009DA60A /* MoPubBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubBanner.m; sourceTree = "<group>"; };
+		79F66B181652881600E917FB /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F66B1B1652882800E917FB /* AdSupport.framework in Frameworks */,
 				7914026E163AFECF004D6EE6 /* MessageUI.framework in Frameworks */,
 				79140264163AFDA4004D6EE6 /* AudioToolbox.framework in Frameworks */,
 				79140265163AFDA4004D6EE6 /* AVFoundation.framework in Frameworks */,
@@ -465,6 +468,7 @@
 		79A6D48A1636C14D009DA60A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79F66B181652881600E917FB /* AdSupport.framework */,
 				7914026C163AFEC3004D6EE6 /* MessageUI.framework */,
 				7914025D163AFDA3004D6EE6 /* AudioToolbox.framework */,
 				7914025E163AFDA3004D6EE6 /* AVFoundation.framework */,

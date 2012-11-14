@@ -60,6 +60,16 @@
     }
 }
 
+- (BOOL) getAutorefresh
+{
+    return !self.ignoresAutorefresh;
+}
+
+- (void) setAutorefresh:(BOOL)value
+{
+    self.ignoresAutorefresh = !value;
+}
+
 - (int) getPositionX
 {
     return (int) round( self.frame.origin.x * [self getDisplayDensity] );
@@ -158,15 +168,9 @@
     FREDispatchStatusEventAsync( context, "", bannerFailedToLoad );
 }
 
-//ad clicked
 - (void)willPresentModalViewForAd:(MPAdView *)view
 {
     FREDispatchStatusEventAsync( context, "", bannerAdClicked );
-}
-// ad closed
-- (void)didDismissModalViewForAd:(MPAdView *)view
-{
-    FREDispatchStatusEventAsync( context, "", bannerAdClosed );
 }
 
 @end

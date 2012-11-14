@@ -39,15 +39,15 @@ DEFINE_ANE_FUNCTION( initialiseBanner )
     return NULL;
 }
 
-DEFINE_ANE_FUNCTION( setIgnoresAutorefresh )
+DEFINE_ANE_FUNCTION( setAutorefresh )
 {
     MoPubBanner* banner;
     FREGetContextNativeData( context, (void**)&banner );
     if( banner != nil )
     {
-        uint32_t ignore;
-        if( [converter FREGetObject:argv[0] asBoolean:&ignore] != FRE_OK ) return NULL;
-        banner.ignoresAutorefresh = ( ignore == 1 );
+        uint32_t autoRefresh;
+        if( [converter FREGetObject:argv[0] asBoolean:&autoRefresh] != FRE_OK ) return NULL;
+        [banner setAutorefresh:( autoRefresh == 1 )];
     }
     return NULL;
 }
@@ -303,17 +303,17 @@ void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION( initialiseBanner, NULL ),
         
         MAP_FUNCTION( setAdUnitId, NULL ),
-        MAP_FUNCTION( setIgnoresAutorefresh, NULL ),
+        MAP_FUNCTION( setAutorefresh, NULL ),
         MAP_FUNCTION( setTestMode, NULL ),
         MAP_FUNCTION( lockNativeAdsToOrientation, NULL ),
         
         MAP_FUNCTION( getPositionX, NULL ),
-        MAP_FUNCTION( getPositionY, NULL ),
-        MAP_FUNCTION( getWidth, NULL ),
-        MAP_FUNCTION( getHeight, NULL ),
         MAP_FUNCTION( setPositionX, NULL ),
+        MAP_FUNCTION( getPositionY, NULL ),
         MAP_FUNCTION( setPositionY, NULL ),
+        MAP_FUNCTION( getWidth, NULL ),
         MAP_FUNCTION( setWidth, NULL ),
+        MAP_FUNCTION( getHeight, NULL ),
         MAP_FUNCTION( setHeight, NULL ),
         
         MAP_FUNCTION( setSize, NULL ),

@@ -107,15 +107,27 @@
 			addChild( tf );
 			
 			tf = createButton( "getSize" );
-			tf.x = 170;
+			tf.x = 10;
 			tf.y = 130;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, getSize );
 			addChild( tf );
 			
 			tf = createButton( "matchSize" );
-			tf.x = 10;
+			tf.x = 170;
 			tf.y = 130;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, matchSize );
+			addChild( tf );
+			
+			tf = createButton( "setAutorefresh" );
+			tf.x = 10;
+			tf.y = 170;
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, setAutorefresh );
+			addChild( tf );
+			
+			tf = createButton( "unsetAutorefresh" );
+			tf.x = 170;
+			tf.y = 170;
+			tf.addEventListener( MouseEvent.MOUSE_DOWN, unsetAutorefresh );
 			addChild( tf );
 		}
 		
@@ -202,12 +214,23 @@
 			banner.y = 0;
 		}
 		
+		private function setAutorefresh( event : MouseEvent ) : void
+		{
+			feedback.appendText( "\nbanner.autorefresh = true" );
+			banner.autorefresh = true;
+		}
+		
+		private function unsetAutorefresh( event : MouseEvent ) : void
+		{
+			feedback.appendText( "\nbanner.autorefresh = false" );
+			banner.autorefresh = false;
+		}
+		
 		private function setBannerListeners( banner : MoPubBanner ) : void
 		{
 			banner.addEventListener( MoPubEvent.LOADED, eventReceived );
 			banner.addEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
 			banner.addEventListener( MoPubEvent.AD_CLICKED, eventReceived );
-			banner.addEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
 		private function removeBannerListeners( banner : MoPubBanner ) : void
@@ -215,7 +238,6 @@
 			banner.removeEventListener( MoPubEvent.LOADED, eventReceived );
 			banner.removeEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
 			banner.removeEventListener( MoPubEvent.AD_CLICKED, eventReceived );
-			banner.removeEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
 		private function eventReceived( event : MoPubEvent ) : void

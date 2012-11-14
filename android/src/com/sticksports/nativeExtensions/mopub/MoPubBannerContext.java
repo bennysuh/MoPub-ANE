@@ -9,12 +9,11 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.mopub.mobileads.MoPubView;
 import com.mopub.mobileads.MoPubView.OnAdClickedListener;
-import com.mopub.mobileads.MoPubView.OnAdClosedListener;
 import com.mopub.mobileads.MoPubView.OnAdFailedListener;
 import com.mopub.mobileads.MoPubView.OnAdLoadedListener;
 
 public class MoPubBannerContext extends FREContext implements
-	OnAdLoadedListener, OnAdFailedListener, OnAdClosedListener, OnAdClickedListener
+	OnAdLoadedListener, OnAdFailedListener, OnAdClickedListener
 {
 	private MoPubBanner banner;
 	
@@ -25,7 +24,6 @@ public class MoPubBannerContext extends FREContext implements
 			banner = new MoPubBanner( this.getActivity() );
 			banner.setOnAdLoadedListener( this );
 			banner.setOnAdFailedListener( this );
-			banner.setOnAdClosedListener( this );
 			banner.setOnAdClickedListener( this );
 		}
 		return banner;
@@ -53,7 +51,7 @@ public class MoPubBannerContext extends FREContext implements
 		
 		functionMap.put( "setTestMode", new MoPubBannerSetTestMode() );
 		functionMap.put( "setAdUnitId", new MoPubBannerSetAdUnitId() );
-		functionMap.put( "setIgnoresAutorefresh", new MoPubBannerSetIgnoresAutorefresh() );
+		functionMap.put( "setAutorefresh", new MoPubBannerSetAutorefresh() );
 		functionMap.put( "lockNativeAdsToOrientation", new MoPubBannerDoNothing() );
 		
 		functionMap.put( "getPositionX", new MoPubBannerGetPositionX() );
@@ -83,11 +81,6 @@ public class MoPubBannerContext extends FREContext implements
 	public void OnAdFailed( MoPubView mpv )
 	{
 		dispatchStatusEventAsync( "", MoPubMessages.bannerFailedToLoad );
-	}
-
-    public void OnAdClosed(MoPubView m)
-	{
-		dispatchStatusEventAsync( "", MoPubMessages.bannerAdClosed );
 	}
 
     public void OnAdClicked(MoPubView m)

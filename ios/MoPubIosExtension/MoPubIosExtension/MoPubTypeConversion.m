@@ -44,10 +44,14 @@
     return FRENewObjectFromUTF8( length + 1, (uint8_t*) utf8String, asObject );
 }
 
-
 - (FREResult) FREGetInt:(int32_t)value asObject:(FREObject*)asObject
 {
     return FRENewObjectFromInt32( value, asObject );
+}
+
+- (FREResult) FREGetBool:(BOOL)value asObject:(FREObject*)asObject
+{
+    return FRENewObjectFromBool( value, asObject );
 }
 
 @end

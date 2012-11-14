@@ -18,5 +18,6 @@
 
 - (FREResult) FREGetString:(NSString*)string asObject:(FREObject*)asObject;
 - (FREResult) FREGetInt:(int32_t)value asObject:(FREObject*)asObject;
+- (FREResult) FREGetBool:(BOOL)value asObject:(FREObject*)asObject;
 
 @end

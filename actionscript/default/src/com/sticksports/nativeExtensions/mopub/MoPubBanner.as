@@ -7,7 +7,7 @@ package com.sticksports.nativeExtensions.mopub
 // class variables
 
 		private var _adUnitId : String;
-		private var _ignoresAutorefresh : Boolean = false;
+		private var _autorefresh : Boolean = false;
 		private var _testing : Boolean = false;
 		private var _nativeAdsOrientation : MoPubNativeAdOrientation = MoPubNativeAdOrientation.any;
 		private var _size : MoPubSize;
@@ -29,14 +29,14 @@ package com.sticksports.nativeExtensions.mopub
 			_adUnitId = value;
 		}
 
-		public function get ignoresAutorefresh() : Boolean
+		public function get autorefresh() : Boolean
 		{
-			return _ignoresAutorefresh;
+			return _autorefresh;
 		}
 
-		public function set ignoresAutorefresh( value : Boolean ) : void
+		public function set autorefresh( value : Boolean ) : void
 		{
-			_ignoresAutorefresh = value;
+			_autorefresh = value;
 		}
 
 		public function get testing() : Boolean

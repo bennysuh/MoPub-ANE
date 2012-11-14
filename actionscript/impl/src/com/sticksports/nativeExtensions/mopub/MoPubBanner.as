@@ -11,7 +11,7 @@ package com.sticksports.nativeExtensions.mopub
 		private static const initialiseBanner : String = "initialiseBanner";
 		
 		private static const setAdUnitId : String = "setAdUnitId";
-		private static const setIgnoresAutorefresh : String = "setIgnoresAutorefresh";
+		private static const setAutorefresh : String = "setAutorefresh";
 		private static const setTestMode : String = "setTestMode";
 		private static const setLockNativeAdsToOrientation : String = "lockNativeAdsToOrientation";
 		
@@ -37,8 +37,8 @@ package com.sticksports.nativeExtensions.mopub
 		private var extensionContext : ExtensionContext = null;
 
 		private var _adUnitId : String;
-		private var _ignoresAutorefresh : Boolean = false;
 		private var _testing : Boolean = false;
+		private var _autoRefresh : Boolean = true;
 		private var _nativeAdsOrientation : MoPubNativeAdOrientation = MoPubNativeAdOrientation.any;
 		private var _size : MoPubSize;
 
@@ -55,15 +55,15 @@ package com.sticksports.nativeExtensions.mopub
 			extensionContext.call( setAdUnitId, value );
 		}
 
-		public function get ignoresAutorefresh() : Boolean
+		public function get autorefresh() : Boolean
 		{
-			return _ignoresAutorefresh;
+			return _autoRefresh;
 		}
 
-		public function set ignoresAutorefresh( value : Boolean ) : void
+		public function set autorefresh( value : Boolean ) : void
 		{
-			_ignoresAutorefresh = value;
-			extensionContext.call( setIgnoresAutorefresh, value );
+			_autoRefresh = value;
+			extensionContext.call( setAutorefresh, value );
 		}
 
 		public function get testing() : Boolean
@@ -175,9 +175,6 @@ package com.sticksports.nativeExtensions.mopub
 					break;
 				case InternalMessages.bannerAdClicked :
 					dispatchEvent( new MoPubEvent( MoPubEvent.AD_CLICKED ) );
-					break;
-				case InternalMessages.bannerAdClosed :
-					dispatchEvent( new MoPubEvent( MoPubEvent.AD_CLOSED ) );
 					break;
 			}
 		}

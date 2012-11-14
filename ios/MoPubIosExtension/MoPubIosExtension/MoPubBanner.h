@@ -18,6 +18,9 @@
 
 - (id) initWithContext:( FREContext ) extensionContext adUnitId:(NSString*)adUnitId size:(CGSize)size;
 
+- (BOOL) getAutorefresh;
+- (void) setAutorefresh:(BOOL)value;
+
 - (int) getPositionX;
 - (int) getPositionY;
 - (int) getFrameWidth;

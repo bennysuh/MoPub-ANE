@@ -2,7 +2,7 @@
 <platform xmlns="http://ns.adobe.com/air/extension/3.1">
 
 	<!-- The version of iOS SDK that the app should be linked with. Optional. -->
-	<sdkVersion>4.0</sdkVersion>
+	<sdkVersion>6.0</sdkVersion>
 
 	<!-- Options that should be passed to the linker. Optional. -->
 	<linkerOptions>
@@ -11,6 +11,7 @@
 		<option>-framework MediaPlayer</option>
 		<option>-framework StoreKit</option>
 		<option>-framework iAd</option>
+		<option>-framework AdSupport</option>
 	</linkerOptions>
 
 </platform>
