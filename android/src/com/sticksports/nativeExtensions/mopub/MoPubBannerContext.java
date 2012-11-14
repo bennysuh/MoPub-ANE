@@ -34,6 +34,9 @@ public class MoPubBannerContext extends FREContext implements
 	{
 		if ( banner != null )
 		{
+			banner.setOnAdLoadedListener( null );
+			banner.setOnAdFailedListener( null );
+			banner.setOnAdClickedListener( null );
 			ViewGroup parent = (ViewGroup) banner.getParent();
 			if ( parent != null )
 			{

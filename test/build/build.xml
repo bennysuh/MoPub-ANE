@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="ANE Test Build Scripts" default="build.debug">
+<project name="ANE Test Build Scripts" default="build.all">
 	
 	<property file="build.config"/>
 
-	<target name="build.debug" depends="debug-compile,ios-package,android-package"
-		description="Build and package the app in debug mode."/>
+	<target name="build.all" depends="build.banner,build.interstitial"
+		description="Build and package both apps."/>
+
+	<target name="build.banner" depends="banner-compile,banner-ios-package,banner-android-package"
+		description="Build and package the banner test app."/>
 	
-	<target name="debug-compile" description="Build a debug version of the application swf">
+	<target name="build.interstitial" depends="interstitial-compile,interstitial-ios-package,interstitial-android-package"
+		description="Build and package the interstitial test app."/>
+	
+	<target name="banner-compile" description="Build a debug version of the application swf">
 		<delete dir="../bin"/>
 		<mkdir dir="../bin"/>
 		
@@ -19,14 +25,14 @@
 			<arg line='-optimize=true'/>
 			<arg line='-swf-version=13'/>
 			<arg line='-external-library-path+="../../bin/MoPub.swc"'/>
-			<arg line='-output MoPubExtensionTest.swf'/>
-			<arg line='../src/MoPubExtensionTest.as'/>
+			<arg line='-output MoPubBannerTest.swf'/>
+			<arg line='../src/MoPubBannerTest.as'/>
 		</exec>
 		
 	</target>
 	
-	<target name="ios-package" description="Create the debug application .ipa package">
-		<copy file="./MoPubExtensionTest-app.xml" todir="../bin" overwrite="true"/>
+	<target name="banner-ios-package" description="Create the debug application .ipa package">
+		<copy file="./MoPubBannerTest-app.xml" todir="../bin" overwrite="true"/>
 		<copy file="./Default.png" todir="../bin" overwrite="true"/>
 		<copy todir="../bin/icons">
 		    <fileset dir="./icons"/>
@@ -45,9 +51,9 @@
 			<arg value="${ios.keystore.file}"/>
 			<arg value="-storepass"/>
 			<arg value="${ios.keystore.password}"/>
-			<arg value="MoPubExtensionTest.ipa"/>
-			<arg value="MoPubExtensionTest-app.xml"/>
-			<arg value="MoPubExtensionTest.swf"/>
+			<arg value="MoPubBannerTest.ipa"/>
+			<arg value="MoPubBannerTest-app.xml"/>
+			<arg value="MoPubBannerTest.swf"/>
 			<arg value="Default.png"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
@@ -55,8 +61,8 @@
 		</exec>
 	</target>
 	
-	<target name="android-package" description="Create the debug application .apk package">
-		<copy file="./MoPubExtensionTest-app.xml" todir="../bin" overwrite="true"/>
+	<target name="banner-android-package" description="Create the debug application .apk package">
+		<copy file="./MoPubBannerTest-app.xml" todir="../bin" overwrite="true"/>
 		<copy todir="../bin/icons">
 		    <fileset dir="./icons"/>
 		</copy>
@@ -72,9 +78,83 @@
 			<arg value="${android.keystore.file}"/>
 			<arg value="-storepass"/>
 			<arg value="${android.keystore.password}"/>
-			<arg value="MoPubExtensionTest.apk"/>
-			<arg value="MoPubExtensionTest-app.xml"/>
-			<arg value="MoPubExtensionTest.swf"/>
+			<arg value="MoPubBannerTest.apk"/>
+			<arg value="MoPubBannerTest-app.xml"/>
+			<arg value="MoPubBannerTest.swf"/>
+			<arg value="icons"/>
+			<arg line="-extdir ../../bin/"/>
+		</exec>
+	</target>
+
+	<target name="interstitial-compile" description="Build a debug version of the application swf">
+		<delete dir="../bin"/>
+		<mkdir dir="../bin"/>
+		
+		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../bin">
+			<arg line='-source-path ../src'/>
+			<arg line='-default-size=320,480'/>
+			<arg line='-default-background-color 0x000000'/>
+			<arg line='-default-frame-rate 30'/>
+			<arg line='-debug=true'/>
+			<arg line='-optimize=true'/>
+			<arg line='-swf-version=13'/>
+			<arg line='-external-library-path+="../../bin/MoPub.swc"'/>
+			<arg line='-output MoPubInterstitialTest.swf'/>
+			<arg line='../src/MoPubInterstitialTest.as'/>
+		</exec>
+		
+	</target>
+	
+	<target name="interstitial-ios-package" description="Create the debug application .ipa package">
+		<copy file="./MoPubInterstitialTest-app.xml" todir="../bin" overwrite="true"/>
+		<copy file="./Default.png" todir="../bin" overwrite="true"/>
+		<copy todir="../bin/icons">
+		    <fileset dir="./icons"/>
+		</copy>
+
+		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
+			<arg value="-package"/>
+			<arg value="-target"/>
+			<arg value="ipa-debug-interpreter"/>
+			<arg value="-connect"/>
+			<arg value="-provisioning-profile"/>
+			<arg value="${ios.provisioning.profile}"/>
+			<arg value="-storetype"/>
+			<arg value="pkcs12"/>
+			<arg value="-keystore"/>
+			<arg value="${ios.keystore.file}"/>
+			<arg value="-storepass"/>
+			<arg value="${ios.keystore.password}"/>
+			<arg value="MoPubInterstitialTest.ipa"/>
+			<arg value="MoPubInterstitialTest-app.xml"/>
+			<arg value="MoPubInterstitialTest.swf"/>
+			<arg value="Default.png"/>
+			<arg value="icons"/>
+			<arg line="-extdir ../../bin/"/>
+			<arg line="-platformsdk ${ios.sdk}"/>
+		</exec>
+	</target>
+	
+	<target name="interstitial-android-package" description="Create the debug application .apk package">
+		<copy file="./MoPubInterstitialTest-app.xml" todir="../bin" overwrite="true"/>
+		<copy todir="../bin/icons">
+		    <fileset dir="./icons"/>
+		</copy>
+
+		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
+			<arg value="-package"/>
+			<arg value="-target"/>
+			<arg value="apk-debug"/>
+			<arg value="-connect"/>
+			<arg value="-storetype"/>
+			<arg value="pkcs12"/>
+			<arg value="-keystore"/>
+			<arg value="${android.keystore.file}"/>
+			<arg value="-storepass"/>
+			<arg value="${android.keystore.password}"/>
+			<arg value="MoPubInterstitialTest.apk"/>
+			<arg value="MoPubInterstitialTest-app.xml"/>
+			<arg value="MoPubInterstitialTest.swf"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
 		</exec>
