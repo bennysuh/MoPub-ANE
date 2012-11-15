@@ -1,6 +1,5 @@
 ﻿package
 {
-	import flash.system.Capabilities;
 	import com.sticksports.nativeExtensions.mopub.MoPubBanner;
 	import com.sticksports.nativeExtensions.mopub.MoPubEvent;
 	import com.sticksports.nativeExtensions.mopub.MoPubSize;
@@ -9,6 +8,7 @@
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
@@ -231,6 +231,7 @@
 			banner.addEventListener( MoPubEvent.LOADED, eventReceived );
 			banner.addEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
 			banner.addEventListener( MoPubEvent.AD_CLICKED, eventReceived );
+			banner.addEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
 		private function removeBannerListeners( banner : MoPubBanner ) : void
@@ -238,6 +239,7 @@
 			banner.removeEventListener( MoPubEvent.LOADED, eventReceived );
 			banner.removeEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
 			banner.removeEventListener( MoPubEvent.AD_CLICKED, eventReceived );
+			banner.removeEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
 		private function eventReceived( event : MoPubEvent ) : void

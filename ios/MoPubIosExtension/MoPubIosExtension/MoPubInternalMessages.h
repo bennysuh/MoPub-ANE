@@ -12,7 +12,11 @@
 #define bannerLoaded "bannerLoaded"
 #define bannerFailedToLoad "bannerFailedToLoad"
 #define bannerAdClicked "bannerAdClicked"
+#define bannerAdClosed "bannerAdClosed"
+
 #define interstitialLoaded "interstitialLoaded"
 #define interstitialFailedToLoad "interstitialFailedToLoad"
+#define interstitialClosed "interstitialClosed"
+#define interstitialExpired "interstitialExpired"
 
 #endif

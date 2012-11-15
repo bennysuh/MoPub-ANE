@@ -173,4 +173,9 @@
     FREDispatchStatusEventAsync( context, "", bannerAdClicked );
 }
 
+- (void)didDismissModalViewForAd:(MPAdView *)view
+{
+    FREDispatchStatusEventAsync( context, "", bannerAdClosed );
+}
+
 @end

@@ -45,9 +45,9 @@
 			format.color = 0xFFFFFF;
 			feedback.defaultTextFormat = format;
 			feedback.width = 320;
-			feedback.height = 260;
+			feedback.height = 300;
 			feedback.x = 10;
-			feedback.y = 230;
+			feedback.y = 190;
 			feedback.multiline = true;
 			feedback.wordWrap = true;
 			feedback.text = "Hello";
@@ -159,12 +159,14 @@
 		{
 			interstitial.addEventListener( MoPubEvent.LOADED, eventReceived );
 			interstitial.addEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
+			interstitial.addEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
 		private function removeInterstitialListeners( interstitial : MoPubInterstitial ) : void
 		{
 			interstitial.removeEventListener( MoPubEvent.LOADED, eventReceived );
 			interstitial.removeEventListener( MoPubEvent.LOAD_FAILED, eventReceived );
+			interstitial.removeEventListener( MoPubEvent.AD_CLOSED, eventReceived );
 		}
 		
 		private function eventReceived( event : MoPubEvent ) : void
