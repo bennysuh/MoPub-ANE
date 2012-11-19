@@ -1,0 +1,158 @@
+h1. Air Native Extension for MoPub Advertising on iOS and Android
+
+This is an "Air native extension":http://www.adobe.com/devnet/air/native-extensions-for-air.html for the "MoPub":http://www.mopub.com/ advertising platform on iOS and Android.
+
+h3. Requirements
+
+iOS - Adobe Air version 3.5 or later
+Android - Adobe Air version 3.3 or later
+
+h3. To build the native extension yourself
+
+Requirements - Adobe Air SDK 3.5 or later, XCode IDE, iOS SDK 6.0 or later, MoPub, Millennial Media and AdMob SDKs.
+
+* Create a copy of the build/example.build.config file in the build folder, calling it build.config, and change the properties in this file to match your system.
+** A certificate is required by the build script. This may be a self-signed certificate created by Adobe Air. This is not an Apple developer certificate.
+* Add the MoPub, Millennial Media and AdMob iOS SDKs to the XCode project
+* Run the ant build script build.xml. This creates the native extension, and default swc file, inside the bin folder.
+
+h3. Showing banner adverts
+
+h4. Create a banner advert
+
+@var banner : MoPubBanner = new MoPubBanner( adUnitId : String, adSize : MoPubSize );@
+
+The advert size must be one of
+
+MoPubSize.banner - a 320x50 banner advert
+MoPubSize.leaderboard - a 728x90 leaderboard advert
+MoPubSize.mediumRectangle - a 300x250 MPU advert
+MoPubSize.wideSkyscraper - a 160x600 skyscraper
+
+h4. Load a banner advert
+
+@banner.load();@
+
+This is asynchronous. On completion the banner dispatches one of two events
+
+* @MoPubEvent.LOADED@
+* @MoPubEvent.LOAD_FAILED@
+
+h4. Show the banner advert
+
+@banner.show();@
+
+You may do this before or after the load is complete. If done before the load completes, the banner will appear when it has loaded.
+
+h4. Position the banner advert
+
+@banner.x = 150;@
+@banner.y = 50;@
+
+You can change the position of the banner at any time, before during and after it is shown.
+
+h4. Get the size of the banner advert
+
+@trace( "Banner display size", banner.width, "x", banner.height );@
+
+This is the size of the rectangle in which the advert will be displayed, measured in screen pixels. Adverts are automatically resized to be larger on high-resolution displays so the width and height are not necessarily the size specified above for the MoPubSize variables.
+
+e.g. on an iOS retina display, a 320x50 banner advert is actually 640x100 pixels.
+
+h4. Change the size of the advert
+
+@banner.width = 1024;@
+@banner.height = 66;@
+
+The width and height define the size of the area of the screen on which the advert will be shown. If the advert is bigger than this size it will be cropped to fit the size. Changing the width and height doesn't resize the advert, it resizes the rectangle in which the advert is displayed. This may be necessary because some advert providers (for example, iAds) use non-standard advert sizes.
+
+h4. Get the actual size of the advert
+
+@GameCenter.showStandardLeaderboard( leaderboard (optional), timeScope (optional) );@
+
+Shows Apple's standard leaderboard view.
+
+When the view is closed, dispatches the signal
+* @GameCenter.gameCenterViewRemoved@
+
+Throws an error if Game Center is not supported or the local player has not been authenticated.
+
+h4. Get a leaderboard
+
+@GameCenter.getLeaderboard( "leaderboard" );@
+
+Returns the leaderboard as an Actionscript object for custom rendering within your game.
+
+Is asynchronous.
+
+Dispatches one of two signals
+* @GameCenter.leaderboardLoadComplete@ with parameter of type GCLeaderboard
+* @GameCenter.leaderboardScoreLoadFailed@
+
+Throws an error if Game Center is not supported or the local player has not been authenticated.
+
+h4. Show the achievements
+
+@GameCenter.showAchievements();@
+
+Shows Apple's standard achievements view.
+
+When the view is closed, dispatches the signal
+* @GameCenter.gameCenterViewRemoved@
+
+Throws an error if Game Center is not supported or the local player has not been authenticated.
+
+h4. Get player achievements
+
+@GameCenter.getAchievements();@
+
+Returns the local player's achievements.
+
+Is asynchronous.
+
+Dispatches one of two signals
+* @GameCenter.achievementsLoadComplete@ with parameter of type Vector.<GCAchievement>
+* @GameCenter.achievementsLoadFailed@
+
+Throws an error if Game Center is not supported or the local player has not been authenticated.
+
+h4. Get the local player's friends
+
+@GameCenter.getLocalPlayerFriends();@
+
+Is asynchronous.
+
+Dispatches one of two signals
+* @GameCenter.localPlayerFriendsLoadComplete@ with a parameter of type Array containing objects of type GCPlayer
+* @GameCenter.localPlayerFriendsLoadFailed@
+
+Throws an error if Game Center is not supported or the local player has not been authenticated.
+
+h3. Example code
+
+You can see all the features in action in the source code of the "test project":https://github.com/StickSports/MoPub-ANE
+
+h3. Developers
+
+* "Stick Sports":http://www.sticksports.com/mobile
+
+h3. Games using this extension
+
+* "Stick Cricket Super Sixes":http://itunes.apple.com/app/stick-cricket-super-sixes/id483135193?ls=1&mt=8
+
+h2. License
+
+Author: Richard Lord
+Owner: Stick Sports Ltd.
+http://www.sticksports.com
+
+Copyright (c) 2011-2012, Stick Sports Ltd.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the name of Stick Sports Ltd. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+  
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

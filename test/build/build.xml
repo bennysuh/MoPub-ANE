@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="ANE Test Build Scripts" default="build.all">
+<project name="ANE Test Build Scripts" default="build.banner">
 	
 	<property file="build.config"/>
-
-	<target name="build.all" depends="build.banner,build.interstitial"
-		description="Build and package both apps."/>
 
 	<target name="build.banner" depends="banner-compile,banner-ios-package,banner-android-package"
 		description="Build and package the banner test app."/>
@@ -57,7 +54,6 @@
 			<arg value="Default.png"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
-			<arg line="-platformsdk ${ios.sdk}"/>
 		</exec>
 	</target>
 	
@@ -131,7 +127,6 @@
 			<arg value="Default.png"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
-			<arg line="-platformsdk ${ios.sdk}"/>
 		</exec>
 	</target>
 	

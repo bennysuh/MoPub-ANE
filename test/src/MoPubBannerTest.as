@@ -30,7 +30,6 @@
 		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
 		// Android
 		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
-		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYttOiFgw";
 		
 		public function MoPubBannerTest()
 		{
