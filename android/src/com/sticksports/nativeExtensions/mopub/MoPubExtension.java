@@ -8,7 +8,11 @@ public class MoPubExtension implements FREExtension
 	@Override
 	public FREContext createContext( String label )
 	{
-		if( label.equals( "interstitial" ) )
+		if( label.equals( "mopub" ) )
+		{
+			return new MoPubExtensionContext();
+		}
+		else if( label.equals( "interstitial" ) )
 		{
 			return new MoPubInterstitialContext();
 		}

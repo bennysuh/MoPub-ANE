@@ -16,16 +16,27 @@
 
 #define MAP_FUNCTION(fn, data) { (const uint8_t*)(#fn), (data), &(fn) }
 
-MoPub_TypeConversion* converter;
+MoPub_TypeConversion* mopubConverter;
+
+DEFINE_ANE_FUNCTION( getAdScaleFactor )
+{
+    double scale = [UIScreen mainScreen].scale;
+    FREObject asScale;
+    if( [mopubConverter FREGetDouble:scale asObject:&asScale] == FRE_OK )
+    {
+        return asScale;
+    }
+    return NULL;
+}
 
 DEFINE_ANE_FUNCTION( initialiseBanner )
 {
     NSString* adUnitId;
-    if( [converter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
+    if( [mopubConverter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
     
     CGSize adType;
     int32_t sizeId;
-    if( [converter FREGetObject:argv[1] asInt:&sizeId] == FRE_OK )
+    if( [mopubConverter FREGetObject:argv[1] asInt:&sizeId] == FRE_OK )
     {
         adType = [MoPubBanner getAdSizeFromSizeId:sizeId];
     }
@@ -47,7 +58,7 @@ DEFINE_ANE_FUNCTION( setAutorefresh )
     if( banner != nil )
     {
         uint32_t autoRefresh;
-        if( [converter FREGetObject:argv[0] asBoolean:&autoRefresh] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asBoolean:&autoRefresh] != FRE_OK ) return NULL;
         [banner setAutorefresh:( autoRefresh == 1 )];
     }
     return NULL;
@@ -60,7 +71,7 @@ DEFINE_ANE_FUNCTION( setTestMode )
     if( banner != nil )
     {
         uint32_t testing;
-        if( [converter FREGetObject:argv[0] asBoolean:&testing] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asBoolean:&testing] != FRE_OK ) return NULL;
         banner.testing = ( testing == 1 );
     }
     return NULL;
@@ -73,7 +84,7 @@ DEFINE_ANE_FUNCTION( setAdUnitId )
     if( banner != nil )
     {
         NSString* adUnitId;
-        if( [converter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
         [banner setAdUnitId:adUnitId];
     }
     return NULL;
@@ -86,7 +97,7 @@ DEFINE_ANE_FUNCTION( lockNativeAdsToOrientation )
     if( banner != nil )
     {
         int32_t orientation;
-        if( [converter FREGetObject:argv[0] asInt:&orientation] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asInt:&orientation] != FRE_OK ) return NULL;
         switch( orientation )
         {
             case 0:
@@ -111,7 +122,7 @@ DEFINE_ANE_FUNCTION( getPositionX )
     {
         int32_t pos = [banner getPositionX];
         FREObject asPos;
-        if( [converter FREGetInt:pos asObject:&asPos] == FRE_OK )
+        if( [mopubConverter FREGetInt:pos asObject:&asPos] == FRE_OK )
         {
             return asPos;
         }
@@ -127,7 +138,7 @@ DEFINE_ANE_FUNCTION( getPositionY )
     {
         int32_t pos = [banner getPositionY];
         FREObject asPos;
-        if( [converter FREGetInt:pos asObject:&asPos] == FRE_OK )
+        if( [mopubConverter FREGetInt:pos asObject:&asPos] == FRE_OK )
         {
             return asPos;
         }
@@ -143,7 +154,7 @@ DEFINE_ANE_FUNCTION( getWidth )
     {
         int32_t width = [banner getFrameWidth];
         FREObject asWidth;
-        if( [converter FREGetInt:width asObject:&asWidth] == FRE_OK )
+        if( [mopubConverter FREGetInt:width asObject:&asWidth] == FRE_OK )
         {
             return asWidth;
         }
@@ -159,7 +170,7 @@ DEFINE_ANE_FUNCTION( getHeight )
     {
         int32_t height = [banner getFrameHeight];
         FREObject asHeight;
-        if( [converter FREGetInt:height asObject:&asHeight] == FRE_OK )
+        if( [mopubConverter FREGetInt:height asObject:&asHeight] == FRE_OK )
         {
             return asHeight;
         }
@@ -174,7 +185,7 @@ DEFINE_ANE_FUNCTION( setPositionX )
     if( banner != nil )
     {
         int32_t posX;
-        if( [converter FREGetObject:argv[0] asInt:&posX] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asInt:&posX] != FRE_OK ) return NULL;
         [banner setPositionX:posX];
     }
     return NULL;
@@ -187,7 +198,7 @@ DEFINE_ANE_FUNCTION( setPositionY )
     if( banner != nil )
     {
         int32_t posY;
-        if( [converter FREGetObject:argv[0] asInt:&posY] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asInt:&posY] != FRE_OK ) return NULL;
         [banner setPositionY:posY];
     }
     return NULL;
@@ -200,7 +211,7 @@ DEFINE_ANE_FUNCTION( setWidth )
     if( banner != nil )
     {
         int32_t width;
-        if( [converter FREGetObject:argv[0] asInt:&width] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asInt:&width] != FRE_OK ) return NULL;
         [banner setFrameWidth:width];
     }
     return NULL;
@@ -213,7 +224,7 @@ DEFINE_ANE_FUNCTION( setHeight )
     if( banner != nil )
     {
         int32_t height;
-        if( [converter FREGetObject:argv[0] asInt:&height] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asInt:&height] != FRE_OK ) return NULL;
         [banner setFrameHeight:height];
     }
     return NULL;
@@ -226,7 +237,7 @@ DEFINE_ANE_FUNCTION( setSize )
     if( banner != nil )
     {
         int32_t size;
-        if( [converter FREGetObject:argv[0] asInt:&size] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asInt:&size] != FRE_OK ) return NULL;
         [banner setAdSize:size];
     }
     return NULL;
@@ -240,7 +251,7 @@ DEFINE_ANE_FUNCTION( getCreativeWidth )
     {
         int32_t width = [banner getCreativeWidth];
         FREObject asWidth;
-        if( [converter FREGetInt:width asObject:&asWidth] == FRE_OK )
+        if( [mopubConverter FREGetInt:width asObject:&asWidth] == FRE_OK )
         {
             return asWidth;
         }
@@ -256,7 +267,7 @@ DEFINE_ANE_FUNCTION( getCreativeHeight )
     {
         int32_t height = [banner getCreativeHeight];
         FREObject asHeight;
-        if( [converter FREGetInt:height asObject:&asHeight] == FRE_OK )
+        if( [mopubConverter FREGetInt:height asObject:&asHeight] == FRE_OK )
         {
             return asHeight;
         }
@@ -300,7 +311,7 @@ DEFINE_ANE_FUNCTION( removeBanner )
 DEFINE_ANE_FUNCTION( initialiseInterstitial )
 {
     NSString* adUnitId;
-    if( [converter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
+    if( [mopubConverter FREGetObject:argv[0] asString:&adUnitId] != FRE_OK ) return NULL;
     
     MoPubInterstitial* interstitial = [[MoPubInterstitial alloc] initWithContext:context adUnitId:adUnitId];
     [interstitial retain];
@@ -315,7 +326,7 @@ DEFINE_ANE_FUNCTION( setInterstitialTestMode )
     if( interstitial != nil )
     {
         uint32_t testing;
-        if( [converter FREGetObject:argv[0] asBoolean:&testing] != FRE_OK ) return NULL;
+        if( [mopubConverter FREGetObject:argv[0] asBoolean:&testing] != FRE_OK ) return NULL;
         interstitial.testing = ( testing == 1 );
     }
     return NULL;
@@ -329,7 +340,7 @@ DEFINE_ANE_FUNCTION( getInterstitialReady )
     {
         BOOL ready = [interstitial getIsReady];
         FREObject asReady;
-        if( [converter FREGetBool:ready asObject:&asReady] == FRE_OK )
+        if( [mopubConverter FREGetBool:ready asObject:&asReady] == FRE_OK )
         {
             return asReady;
         }
@@ -356,7 +367,7 @@ DEFINE_ANE_FUNCTION( showInterstitial )
     {
         BOOL success = [interstitial showInterstitial];
         FREObject asSuccess;
-        if( [converter FREGetBool:success asObject:&asSuccess] == FRE_OK )
+        if( [mopubConverter FREGetBool:success asObject:&asSuccess] == FRE_OK )
         {
             return asSuccess;
         }
@@ -366,7 +377,17 @@ DEFINE_ANE_FUNCTION( showInterstitial )
 
 void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet )
 {
-    if( strcmp( ctxType, "interstitial" ) == 0 )
+    if( strcmp( ctxType, "mopub" ) == 0 )
+    {
+        static FRENamedFunction mopubFunctionMap[] =
+        {
+            MAP_FUNCTION( getAdScaleFactor, NULL )
+        };
+        
+        *numFunctionsToSet = sizeof( mopubFunctionMap ) / sizeof( FRENamedFunction );
+        *functionsToSet = mopubFunctionMap;
+    }
+    else if( strcmp( ctxType, "interstitial" ) == 0 )
     {
         static FRENamedFunction interstitialFunctionMap[] =
         {
@@ -441,11 +462,11 @@ void MoPubExtensionInitializer( void** extDataToSet, FREContextInitializer* ctxI
     *ctxInitializerToSet = &MoPubContextInitializer;
     *ctxFinalizerToSet = &MoPubContextFinalizer;
     
-    converter = [[[MoPub_TypeConversion alloc] init] retain];
+    mopubConverter = [[[MoPub_TypeConversion alloc] init] retain];
 }
 
 void MoPubExtensionFinalizer()
 {
-    [converter release];
+    [mopubConverter release];
     return;
 }

@@ -10,7 +10,7 @@
 		<option>-framework MessageUI</option>
 		<option>-framework MediaPlayer</option>
 		<option>-framework StoreKit</option>
-		<option>-framework iAd</option>
+		<option>-weak_framework iAd</option>
 		<option>-framework AdSupport</option>
 	</linkerOptions>
 

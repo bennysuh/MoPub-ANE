@@ -49,6 +49,11 @@
     return FRENewObjectFromInt32( value, asObject );
 }
 
+- (FREResult) FREGetDouble:(double)value asObject:(FREObject*)asObject
+{
+    return FRENewObjectFromDouble( value, asObject );
+}
+
 - (FREResult) FREGetBool:(BOOL)value asObject:(FREObject*)asObject
 {
     return FRENewObjectFromBool( value, asObject );
