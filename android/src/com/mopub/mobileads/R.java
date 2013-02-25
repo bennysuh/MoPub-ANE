@@ -11,7 +11,7 @@ import com.sticksports.nativeExtensions.mopub.ResourceFinder;
 
 public final class R
 {
-	public static final class attr
+    public static final class attr
 	{
 	}
 
@@ -31,11 +31,14 @@ public final class R
 
 	public static final class id
 	{
+		public static int ad_container_layout_id = ResourceFinder.getResourceId( "id", "ad_container_layout_id" );
 		public static int browserBackButton = ResourceFinder.getResourceId( "id", "browserBackButton" );
 		public static int browserCloseButton = ResourceFinder.getResourceId( "id", "browserCloseButton" );
 		public static int browserForwardButton = ResourceFinder.getResourceId( "id", "browserForwardButton" );
 		public static int browserRefreshButton = ResourceFinder.getResourceId( "id", "browserRefreshButton" );
 		public static int linearLayout1 = ResourceFinder.getResourceId( "id", "linearLayout1" );
+		public static int modal_container_layout_id = ResourceFinder.getResourceId( "id", "modal_container_layout_id" );
+		public static int placeholder_view_id = ResourceFinder.getResourceId( "id", "placeholder_view_id" );
 		public static int progress_indicator = ResourceFinder.getResourceId( "id", "progress_indicator" );
 		public static int relativeLayout1 = ResourceFinder.getResourceId( "id", "relativeLayout1" );
 		public static int webView = ResourceFinder.getResourceId( "id", "webView" );

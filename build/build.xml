@@ -17,16 +17,6 @@
 		
 		<copy file="../temp/ios/build/Release-iphoneos/lib${name}IosExtension.a" todir="../temp/ios" overwrite="true"/>
 		
-		<exec executable="ibtool" failonerror="true">
-			<arg value="--errors"/>
-			<arg value="--warnings"/>
-			<arg value="--notices"/>
-			<arg line="--output-format human-readable-text"/>
-			<arg line="--sdk ${ios.sdk}"/>
-			<arg line="--compile ../temp/ios/MPAdBrowserController.nib"/>
-			<arg value="${mopub.sdk}/MoPubiOS/MoPubSDK/MPAdBrowserController.xib"/>
-		</exec>
-
 		<copy todir="../temp/ios" flatten="true">
 			<fileset dir="${mopub.sdk}/MoPubiOS/MoPubSDK" casesensitive="yes" id="classfiles">
 				<include name="**/*.png"/>
@@ -46,6 +36,8 @@
 			<src path="../android/src"/>
 			<src path="${mopub.sdk}/Android/mopub-android-sdk/src"/>
 			<src path="${mopub.sdk}/Android/extras/src"/>
+			<exclude name="com/mopub/mobileads/customeventclasses/*.java"/>
+			<!--<src path="${mopub.sdk}/Android/extras/src"/>-->
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar"/>
 				<pathelement location="../android/libs/FlashRuntimeExtensions.jar"/>
