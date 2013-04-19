@@ -7,6 +7,7 @@
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
@@ -24,9 +25,22 @@
 		private var interstitial : MoPubInterstitial;
 		
 		//iOS
-		private var interstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY7b_SFgw";
+		private var iosInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY7b_SFgw";
 		// Android
-		//private var interstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY0cfSFgw";
+		private var androidInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY0cfSFgw";
+		
+		public function get interstitialUnitId() : String
+		{
+			var os : String = Capabilities.version.substr(0,3);
+			if( os == "IOS" )
+			{
+				return iosInterstitialUnitId;
+			}
+			else
+			{
+				return androidInterstitialUnitId;
+			}
+		}
 		
 		public function MoPubInterstitialTest()
 		{

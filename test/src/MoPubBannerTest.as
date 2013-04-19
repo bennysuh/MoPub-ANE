@@ -27,10 +27,23 @@
 		private var bannerCount : int = 0;
 		
 		//iOS
-		private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
+		private var iosBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
 		// Android
-		//private var bannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
+		private var androidBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
 		
+		public function get bannerUnitId() : String
+		{
+			var os : String = Capabilities.version.substr(0,3);
+			if( os == "IOS" )
+			{
+				return iosBannerUnitId;
+			}
+			else
+			{
+				return androidBannerUnitId;
+			}
+		}
+
 		public function MoPubBannerTest()
 		{
 			shape = new Shape();

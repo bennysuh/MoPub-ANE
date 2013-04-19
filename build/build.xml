@@ -37,20 +37,24 @@
 			<src path="${mopub.sdk}/Android/mopub-android-sdk/src"/>
 			<src path="${mopub.sdk}/Android/extras/src"/>
 			<exclude name="com/mopub/mobileads/customeventclasses/*.java"/>
-			<!--<src path="${mopub.sdk}/Android/extras/src"/>-->
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar"/>
 				<pathelement location="../android/libs/FlashRuntimeExtensions.jar"/>
 				<pathelement location="${admob.android.jar}"/>
 				<pathelement location="${millennial.android.jar}"/>
+				<pathelement location="${mopub.sdk}/Android/mopub-android-sdk/libs/android-support-v4.jar"/>
 			</classpath>
 		</javac>
 
 		<mkdir dir="../android/temp/zip"/>
 		<unzip dest="../android/temp/zip" src="${admob.android.jar}"/>
 		<unzip dest="../android/temp/zip" src="${millennial.android.jar}"/>
+		<unzip dest="../android/temp/zip" src="${mopub.sdk}/Android/mopub-android-sdk/libs/android-support-v4.jar"/>
 		<copy todir="../android/temp/classes/com">
 		    <fileset dir="../android/temp/zip/com"/>
+		</copy>
+		<copy todir="../android/temp/classes/android">
+		    <fileset dir="../android/temp/zip/android"/>
 		</copy>
 
 		<mkdir dir="../temp/android/"/>
