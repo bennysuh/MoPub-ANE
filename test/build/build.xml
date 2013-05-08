@@ -35,7 +35,8 @@
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
 			<arg value="ipa-debug-interpreter"/>
@@ -54,7 +55,7 @@
 			<arg value="Default.png"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
-		</exec>
+		</java>
 	</target>
 	
 	<target name="banner-android-package" description="Create the debug application .apk package">
@@ -63,7 +64,8 @@
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
 			<arg value="apk-debug"/>
@@ -79,7 +81,7 @@
 			<arg value="MoPubBannerTest.swf"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
-		</exec>
+		</java>
 	</target>
 
 	<target name="interstitial-compile" description="Build a debug version of the application swf">
@@ -108,7 +110,8 @@
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
 			<arg value="ipa-debug-interpreter"/>
@@ -127,7 +130,7 @@
 			<arg value="Default.png"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
-		</exec>
+		</java>
 	</target>
 	
 	<target name="interstitial-android-package" description="Create the debug application .apk package">
@@ -136,7 +139,8 @@
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<exec executable="${sdk.home}/bin/adt${bin.ext}" failonerror="true" dir="../bin">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
 			<arg value="apk-debug"/>
@@ -152,6 +156,6 @@
 			<arg value="MoPubInterstitialTest.swf"/>
 			<arg value="icons"/>
 			<arg line="-extdir ../../bin/"/>
-		</exec>
+		</java>
 	</target>
 </project>

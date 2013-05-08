@@ -16,18 +16,18 @@
 		79140269163AFDA4004D6EE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140262163AFDA3004D6EE6 /* QuartzCore.framework */; };
 		7914026B163AFDC9004D6EE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */; };
 		7914026E163AFECF004D6EE6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7914026C163AFEC3004D6EE6 /* MessageUI.framework */; };
+		7926C5D3173A9D53001A4F0F /* GADAdMobExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5C9173A9D53001A4F0F /* GADAdMobExtras.h */; };
+		7926C5D4173A9D53001A4F0F /* GADAdNetworkExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CA173A9D53001A4F0F /* GADAdNetworkExtras.h */; };
+		7926C5D5173A9D53001A4F0F /* GADAdSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CB173A9D53001A4F0F /* GADAdSize.h */; };
+		7926C5D6173A9D53001A4F0F /* GADBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CC173A9D53001A4F0F /* GADBannerView.h */; };
+		7926C5D7173A9D53001A4F0F /* GADBannerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CD173A9D53001A4F0F /* GADBannerViewDelegate.h */; };
+		7926C5D8173A9D53001A4F0F /* GADInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CE173A9D53001A4F0F /* GADInterstitial.h */; };
+		7926C5D9173A9D53001A4F0F /* GADInterstitialDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CF173A9D53001A4F0F /* GADInterstitialDelegate.h */; };
+		7926C5DA173A9D53001A4F0F /* GADRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5D0173A9D53001A4F0F /* GADRequest.h */; };
+		7926C5DB173A9D53001A4F0F /* GADRequestError.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5D1173A9D53001A4F0F /* GADRequestError.h */; };
+		7926C5DC173A9D53001A4F0F /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7926C5D2173A9D53001A4F0F /* libGoogleAdMobAds.a */; };
 		7976B8FA16DBB6BA001D0A9D /* libMMSDK_4.6.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7976B8F816DBB6BA001D0A9D /* libMMSDK_4.6.2.a */; };
 		7976B8FB16DBB6BA001D0A9D /* MMAdView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7976B8F916DBB6BA001D0A9D /* MMAdView.h */; };
-		797ABB8416DBC02700F95CB3 /* GADAdMobExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB7A16DBC02700F95CB3 /* GADAdMobExtras.h */; };
-		797ABB8516DBC02700F95CB3 /* GADAdNetworkExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB7B16DBC02700F95CB3 /* GADAdNetworkExtras.h */; };
-		797ABB8616DBC02700F95CB3 /* GADAdSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB7C16DBC02700F95CB3 /* GADAdSize.h */; };
-		797ABB8716DBC02700F95CB3 /* GADBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB7D16DBC02700F95CB3 /* GADBannerView.h */; };
-		797ABB8816DBC02700F95CB3 /* GADBannerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB7E16DBC02700F95CB3 /* GADBannerViewDelegate.h */; };
-		797ABB8916DBC02700F95CB3 /* GADInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB7F16DBC02700F95CB3 /* GADInterstitial.h */; };
-		797ABB8A16DBC02700F95CB3 /* GADInterstitialDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB8016DBC02700F95CB3 /* GADInterstitialDelegate.h */; };
-		797ABB8B16DBC02700F95CB3 /* GADRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB8116DBC02700F95CB3 /* GADRequest.h */; };
-		797ABB8C16DBC02700F95CB3 /* GADRequestError.h in Headers */ = {isa = PBXBuildFile; fileRef = 797ABB8216DBC02700F95CB3 /* GADRequestError.h */; };
-		797ABB8D16DBC02700F95CB3 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797ABB8316DBC02700F95CB3 /* libGoogleAdMobAds.a */; };
 		79A572EC171EFAA900B57B87 /* MPBannerAdapterManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A57275171EFAA900B57B87 /* MPBannerAdapterManager.h */; };
 		79A572ED171EFAA900B57B87 /* MPBannerAdapterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A57276171EFAA900B57B87 /* MPBannerAdapterManager.m */; };
 		79A572EE171EFAA900B57B87 /* MPBannerAdapterManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A57277171EFAA900B57B87 /* MPBannerAdapterManagerDelegate.h */; };
@@ -203,18 +203,18 @@
 		79140262163AFDA3004D6EE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		7914026C163AFEC3004D6EE6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		7926C5C9173A9D53001A4F0F /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdMobExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADAdMobExtras.h"; sourceTree = "<group>"; };
+		7926C5CA173A9D53001A4F0F /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdNetworkExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADAdNetworkExtras.h"; sourceTree = "<group>"; };
+		7926C5CB173A9D53001A4F0F /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdSize.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADAdSize.h"; sourceTree = "<group>"; };
+		7926C5CC173A9D53001A4F0F /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADBannerView.h"; sourceTree = "<group>"; };
+		7926C5CD173A9D53001A4F0F /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerViewDelegate.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADBannerViewDelegate.h"; sourceTree = "<group>"; };
+		7926C5CE173A9D53001A4F0F /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADInterstitial.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADInterstitial.h"; sourceTree = "<group>"; };
+		7926C5CF173A9D53001A4F0F /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADInterstitialDelegate.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADInterstitialDelegate.h"; sourceTree = "<group>"; };
+		7926C5D0173A9D53001A4F0F /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADRequest.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADRequest.h"; sourceTree = "<group>"; };
+		7926C5D1173A9D53001A4F0F /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADRequestError.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADRequestError.h"; sourceTree = "<group>"; };
+		7926C5D2173A9D53001A4F0F /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		7976B8F816DBB6BA001D0A9D /* libMMSDK_4.6.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMMSDK_4.6.2.a; path = "../../gitignore/MillenialMediaSDK/mmedia_ios_sdk_4-6-2/MMSDK/libMMSDK_4.6.2.a"; sourceTree = "<group>"; };
 		7976B8F916DBB6BA001D0A9D /* MMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMAdView.h; path = "../../gitignore/MillenialMediaSDK/mmedia_ios_sdk_4-6-2/MMSDK/MMAdView.h"; sourceTree = "<group>"; };
-		797ABB7A16DBC02700F95CB3 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdMobExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADAdMobExtras.h"; sourceTree = "<group>"; };
-		797ABB7B16DBC02700F95CB3 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdNetworkExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADAdNetworkExtras.h"; sourceTree = "<group>"; };
-		797ABB7C16DBC02700F95CB3 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdSize.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADAdSize.h"; sourceTree = "<group>"; };
-		797ABB7D16DBC02700F95CB3 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADBannerView.h"; sourceTree = "<group>"; };
-		797ABB7E16DBC02700F95CB3 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADBannerViewDelegate.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADBannerViewDelegate.h"; sourceTree = "<group>"; };
-		797ABB7F16DBC02700F95CB3 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADInterstitial.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADInterstitial.h"; sourceTree = "<group>"; };
-		797ABB8016DBC02700F95CB3 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADInterstitialDelegate.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADInterstitialDelegate.h"; sourceTree = "<group>"; };
-		797ABB8116DBC02700F95CB3 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADRequest.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADRequest.h"; sourceTree = "<group>"; };
-		797ABB8216DBC02700F95CB3 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADRequestError.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/GADRequestError.h"; sourceTree = "<group>"; };
-		797ABB8316DBC02700F95CB3 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		798280F71638070D00DC7413 /* MoPubInternalMessages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoPubInternalMessages.h; sourceTree = "<group>"; };
 		79A57275171EFAA900B57B87 /* MPBannerAdapterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBannerAdapterManager.h; sourceTree = "<group>"; };
 		79A57276171EFAA900B57B87 /* MPBannerAdapterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBannerAdapterManager.m; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 				79A6D5301636DFB1009DA60A /* StoreKit.framework in Frameworks */,
 				79A6D52F1636DFB1009DA60A /* iAd.framework in Frameworks */,
 				7976B8FA16DBB6BA001D0A9D /* libMMSDK_4.6.2.a in Frameworks */,
-				797ABB8D16DBC02700F95CB3 /* libGoogleAdMobAds.a in Frameworks */,
+				7926C5DC173A9D53001A4F0F /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,16 +408,16 @@
 		7914020A163AE382004D6EE6 /* OtherSDKs */ = {
 			isa = PBXGroup;
 			children = (
-				797ABB7A16DBC02700F95CB3 /* GADAdMobExtras.h */,
-				797ABB7B16DBC02700F95CB3 /* GADAdNetworkExtras.h */,
-				797ABB7C16DBC02700F95CB3 /* GADAdSize.h */,
-				797ABB7D16DBC02700F95CB3 /* GADBannerView.h */,
-				797ABB7E16DBC02700F95CB3 /* GADBannerViewDelegate.h */,
-				797ABB7F16DBC02700F95CB3 /* GADInterstitial.h */,
-				797ABB8016DBC02700F95CB3 /* GADInterstitialDelegate.h */,
-				797ABB8116DBC02700F95CB3 /* GADRequest.h */,
-				797ABB8216DBC02700F95CB3 /* GADRequestError.h */,
-				797ABB8316DBC02700F95CB3 /* libGoogleAdMobAds.a */,
+				7926C5C9173A9D53001A4F0F /* GADAdMobExtras.h */,
+				7926C5CA173A9D53001A4F0F /* GADAdNetworkExtras.h */,
+				7926C5CB173A9D53001A4F0F /* GADAdSize.h */,
+				7926C5CC173A9D53001A4F0F /* GADBannerView.h */,
+				7926C5CD173A9D53001A4F0F /* GADBannerViewDelegate.h */,
+				7926C5CE173A9D53001A4F0F /* GADInterstitial.h */,
+				7926C5CF173A9D53001A4F0F /* GADInterstitialDelegate.h */,
+				7926C5D0173A9D53001A4F0F /* GADRequest.h */,
+				7926C5D1173A9D53001A4F0F /* GADRequestError.h */,
+				7926C5D2173A9D53001A4F0F /* libGoogleAdMobAds.a */,
 				7976B8F816DBB6BA001D0A9D /* libMMSDK_4.6.2.a */,
 				7976B8F916DBB6BA001D0A9D /* MMAdView.h */,
 			);
@@ -758,15 +758,6 @@
 			files = (
 				79F66B1E1654051E00E917FB /* MoPubInterstitial.h in Headers */,
 				7976B8FB16DBB6BA001D0A9D /* MMAdView.h in Headers */,
-				797ABB8416DBC02700F95CB3 /* GADAdMobExtras.h in Headers */,
-				797ABB8516DBC02700F95CB3 /* GADAdNetworkExtras.h in Headers */,
-				797ABB8616DBC02700F95CB3 /* GADAdSize.h in Headers */,
-				797ABB8716DBC02700F95CB3 /* GADBannerView.h in Headers */,
-				797ABB8816DBC02700F95CB3 /* GADBannerViewDelegate.h in Headers */,
-				797ABB8916DBC02700F95CB3 /* GADInterstitial.h in Headers */,
-				797ABB8A16DBC02700F95CB3 /* GADInterstitialDelegate.h in Headers */,
-				797ABB8B16DBC02700F95CB3 /* GADRequest.h in Headers */,
-				797ABB8C16DBC02700F95CB3 /* GADRequestError.h in Headers */,
 				79A572EC171EFAA900B57B87 /* MPBannerAdapterManager.h in Headers */,
 				79A572EE171EFAA900B57B87 /* MPBannerAdapterManagerDelegate.h in Headers */,
 				79A572EF171EFAA900B57B87 /* MPBannerAdManager.h in Headers */,
@@ -841,6 +832,15 @@
 				79A5739A171EFAD600B57B87 /* MPIAdInterstitialAdapter.h in Headers */,
 				79A5739C171EFAD600B57B87 /* MPMillennialAdapter.h in Headers */,
 				79A5739E171EFAD600B57B87 /* MPMillennialInterstitialAdapter.h in Headers */,
+				7926C5D3173A9D53001A4F0F /* GADAdMobExtras.h in Headers */,
+				7926C5D4173A9D53001A4F0F /* GADAdNetworkExtras.h in Headers */,
+				7926C5D5173A9D53001A4F0F /* GADAdSize.h in Headers */,
+				7926C5D6173A9D53001A4F0F /* GADBannerView.h in Headers */,
+				7926C5D7173A9D53001A4F0F /* GADBannerViewDelegate.h in Headers */,
+				7926C5D8173A9D53001A4F0F /* GADInterstitial.h in Headers */,
+				7926C5D9173A9D53001A4F0F /* GADInterstitialDelegate.h in Headers */,
+				7926C5DA173A9D53001A4F0F /* GADRequest.h in Headers */,
+				7926C5DB173A9D53001A4F0F /* GADRequestError.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1033,7 @@
 					"\"$(SRCROOT)/../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1\"",
 					"\"$(SRCROOT)/../../gitignore/MillenialMediaSDK/mmedia_ios_sdk_4-6-2/MMSDK\"",
 					"\"$(SRCROOT)/../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.3.0\"",
+					"\"$(SRCROOT)/../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1060,6 +1061,7 @@
 					"\"$(SRCROOT)/../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.2.1\"",
 					"\"$(SRCROOT)/../../gitignore/MillenialMediaSDK/mmedia_ios_sdk_4-6-2/MMSDK\"",
 					"\"$(SRCROOT)/../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.3.0\"",
+					"\"$(SRCROOT)/../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
