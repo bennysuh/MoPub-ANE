@@ -8,14 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7914017E163AE16E004D6EE6 /* MoPubTypeConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7914017D163AE16E004D6EE6 /* MoPubTypeConversion.m */; };
-		79140264163AFDA4004D6EE6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7914025D163AFDA3004D6EE6 /* AudioToolbox.framework */; };
-		79140265163AFDA4004D6EE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7914025E163AFDA3004D6EE6 /* AVFoundation.framework */; };
-		79140266163AFDA4004D6EE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7914025F163AFDA3004D6EE6 /* CoreGraphics.framework */; };
-		79140267163AFDA4004D6EE6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140260163AFDA3004D6EE6 /* MediaPlayer.framework */; };
-		79140268163AFDA4004D6EE6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140261163AFDA3004D6EE6 /* MobileCoreServices.framework */; };
-		79140269163AFDA4004D6EE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140262163AFDA3004D6EE6 /* QuartzCore.framework */; };
-		7914026B163AFDC9004D6EE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */; };
-		7914026E163AFECF004D6EE6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7914026C163AFEC3004D6EE6 /* MessageUI.framework */; };
 		7926C5D3173A9D53001A4F0F /* GADAdMobExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5C9173A9D53001A4F0F /* GADAdMobExtras.h */; };
 		7926C5D4173A9D53001A4F0F /* GADAdNetworkExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CA173A9D53001A4F0F /* GADAdNetworkExtras.h */; };
 		7926C5D5173A9D53001A4F0F /* GADAdSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 7926C5CB173A9D53001A4F0F /* GADAdSize.h */; };
@@ -175,7 +167,15 @@
 		79A6D5301636DFB1009DA60A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D52C1636DFB1009DA60A /* StoreKit.framework */; };
 		79A6D5321636DFE1009DA60A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A6D52D1636DFB1009DA60A /* UIKit.framework */; };
 		79A6D5351636E4A9009DA60A /* MoPubBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A6D5341636E4A9009DA60A /* MoPubBanner.m */; };
-		79F66B1B1652882800E917FB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F66B181652881600E917FB /* AdSupport.framework */; };
+		79BF9891174A1DB80038F1F1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF9890174A1DB80038F1F1 /* AudioToolbox.framework */; };
+		79BF9893174A1DC50038F1F1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF9892174A1DC50038F1F1 /* MessageUI.framework */; };
+		79BF9895174A1DCA0038F1F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF9894174A1DCA0038F1F1 /* AVFoundation.framework */; };
+		79BF9897174A1DD10038F1F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF9896174A1DD10038F1F1 /* CoreGraphics.framework */; };
+		79BF9899174A1DDA0038F1F1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF9898174A1DDA0038F1F1 /* MediaPlayer.framework */; };
+		79BF989B174A1DE50038F1F1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF989A174A1DE50038F1F1 /* MobileCoreServices.framework */; };
+		79BF989D174A1DEC0038F1F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF989C174A1DEC0038F1F1 /* QuartzCore.framework */; };
+		79BF989F174A1DF60038F1F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BF989E174A1DF60038F1F1 /* SystemConfiguration.framework */; };
+		79F66B1B1652882800E917FB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F66B181652881600E917FB /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		79F66B1E1654051E00E917FB /* MoPubInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = 79F66B1C1654051E00E917FB /* MoPubInterstitial.h */; };
 		79F66B1F1654051E00E917FB /* MoPubInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F66B1D1654051E00E917FB /* MoPubInterstitial.m */; };
 /* End PBXBuildFile section */
@@ -195,14 +195,6 @@
 /* Begin PBXFileReference section */
 		7914017C163AE16E004D6EE6 /* MoPubTypeConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubTypeConversion.h; sourceTree = "<group>"; };
 		7914017D163AE16E004D6EE6 /* MoPubTypeConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubTypeConversion.m; sourceTree = "<group>"; };
-		7914025D163AFDA3004D6EE6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		7914025E163AFDA3004D6EE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		7914025F163AFDA3004D6EE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		79140260163AFDA3004D6EE6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
-		79140261163AFDA3004D6EE6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		79140262163AFDA3004D6EE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		7914026C163AFEC3004D6EE6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		7926C5C9173A9D53001A4F0F /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdMobExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADAdMobExtras.h"; sourceTree = "<group>"; };
 		7926C5CA173A9D53001A4F0F /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdNetworkExtras.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADAdNetworkExtras.h"; sourceTree = "<group>"; };
 		7926C5CB173A9D53001A4F0F /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdSize.h; path = "../../gitignore/AdMobSDK/GoogleAdMobAdsSdkiOS-6.4.1/GADAdSize.h"; sourceTree = "<group>"; };
@@ -373,6 +365,14 @@
 		79A6D52D1636DFB1009DA60A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		79A6D5331636E4A9009DA60A /* MoPubBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubBanner.h; sourceTree = "<group>"; };
 		79A6D5341636E4A9009DA60A /* MoPubBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubBanner.m; sourceTree = "<group>"; };
+		79BF9890174A1DB80038F1F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		79BF9892174A1DC50038F1F1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		79BF9894174A1DCA0038F1F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		79BF9896174A1DD10038F1F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		79BF9898174A1DDA0038F1F1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		79BF989A174A1DE50038F1F1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		79BF989C174A1DEC0038F1F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		79BF989E174A1DF60038F1F1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		79F66B181652881600E917FB /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		79F66B1C1654051E00E917FB /* MoPubInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoPubInterstitial.h; sourceTree = "<group>"; };
 		79F66B1D1654051E00E917FB /* MoPubInterstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoPubInterstitial.m; sourceTree = "<group>"; };
@@ -383,15 +383,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79BF989F174A1DF60038F1F1 /* SystemConfiguration.framework in Frameworks */,
+				79BF989D174A1DEC0038F1F1 /* QuartzCore.framework in Frameworks */,
+				79BF989B174A1DE50038F1F1 /* MobileCoreServices.framework in Frameworks */,
+				79BF9899174A1DDA0038F1F1 /* MediaPlayer.framework in Frameworks */,
+				79BF9897174A1DD10038F1F1 /* CoreGraphics.framework in Frameworks */,
+				79BF9895174A1DCA0038F1F1 /* AVFoundation.framework in Frameworks */,
+				79BF9893174A1DC50038F1F1 /* MessageUI.framework in Frameworks */,
+				79BF9891174A1DB80038F1F1 /* AudioToolbox.framework in Frameworks */,
 				79F66B1B1652882800E917FB /* AdSupport.framework in Frameworks */,
-				7914026E163AFECF004D6EE6 /* MessageUI.framework in Frameworks */,
-				79140264163AFDA4004D6EE6 /* AudioToolbox.framework in Frameworks */,
-				79140265163AFDA4004D6EE6 /* AVFoundation.framework in Frameworks */,
-				79140266163AFDA4004D6EE6 /* CoreGraphics.framework in Frameworks */,
-				79140267163AFDA4004D6EE6 /* MediaPlayer.framework in Frameworks */,
-				79140268163AFDA4004D6EE6 /* MobileCoreServices.framework in Frameworks */,
-				79140269163AFDA4004D6EE6 /* QuartzCore.framework in Frameworks */,
-				7914026B163AFDC9004D6EE6 /* SystemConfiguration.framework in Frameworks */,
 				79A6D48C1636C14D009DA60A /* Foundation.framework in Frameworks */,
 				79A6D5321636DFE1009DA60A /* UIKit.framework in Frameworks */,
 				79A6D52E1636DFB1009DA60A /* CoreLocation.framework in Frameworks */,
@@ -715,15 +715,15 @@
 		79A6D48A1636C14D009DA60A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79BF989E174A1DF60038F1F1 /* SystemConfiguration.framework */,
+				79BF989C174A1DEC0038F1F1 /* QuartzCore.framework */,
+				79BF989A174A1DE50038F1F1 /* MobileCoreServices.framework */,
+				79BF9898174A1DDA0038F1F1 /* MediaPlayer.framework */,
+				79BF9896174A1DD10038F1F1 /* CoreGraphics.framework */,
+				79BF9894174A1DCA0038F1F1 /* AVFoundation.framework */,
+				79BF9892174A1DC50038F1F1 /* MessageUI.framework */,
+				79BF9890174A1DB80038F1F1 /* AudioToolbox.framework */,
 				79F66B181652881600E917FB /* AdSupport.framework */,
-				7914026C163AFEC3004D6EE6 /* MessageUI.framework */,
-				7914025D163AFDA3004D6EE6 /* AudioToolbox.framework */,
-				7914025E163AFDA3004D6EE6 /* AVFoundation.framework */,
-				7914025F163AFDA3004D6EE6 /* CoreGraphics.framework */,
-				79140260163AFDA3004D6EE6 /* MediaPlayer.framework */,
-				79140261163AFDA3004D6EE6 /* MobileCoreServices.framework */,
-				79140262163AFDA3004D6EE6 /* QuartzCore.framework */,
-				79140263163AFDA4004D6EE6 /* SystemConfiguration.framework */,
 				79A6D52A1636DFB1009DA60A /* CoreLocation.framework */,
 				79A6D52B1636DFB1009DA60A /* iAd.framework */,
 				79A6D52C1636DFB1009DA60A /* StoreKit.framework */,

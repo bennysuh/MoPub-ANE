@@ -2,8 +2,8 @@
 	<id>MoPubInterstitialTest</id>
 	<filename>MoPubInterstitialTest</filename>
 	<name>MoPub Interstitial</name>
-	<versionNumber>0.7.1</versionNumber>
-	<versionLabel>0.7.1</versionLabel>
+	<versionNumber>0.7.3</versionNumber>
+	<versionLabel>0.7.3</versionLabel>
 	<initialWindow>
 		<content>MoPubInterstitialTest.swf</content>
 		<visible>true</visible>
