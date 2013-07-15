@@ -18,6 +18,7 @@ public class MoPubExtensionContext extends FREContext
 	{
 		Map<String, FREFunction> functionMap = new HashMap<String, FREFunction>();
 		functionMap.put( "getAdScaleFactor", new MoPubGetAdScaleFactor() );
+		functionMap.put( "setChartboostId", new MoPubSetChartboostId() );
 		return functionMap;
 	}
 }

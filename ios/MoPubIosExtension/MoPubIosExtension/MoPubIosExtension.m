@@ -11,6 +11,7 @@
 #import "MoPubTypeConversion.h"
 #import "MoPubBanner.h"
 #import "MoPubInterstitial.h"
+#import "ChartboostInterstitialCustomEvent.h"
 
 #define DEFINE_ANE_FUNCTION(fn) FREObject (fn)(FREContext context, void* functionData, uint32_t argc, FREObject argv[])
 
@@ -26,6 +27,17 @@ DEFINE_ANE_FUNCTION( getAdScaleFactor )
     {
         return asScale;
     }
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION( setChartboostId )
+{
+    NSString* appId;
+    if( [mopubConverter FREGetObject:argv[0] asString:&appId] != FRE_OK ) return NULL;
+    NSString* appSignature;
+    if( [mopubConverter FREGetObject:argv[1] asString:&appSignature] != FRE_OK ) return NULL;
+    [ChartboostInterstitialCustomEvent setChartboostAppID:appId];
+    [ChartboostInterstitialCustomEvent setChartboostAppSignature:appSignature];
     return NULL;
 }
 
@@ -381,7 +393,8 @@ void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext 
     {
         static FRENamedFunction mopubFunctionMap[] =
         {
-            MAP_FUNCTION( getAdScaleFactor, NULL )
+            MAP_FUNCTION( getAdScaleFactor, NULL ),
+            MAP_FUNCTION( setChartboostId, NULL )
         };
         
         *numFunctionsToSet = sizeof( mopubFunctionMap ) / sizeof( FRENamedFunction );

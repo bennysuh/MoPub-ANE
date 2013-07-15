@@ -39,8 +39,7 @@
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
-			<arg value="ipa-debug-interpreter"/>
-			<arg value="-connect"/>
+			<arg value="ipa-ad-hoc"/>
 			<arg value="-provisioning-profile"/>
 			<arg value="${ios.provisioning.profile}"/>
 			<arg value="-storetype"/>
@@ -68,8 +67,7 @@
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
-			<arg value="apk-debug"/>
-			<arg value="-connect"/>
+			<arg value="apk-captive-runtime"/>
 			<arg value="-storetype"/>
 			<arg value="pkcs12"/>
 			<arg value="-keystore"/>
@@ -114,8 +112,7 @@
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
-			<arg value="ipa-debug-interpreter"/>
-			<arg value="-connect"/>
+			<arg value="ipa-ad-hoc"/>
 			<arg value="-provisioning-profile"/>
 			<arg value="${ios.provisioning.profile}"/>
 			<arg value="-storetype"/>
@@ -143,8 +140,7 @@
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
-			<arg value="apk-debug"/>
-			<arg value="-connect"/>
+			<arg value="apk-captive-runtime"/>
 			<arg value="-storetype"/>
 			<arg value="pkcs12"/>
 			<arg value="-keystore"/>

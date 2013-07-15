@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <platform xmlns="http://ns.adobe.com/air/extension/3.1">
 
-	<!-- The version of iOS SDK that the app should be linked with. Optional. -->
-	<sdkVersion>6.0</sdkVersion>
-
-	<!-- Options that should be passed to the linker. Optional. -->
 	<linkerOptions>
-		<option>-ios_version_min 4.2</option>
-		<option>-framework MessageUI</option>
-		<option>-framework MediaPlayer</option>
-		<option>-framework StoreKit</option>
+
+		<option>-ios_version_min 5.0</option>
+
+		<option>-framework AddressBook</option>
+		<option>-framework AddressBookUI</option>
+		<option>-weak_framework AdSupport</option>
+		<option>-framework CoreTelephony</option>
+		<option>-framework EventKit</option>
+		<option>-framework EventKitUI</option>
 		<option>-weak_framework iAd</option>
-		<option>-framework AdSupport</option>
+		<option>-framework MediaPlayer</option>
+		<option>-framework MessageUI</option>
+		<option>-weak_framework PassKit</option>
+		<option>-weak_framework Social</option>
+		<option>-weak_framework StoreKit</option>
+		<option>-weak_framework Twitter</option>
+
+		<option>-lsqlite3</option>
+		<option>-lz</option>
+
 	</linkerOptions>
 
 </platform>
