@@ -30,17 +30,6 @@ DEFINE_ANE_FUNCTION( getAdScaleFactor )
     return NULL;
 }
 
-DEFINE_ANE_FUNCTION( setChartboostId )
-{
-    NSString* appId;
-    if( [mopubConverter FREGetObject:argv[0] asString:&appId] != FRE_OK ) return NULL;
-    NSString* appSignature;
-    if( [mopubConverter FREGetObject:argv[1] asString:&appSignature] != FRE_OK ) return NULL;
-    [ChartboostInterstitialCustomEvent setChartboostAppID:appId];
-    [ChartboostInterstitialCustomEvent setChartboostAppSignature:appSignature];
-    return NULL;
-}
-
 DEFINE_ANE_FUNCTION( initialiseBanner )
 {
     NSString* adUnitId;
@@ -393,8 +382,7 @@ void MoPubContextInitializer( void* extData, const uint8_t* ctxType, FREContext 
     {
         static FRENamedFunction mopubFunctionMap[] =
         {
-            MAP_FUNCTION( getAdScaleFactor, NULL ),
-            MAP_FUNCTION( setChartboostId, NULL )
+            MAP_FUNCTION( getAdScaleFactor, NULL )
         };
         
         *numFunctionsToSet = sizeof( mopubFunctionMap ) / sizeof( FRENamedFunction );

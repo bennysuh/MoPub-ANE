@@ -1,6 +1,7 @@
 # General
 temp/*
-test/bin/*
+test/banner/*
+test/interstitial/*
 build.config
 
 # Eclipse FDT

@@ -6,9 +6,5 @@ package com.sticksports.nativeExtensions.mopub
 		{
 			return 1;
 		}
-		
-		public static function setChartboostId( appId : String, appSignature : String ) : void
-		{
-		}
 	}
 }

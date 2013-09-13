@@ -27,12 +27,8 @@
 		
 		//iOS
 		private var iosInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY7b_SFgw";
-		private var iosChartboostAppId : String = "51cc1fdc17ba475522000000";
-		private var iosChartboostAppSignature : String = "23c2c4b60210c17de3c030bafe802454ce820761";
 		// Android
 		private var androidInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY0cfSFgw";
-		private var androidChartboostAppId : String = "51cc229e16ba47cc43000004";
-		private var androidChartboostAppSignature : String = "d54494905dc1aec84bb57ff70842616af0a8b11f";
 		
 		public function get interstitialUnitId() : String
 		{
@@ -44,30 +40,6 @@
 			else
 			{
 				return androidInterstitialUnitId;
-			}
-		}
-		public function get chartboostAppId() : String
-		{
-			var os : String = Capabilities.version.substr(0,3);
-			if( os == "IOS" )
-			{
-				return iosChartboostAppId;
-			}
-			else
-			{
-				return androidChartboostAppId;
-			}
-		}
-		public function get chartboostAppSignature() : String
-		{
-			var os : String = Capabilities.version.substr(0,3);
-			if( os == "IOS" )
-			{
-				return iosChartboostAppSignature;
-			}
-			else
-			{
-				return androidChartboostAppSignature;
 			}
 		}
 		
@@ -138,12 +110,6 @@
 			tf.y = 90;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, getIsReady );
 			addChild( tf );
-			
-			tf = createButton( "setChartboostId" );
-			tf.x = 170;
-			tf.y = 90;
-			tf.addEventListener( MouseEvent.MOUSE_DOWN, setChartboostAppId );
-			addChild( tf );
 		}
 		
 		private function createButton( label : String ) : TextField
@@ -202,12 +168,6 @@
 		private function getIsReady( event : MouseEvent ) : void
 		{
 			feedback.appendText( "\ninterstitial.isReady = " + interstitial.isReady );
-		}
-		
-		private function setChartboostAppId( event : MouseEvent ) : void
-		{
-			feedback.appendText( "\nMoPub.setChartboostId( ... )" );
-			MoPub.setChartboostId( chartboostAppId, chartboostAppSignature );
 		}
 		
 		private function setInterstitialListeners( interstitial : MoPubInterstitial ) : void

@@ -10,10 +10,10 @@
 		description="Build and package the interstitial test app."/>
 	
 	<target name="banner-compile" description="Build a debug version of the application swf">
-		<delete dir="../bin"/>
-		<mkdir dir="../bin"/>
+		<delete dir="../banner"/>
+		<mkdir dir="../banner"/>
 		
-		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../bin">
+		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../banner">
 			<arg line='-source-path ../src'/>
 			<arg line='-default-size=320,480'/>
 			<arg line='-default-background-color 0x000000'/>
@@ -29,13 +29,13 @@
 	</target>
 	
 	<target name="banner-ios-package" description="Create the debug application .ipa package">
-		<copy file="./MoPubBannerTest-app.xml" todir="../bin" overwrite="true"/>
-		<copy file="./Default.png" todir="../bin" overwrite="true"/>
-		<copy todir="../bin/icons">
+		<copy file="./MoPubBannerTest-app.xml" todir="../banner" overwrite="true"/>
+		<copy file="./Default.png" todir="../banner" overwrite="true"/>
+		<copy todir="../banner/icons">
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../banner" fork="true">
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
@@ -58,12 +58,12 @@
 	</target>
 	
 	<target name="banner-android-package" description="Create the debug application .apk package">
-		<copy file="./MoPubBannerTest-app.xml" todir="../bin" overwrite="true"/>
-		<copy todir="../bin/icons">
+		<copy file="./MoPubBannerTest-app.xml" todir="../banner" overwrite="true"/>
+		<copy todir="../banner/icons">
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../banner" fork="true">
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
@@ -83,10 +83,10 @@
 	</target>
 
 	<target name="interstitial-compile" description="Build a debug version of the application swf">
-		<delete dir="../bin"/>
-		<mkdir dir="../bin"/>
+		<delete dir="../interstitial"/>
+		<mkdir dir="../interstitial"/>
 		
-		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../bin">
+		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../interstitial">
 			<arg line='-source-path ../src'/>
 			<arg line='-default-size=320,480'/>
 			<arg line='-default-background-color 0x000000'/>
@@ -102,13 +102,13 @@
 	</target>
 	
 	<target name="interstitial-ios-package" description="Create the debug application .ipa package">
-		<copy file="./MoPubInterstitialTest-app.xml" todir="../bin" overwrite="true"/>
-		<copy file="./Default.png" todir="../bin" overwrite="true"/>
-		<copy todir="../bin/icons">
+		<copy file="./MoPubInterstitialTest-app.xml" todir="../interstitial" overwrite="true"/>
+		<copy file="./Default.png" todir="../interstitial" overwrite="true"/>
+		<copy todir="../interstitial/icons">
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../interstitial" fork="true">
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>
@@ -131,12 +131,12 @@
 	</target>
 	
 	<target name="interstitial-android-package" description="Create the debug application .apk package">
-		<copy file="./MoPubInterstitialTest-app.xml" todir="../bin" overwrite="true"/>
-		<copy todir="../bin/icons">
+		<copy file="./MoPubInterstitialTest-app.xml" todir="../interstitial" overwrite="true"/>
+		<copy todir="../interstitial/icons">
 		    <fileset dir="./icons"/>
 		</copy>
 
-		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../bin" fork="true">
+		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../interstitial" fork="true">
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
 			<arg value="-package"/>
 			<arg value="-target"/>

@@ -19,14 +19,5 @@ package com.sticksports.nativeExtensions.mopub
 			}
 			return scaleFactor;
 		}
-		
-		public static function setChartboostId( appId : String, appSignature : String ) : void
-		{
-			if ( !extensionContext )
-			{
-				extensionContext = ExtensionContext.createExtensionContext( "com.sticksports.nativeExtensions.MoPub", "mopub" );
-			}
-			extensionContext.call( "setChartboostId", appId, appSignature );
-		}
 	}
 }

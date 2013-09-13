@@ -29,12 +29,8 @@
 		
 		//iOS
 		private var iosBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
-		private var iosChartboostAppId : String = "51cc1fdc17ba475522000000";
-		private var iosChartboostAppSignature : String = "23c2c4b60210c17de3c030bafe802454ce820761";
 		// Android
 		private var androidBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
-		private var androidChartboostAppId : String = "51cc229e16ba47cc43000004";
-		private var androidChartboostAppSignature : String = "d54494905dc1aec84bb57ff70842616af0a8b11f";
 		
 		public function get bannerUnitId() : String
 		{
@@ -46,30 +42,6 @@
 			else
 			{
 				return androidBannerUnitId;
-			}
-		}
-		public function get chartboostAppId() : String
-		{
-			var os : String = Capabilities.version.substr(0,3);
-			if( os == "IOS" )
-			{
-				return iosChartboostAppId;
-			}
-			else
-			{
-				return androidChartboostAppId;
-			}
-		}
-		public function get chartboostAppSignature() : String
-		{
-			var os : String = Capabilities.version.substr(0,3);
-			if( os == "IOS" )
-			{
-				return iosChartboostAppSignature;
-			}
-			else
-			{
-				return androidChartboostAppSignature;
 			}
 		}
 
@@ -170,12 +142,6 @@
 			tf.y = 170;
 			tf.addEventListener( MouseEvent.MOUSE_DOWN, unsetAutorefresh );
 			addChild( tf );
-			
-			tf = createButton( "setChartboostId" );
-			tf.x = 10;
-			tf.y = 210;
-			tf.addEventListener( MouseEvent.MOUSE_DOWN, setChartboostAppId );
-			addChild( tf );
 		}
 		
 		private function createButton( label : String ) : TextField
@@ -271,12 +237,6 @@
 		{
 			feedback.appendText( "\nbanner.autorefresh = false" );
 			banner.autorefresh = false;
-		}
-		
-		private function setChartboostAppId( event : MouseEvent ) : void
-		{
-			feedback.appendText( "\nMoPub.setChartboostId( ... )" );
-			MoPub.setChartboostId( chartboostAppId, chartboostAppSignature );
 		}
 		
 		private function setBannerListeners( banner : MoPubBanner ) : void
