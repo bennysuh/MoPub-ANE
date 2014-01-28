@@ -14,7 +14,6 @@
 		<mkdir dir="../banner"/>
 		
 		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../banner">
-			<env key="JAVA_HOME" value="${java.home}" />
 			<arg line='-source-path ../src'/>
 			<arg line='-default-size=320,480'/>
 			<arg line='-default-background-color 0x000000'/>
@@ -88,7 +87,6 @@
 		<mkdir dir="../interstitial"/>
 		
 		<exec executable="${sdk.home}/bin/amxmlc${bin.ext}" failonerror="true" dir="../interstitial">
-			<env key="JAVA_HOME" value="${java.home}" />
 			<arg line='-source-path ../src'/>
 			<arg line='-default-size=320,480'/>
 			<arg line='-default-background-color 0x000000'/>
