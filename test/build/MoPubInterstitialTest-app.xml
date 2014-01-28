@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><application xmlns="http://ns.adobe.com/air/application/3.3">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><application xmlns="http://ns.adobe.com/air/application/4.0">
 	<id>MoPubInterstitialTest</id>
 	<filename>MoPubInterstitialTest</filename>
 	<name>MoPub Interstitial</name>
-	<versionNumber>0.7.3</versionNumber>
-	<versionLabel>0.7.3</versionLabel>
+	<versionNumber>0.7.4</versionNumber>
+	<versionLabel>0.7.4</versionLabel>
 	<initialWindow>
 		<content>MoPubInterstitialTest.swf</content>
 		<visible>true</visible>
@@ -60,6 +60,8 @@
 						<activity android:name="com.millennialmedia.android.MMActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="keyboardHidden|orientation|keyboard"/>
 						<activity android:name="com.millennialmedia.android.VideoPlayer" android:configChanges="keyboardHidden|orientation|keyboard"/>
 					</application>
+
+					<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="16" />
 
 					<uses-permission android:name="android.permission.INTERNET" />
 					<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
