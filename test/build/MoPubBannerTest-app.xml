@@ -62,8 +62,6 @@
 						<activity android:name="com.millennialmedia.android.VideoPlayer" android:configChanges="keyboardHidden|orientation|keyboard" />
 					</application>
 
-					<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="16" />
-
 					<uses-permission android:name="android.permission.INTERNET" />  
 					<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 					<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
