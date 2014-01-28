@@ -5,17 +5,18 @@ import java.util.Map;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
+import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubInterstitial;
-import com.mopub.mobileads.MoPubInterstitial.MoPubInterstitialListener;
+import com.mopub.mobileads.MoPubInterstitial.InterstitialAdListener;
 
-public class MoPubInterstitialContext extends FREContext implements MoPubInterstitialListener
+public class MoPubInterstitialContext extends FREContext implements InterstitialAdListener
 {
 	private MoPubInterstitial interstitial;
 	
 	public MoPubInterstitial createInterstitial( String adUnitId )
 	{
 		interstitial = new MoPubInterstitial( this.getActivity(), adUnitId );
-		interstitial.setListener( this );
+		interstitial.setInterstitialAdListener( this );
 		return interstitial;
 	}
 
@@ -29,7 +30,7 @@ public class MoPubInterstitialContext extends FREContext implements MoPubInterst
 	{
 		if ( interstitial != null )
 		{
-			interstitial.setListener( null );
+			interstitial.setInterstitialAdListener( null );
 			interstitial.destroy();
 		}
 	}
@@ -47,14 +48,29 @@ public class MoPubInterstitialContext extends FREContext implements MoPubInterst
 		functionMap.put( "showInterstitial", new MoPubInterstitialShow() );
 		return functionMap;
 	}
-	
-	public void OnInterstitialLoaded()
-	{
+
+    @Override
+    public void onInterstitialLoaded(MoPubInterstitial interstitial) {
 		dispatchStatusEventAsync( "", MoPubMessages.interstitialLoaded );
-	}
-	
-	public void OnInterstitialFailed()
-	{
+    }
+
+    @Override
+    public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
 		dispatchStatusEventAsync( "", MoPubMessages.interstitialFailedToLoad );
-	}
+    }
+
+    @Override
+    public void onInterstitialShown(MoPubInterstitial interstitial) {
+
+    }
+
+    @Override
+    public void onInterstitialClicked(MoPubInterstitial interstitial) {
+
+    }
+
+    @Override
+    public void onInterstitialDismissed(MoPubInterstitial interstitial) {
+
+    }
 }
