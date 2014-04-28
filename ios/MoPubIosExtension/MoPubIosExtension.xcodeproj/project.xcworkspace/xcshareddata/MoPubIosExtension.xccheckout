@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D0873E0D-EBA0-4013-8D2A-C3CCC316888D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MoPubIosExtension</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3CCA95C7-B68F-4781-A4D4-094EC86ADCDA</key>
+		<string>ssh://github.com/StickSports/MoPub-ANE.git</string>
+		<key>B776D76F-68D5-4276-B2FA-DC990BA28966</key>
+		<string>git://github.com/mopub/mopub-ios-sdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/MoPubIosExtension/MoPubIosExtension.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3CCA95C7-B68F-4781-A4D4-094EC86ADCDA</key>
+		<string>../../../..</string>
+		<key>B776D76F-68D5-4276-B2FA-DC990BA28966</key>
+		<string>../../../../gitignore/mopub-ios-sdk</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/StickSports/MoPub-ANE.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3CCA95C7-B68F-4781-A4D4-094EC86ADCDA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3CCA95C7-B68F-4781-A4D4-094EC86ADCDA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MoPub</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B776D76F-68D5-4276-B2FA-DC990BA28966</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mopub-ios-sdk</string>
+		</dict>
+	</array>
+</dict>
+</plist>

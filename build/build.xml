@@ -22,16 +22,15 @@
 			<arg value="--warnings" />
 			<arg value="--notices" />
 			<arg line="--output-format human-readable-text" />
-			<arg line="--sdk ${ios.sdk}" />
 			<arg line="--compile ../temp/ios/MPAdBrowserController.nib" />
-			<arg value="${mopub.ios.sdk}/MoPubSDK/Internal/Common/MPAdBrowserController.xib" />
+			<arg value="${mopub.ios.sdk}/Internal/Common/MPAdBrowserController.xib" />
 		</exec>
 
 		<copy todir="../temp/ios" flatten="true">
-			<fileset dir="${mopub.ios.sdk}/MoPubSDK" casesensitive="yes" id="classfiles">
+			<fileset dir="${mopub.ios.sdk}" casesensitive="yes" id="classfiles">
 				<include name="**/*.png" />
 				<include name="**/*.nib" />
-				<include name="**/*.js" />
+				<include name="**/*.bundle" />
 			</fileset>
 		</copy>
 
@@ -44,32 +43,20 @@
 
 		<javac destdir="../android/temp/classes" includeantruntime="false">
 			<src path="../android/src" />
-			<src path="${mopub.android.sdk}/mopub-sdk/src/main/java" />
-			<src path="${mopub.android.sdk}/extras/src" />
-			<exclude name="com/mopub/mobileads/AdColonyInterstitial.java" />
-			<exclude name="com/mopub/mobileads/ChartboostInterstitial.java" />
-			<exclude name="com/mopub/mobileads/GooglePlayServicesBanner.java" />
-			<exclude name="com/mopub/mobileads/GooglePlayServicesInterstitial.java" />
-			<exclude name="com/mopub/mobileads/GreystripeBanner.java" />
-			<exclude name="com/mopub/mobileads/GreystripeInterstitial.java" />
-			<exclude name="com/mopub/mobileads/InMobiBanner.java" />
-			<exclude name="com/mopub/mobileads/InMobiInterstitial.java" />
-			<exclude name="com/mopub/mobileads/VungleInterstitial.java" />
+			<src path="${mopub.android.sdk}/src/main/java" />
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar" />
 				<pathelement location="../android/libs/FlashRuntimeExtensions.jar" />
 				<pathelement location="${admob.android.jar}" />
 				<pathelement location="${millennial.android.jar}" />
-				<!-- <pathelement location="${chartboost.android.jar}" /> -->
-				<pathelement location="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" />
+				<pathelement location="${mopub.android.sdk}/libs/android-support-v4.jar" />
 			</classpath>
 		</javac>
 
 		<mkdir dir="../android/temp/zip" />
 		<unzip dest="../android/temp/zip" src="${admob.android.jar}" />
 		<unzip dest="../android/temp/zip" src="${millennial.android.jar}" />
-		<!-- <unzip dest="../android/temp/zip" src="${chartboost.android.jar}" /> -->
-		<unzip dest="../android/temp/zip" src="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" />
+		<unzip dest="../android/temp/zip" src="${mopub.android.sdk}/libs/android-support-v4.jar" />
 		<copy todir="../android/temp/classes/com">
 			<fileset dir="../android/temp/zip/com" />
 		</copy>
@@ -99,7 +86,6 @@
 		</pathconvert>
 
 		<exec executable="${sdk.home}/bin/compc" failonerror="true">
-			<env key="JAVA_HOME" value="${java.home}" />
 			<arg line='-source-path ../actionscript/ios/src' />
 			<arg line='-source-path+=../actionscript/common/src' />
 			<arg line='-output ../temp/swc/${name}.swc' />
@@ -126,7 +112,6 @@
 		</pathconvert>
 
 		<exec executable="${sdk.home}/bin/compc" failonerror="true">
-			<env key="JAVA_HOME" value="${java.home}" />
 			<arg line='-source-path ../actionscript/android/src' />
 			<arg line='-source-path+=../actionscript/common/src' />
 			<arg line='-output ../temp/swc/${name}.swc' />
