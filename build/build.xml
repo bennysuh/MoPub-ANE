@@ -25,13 +25,9 @@
 			<arg line="--compile ../temp/ios/MPAdBrowserController.nib" />
 			<arg value="${mopub.ios.sdk}/Internal/Common/MPAdBrowserController.xib" />
 		</exec>
-
-		<copy todir="../temp/ios" flatten="true">
-			<fileset dir="${mopub.ios.sdk}" casesensitive="yes" id="classfiles">
-				<include name="**/*.png" />
-				<include name="**/*.nib" />
-				<include name="**/*.bundle" />
-			</fileset>
+		
+		<copy todir="../temp/ios" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/Resources"/>
 		</copy>
 
 		<delete dir="../temp/ios/build/" />
