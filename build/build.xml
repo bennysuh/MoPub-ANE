@@ -29,6 +29,22 @@
 		<copy todir="../temp/ios" overwrite="true">
 			<fileset dir="${mopub.ios.sdk}/Resources"/>
 		</copy>
+		
+		<copy todir="../temp/ios" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/vunglepub.embeddedframework/Resources"/>
+		</copy>
+		
+		<copy todir="../temp/ios/vunglepub.framework" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/vunglepub.embeddedframework/vunglepub.framework"/>
+		</copy>
+		
+		<copy todir="../temp/ios/MillennialMedia.framework" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Millennial/SDK/MillennialMedia.framework"/>
+		</copy>
+		
+		<copy todir="../temp/ios/SpeechKit.framework" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Millennial/SDK/SpeechKit/SpeechKit.framework"/>
+		</copy>
 
 		<delete dir="../temp/ios/build/" />
 	</target>
@@ -39,29 +55,52 @@
 
 		<javac destdir="../android/temp/classes" includeantruntime="false">
 			<src path="../android/src" />
-			<src path="${mopub.android.sdk}/src/main/java" />
+			<src path="${mopub.android.sdk}/mopub-sdk/src/main/java" />
+			<src path="${mopub.android.sdk}/extras/src" />
+ 			<exclude name="com/mopub/mobileads/AdColonyInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/ChartboostInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/FacebookBanner.java" />
+ 			<exclude name="com/mopub/mobileads/FacebookInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/GoogleAdMobBanner.java" />
+ 			<exclude name="com/mopub/mobileads/GoogleAdMobInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/GreystripeBanner.java" />
+ 			<exclude name="com/mopub/mobileads/GreystripeInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/InMobiBanner.java" />
+ 			<exclude name="com/mopub/mobileads/InMobiInterstitial.java" />
+ 			<exclude name="com/mopub/nativeads/FacebookNative.java" />
+ 			<exclude name="com/mopub/nativeads/InMobiNative.java" />
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar" />
 				<pathelement location="../android/libs/FlashRuntimeExtensions.jar" />
-				<pathelement location="${admob.android.jar}" />
+				<pathelement location="${gps.android.sdk}/libs/google-play-services.jar" />
 				<pathelement location="${millennial.android.jar}" />
-				<pathelement location="${mopub.android.sdk}/libs/android-support-v4.jar" />
+				<pathelement location="${vungle.android.jar}" />
+				<pathelement location="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" />
 			</classpath>
 		</javac>
 
 		<mkdir dir="../android/temp/zip" />
-		<unzip dest="../android/temp/zip" src="${admob.android.jar}" />
+		<unzip dest="../android/temp/zip" src="${gps.android.sdk}/libs/google-play-services.jar" />
 		<unzip dest="../android/temp/zip" src="${millennial.android.jar}" />
-		<unzip dest="../android/temp/zip" src="${mopub.android.sdk}/libs/android-support-v4.jar" />
+		<unzip dest="../android/temp/zip" src="${vungle.android.jar}" />
+		<unzip dest="../android/temp/zip" src="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" />
+		<copy todir="../android/temp/zip/res">
+			<fileset dir="${gps.android.sdk}/res" />
+		</copy>
 		<copy todir="../android/temp/classes/com">
 			<fileset dir="../android/temp/zip/com" />
 		</copy>
 		<copy todir="../android/temp/classes/android">
 			<fileset dir="../android/temp/zip/android" />
 		</copy>
+		<copy todir="../android/temp/classes/javax">
+			<fileset dir="../android/temp/zip/javax" />
+		</copy>
 
 		<mkdir dir="../temp/android/" />
-		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar" />
+		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar">
+			<zipfileset dir="${mopub.android.sdk}/mopub-sdk/etc" />
+		</jar>
 		<copy todir="../temp/android/res">
 			<fileset dir="../android/temp/zip/res" />
 		</copy>

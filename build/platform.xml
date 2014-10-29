@@ -5,6 +5,7 @@
 
 		<option>-ios_version_min 6.0</option>
 
+		<option>-lz</option>
 		<option>-weak_framework AdSupport</option>
 		<option>-framework CoreTelephony</option>
 		<option>-framework EventKit</option>
@@ -17,5 +18,13 @@
 		<option>-weak_framework Social</option>
 
 	</linkerOptions>
+
+	<packagedDependencies>
+
+		<packagedDependency>vunglepub.framework</packagedDependency>
+		<packagedDependency>MillennialMedia.framework</packagedDependency>
+		<packagedDependency>SpeechKit.framework</packagedDependency>
+
+	</packagedDependencies>
 
 </platform>
