@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<platform xmlns="http://ns.adobe.com/air/extension/4.0">
+
+	<packagedDependencies>
+
+		<packagedDependency>google-play-services.jar</packagedDependency>
+		<packagedDependency>MMSDK.jar</packagedDependency>
+		<packagedDependency>vungle.jar</packagedDependency>
+		<packagedDependency>android-support-v4.jar</packagedDependency>
+
+	</packagedDependencies>
+
+</platform>

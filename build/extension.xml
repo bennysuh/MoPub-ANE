@@ -1,4 +1,4 @@
-<extension xmlns="http://ns.adobe.com/air/extension/3.5">
+<extension xmlns="http://ns.adobe.com/air/extension/4.0">
 	<id>com.sticksports.nativeExtensions.MoPub</id>
 	<versionNumber>0.7.4</versionNumber>
 	<platforms>

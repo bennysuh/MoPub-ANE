@@ -135,6 +135,9 @@
 		<copy todir="../interstitial/icons">
 		    <fileset dir="./icons"/>
 		</copy>
+		<copy todir="../interstitial">
+		    <fileset dir="./vungle-assets"/>
+		</copy>
 
 		<java jar="${sdk.home}/lib/adt.jar" failonerror="true" dir="../interstitial" fork="true">
 			<jvmarg line="-Xms1024m -Xmx4096m -XX:MaxPermSize=512m"/>
@@ -151,6 +154,9 @@
 			<arg value="MoPubInterstitialTest-app.xml"/>
 			<arg value="MoPubInterstitialTest.swf"/>
 			<arg value="icons"/>
+			<arg value="vunglepub_sdk_close.png"/>
+			<arg value="vunglepub_sdk_mute.png"/>
+			<arg value="vunglepub_sdk_unmute.png"/>
 			<arg line="-extdir ../../bin/"/>
 		</java>
 	</target>

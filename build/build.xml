@@ -80,30 +80,28 @@
 		</javac>
 
 		<mkdir dir="../android/temp/zip" />
-		<unzip dest="../android/temp/zip" src="${gps.android.sdk}/libs/google-play-services.jar" />
-		<unzip dest="../android/temp/zip" src="${millennial.android.jar}" />
-		<unzip dest="../android/temp/zip" src="${vungle.android.jar}" />
-		<unzip dest="../android/temp/zip" src="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" />
 		<copy todir="../android/temp/zip/res">
 			<fileset dir="${gps.android.sdk}/res" />
 		</copy>
-		<copy todir="../android/temp/classes/com">
-			<fileset dir="../android/temp/zip/com" />
+
+		<mkdir dir="../android/temp/vungle" />
+		<unzip dest="../android/temp/vungle" src="${vungle.android.jar}" />
+		<delete dir="../test/build/vungle-assets" />
+		<mkdir dir="../test/build/vungle-assets" />
+		<copy todir="../test/build/vungle-assets">
+			<fileset dir="../android/temp/vungle/assets" />
 		</copy>
-		<copy todir="../android/temp/classes/android">
-			<fileset dir="../android/temp/zip/android" />
-		</copy>
-		<copy todir="../android/temp/classes/javax">
-			<fileset dir="../android/temp/zip/javax" />
-		</copy>
+		<delete dir="../android/temp/vungle" />
 
 		<mkdir dir="../temp/android/" />
-		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar">
-			<zipfileset dir="${mopub.android.sdk}/mopub-sdk/etc" />
-		</jar>
+		<jar basedir="../android/temp/classes" destfile="../temp/android/${name}AndroidExtension.jar" />
 		<copy todir="../temp/android/res">
 			<fileset dir="../android/temp/zip/res" />
 		</copy>
+		<copy file="${gps.android.sdk}/libs/google-play-services.jar" tofile="../temp/android/google-play-services.jar" />
+		<copy file="${millennial.android.jar}" tofile="../temp/android/MMSDK.jar" />
+		<copy file="${vungle.android.jar}" tofile="../temp/android/vungle.jar" />
+		<copy file="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" tofile="../temp/android/android-support-v4.jar" />
 
 		<delete dir="../android/temp" />
 	</target>
@@ -200,9 +198,9 @@
 			<arg value="${name}.ane" />
 			<arg value="../build/extension.xml" />
 			<arg line="-swc swc/${name}.swc" />
-			<arg line="-platform iPhone-ARM -platformoptions ../build/platform.xml -C ios/ ." />
-			<arg line="-platform Android-ARM -C android/ ." />
-			<arg line="-platform Android-x86 -C android/ ." />
+			<arg line="-platform iPhone-ARM -platformoptions ../build/platform-iPhone.xml -C ios/ ." />
+			<arg line="-platform Android-ARM -platformoptions ../build/platform-Android.xml -C android/ ." />
+			<arg line="-platform Android-x86 -platformoptions ../build/platform-Android.xml -C android/ ." />
 			<arg line="-platform default -C default/ ." />
 		</exec>
 
