@@ -154,9 +154,12 @@
 			<arg value="MoPubInterstitialTest-app.xml"/>
 			<arg value="MoPubInterstitialTest.swf"/>
 			<arg value="icons"/>
-			<arg value="vunglepub_sdk_close.png"/>
-			<arg value="vunglepub_sdk_mute.png"/>
-			<arg value="vunglepub_sdk_unmute.png"/>
+			<arg value="vg_close.png"/>
+			<arg value="vg_cta.png"/>
+			<arg value="vg_cta_disabled.png"/>
+			<arg value="vg_mute_off.png"/>
+			<arg value="vg_mute_on.png"/>
+			<arg value="vg_timer.png"/>
 			<arg line="-extdir ../../bin/"/>
 		</java>
 	</target>

@@ -3,6 +3,7 @@ temp/*
 test/banner/*
 test/interstitial/*
 build.config
+gitignore/*
 
 # Eclipse FDT
 .settings/*
@@ -23,3 +24,4 @@ xcuserdata
 Icon
 Thumbs.db
 .DS_Store
+

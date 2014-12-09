@@ -28,9 +28,9 @@
 		private var bannerCount : int = 0;
 		
 		//iOS
-		private var iosBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";
+		private var iosBannerUnitId : String = "f768795308a040cea86dc6eb6167fae6";
 		// Android
-		private var androidBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw";
+		private var androidBannerUnitId : String = "a3466174a82b4ea4809e55e95914f73f";
 		
 		public function get bannerUnitId() : String
 		{

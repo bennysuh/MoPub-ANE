@@ -6,6 +6,7 @@
 		<packagedDependency>google-play-services.jar</packagedDependency>
 		<packagedDependency>MMSDK.jar</packagedDependency>
 		<packagedDependency>vungle.jar</packagedDependency>
+		<packagedDependency>javax.inject.jar</packagedDependency>
 		<packagedDependency>android-support-v4.jar</packagedDependency>
 
 	</packagedDependencies>

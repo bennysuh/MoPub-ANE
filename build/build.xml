@@ -31,11 +31,11 @@
 		</copy>
 		
 		<copy todir="../temp/ios" overwrite="true">
-			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/vunglepub.embeddedframework/Resources"/>
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/VungleSDK.embeddedframework/Resources"/>
 		</copy>
 		
-		<copy todir="../temp/ios/vunglepub.framework" overwrite="true">
-			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/vunglepub.embeddedframework/vunglepub.framework"/>
+		<copy todir="../temp/ios/VungleSDK.framework" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/VungleSDK.embeddedframework/VungleSDK.framework"/>
 		</copy>
 		
 		<copy todir="../temp/ios/MillennialMedia.framework" overwrite="true">
@@ -75,7 +75,8 @@
 				<pathelement location="${gps.android.sdk}/libs/google-play-services.jar" />
 				<pathelement location="${millennial.android.jar}" />
 				<pathelement location="${vungle.android.jar}" />
-				<pathelement location="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" />
+				<pathelement location="${vungle.javax.inject.android.jar}" />
+				<pathelement location="${vungle.support.android.jar}" />
 			</classpath>
 		</javac>
 
@@ -101,7 +102,8 @@
 		<copy file="${gps.android.sdk}/libs/google-play-services.jar" tofile="../temp/android/google-play-services.jar" />
 		<copy file="${millennial.android.jar}" tofile="../temp/android/MMSDK.jar" />
 		<copy file="${vungle.android.jar}" tofile="../temp/android/vungle.jar" />
-		<copy file="${mopub.android.sdk}/mopub-sdk/libs/android-support-v4.jar" tofile="../temp/android/android-support-v4.jar" />
+		<copy file="${vungle.javax.inject.android.jar}" tofile="../temp/android/javax.inject.jar" />
+		<copy file="${vungle.support.android.jar}" tofile="../temp/android/android-support-v4.jar" />
 
 		<delete dir="../android/temp" />
 	</target>

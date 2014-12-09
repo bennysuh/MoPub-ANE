@@ -2,8 +2,8 @@
 	<id>MoPubBannerTest</id>
 	<filename>MoPubBannerTest</filename>
 	<name>MoPub Banner</name>
-	<versionNumber>0.7.4</versionNumber>
-	<versionLabel>0.7.4</versionLabel>
+	<versionNumber>0.7.5</versionNumber>
+	<versionLabel>0.7.5</versionLabel>
 	<initialWindow>
 		<content>MoPubBannerTest.swf</content>
 		<visible>true</visible>

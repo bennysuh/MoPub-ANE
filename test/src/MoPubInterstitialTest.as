@@ -26,9 +26,9 @@
 		private var interstitial : MoPubInterstitial;
 		
 		//iOS
-		private var iosInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY7b_SFgw";
+		private var iosInterstitialUnitId : String = "148bbfd1ead04d5cbcdb952fe07c90e4";
 		// Android
-		private var androidInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY0cfSFgw";
+		private var androidInterstitialUnitId : String = "ad0147367df942668b6c1bc0000f43f1";
 		
 		public function get interstitialUnitId() : String
 		{

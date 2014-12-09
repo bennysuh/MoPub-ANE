@@ -2,8 +2,8 @@
 	<id>MoPubInterstitialTest</id>
 	<filename>MoPubInterstitialTest</filename>
 	<name>MoPub Interstitial</name>
-	<versionNumber>0.7.4</versionNumber>
-	<versionLabel>0.7.4</versionLabel>
+	<versionNumber>0.7.5</versionNumber>
+	<versionLabel>0.7.5</versionLabel>
 	<initialWindow>
 		<content>MoPubInterstitialTest.swf</content>
 		<visible>true</visible>
@@ -62,8 +62,8 @@
 						<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 						<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-						<activity android:name="com.vungle.sdk.VungleAdvert" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-						<service android:name="com.vungle.sdk.VungleIntentService" />
+						<activity android:name="com.vungle.publisher.FullScreenAdActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+						<service android:name="com.vungle.publisher.VungleService" android:exported="false"/>
 					</application>
 
 					<uses-permission android:name="android.permission.INTERNET" />
