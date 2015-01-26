@@ -1,5 +1,7 @@
 h1. Air Native Extension for MoPub Advertising on iOS and Android
 
+*Please note that we are no longer able to support this project and are not contributing to it.*
+
 This is an "Air native extension":http://www.adobe.com/devnet/air/native-extensions-for-air.html for the "MoPub":http://www.mopub.com/ advertising platform on iOS and Android.
 
 Please view "the wiki":https://github.com/StickSports/MoPub-ANE/wiki for information on how to use this extension.
