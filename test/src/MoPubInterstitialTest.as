@@ -13,7 +13,8 @@
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
-	[SWF(width='320', height='480', frameRate='30', backgroundColor='#000000')]
+	[SWF(width='480', height='320', frameRate='30', backgroundColor='#000000')] //Landscape
+	//[SWF(width='480', height='320', frameRate='30', backgroundColor='#000000')] //Portrait
 	
 	public class MoPubInterstitialTest extends Sprite
 	{
@@ -26,9 +27,13 @@
 		private var interstitial : MoPubInterstitial;
 		
 		//iOS
-		private var iosInterstitialUnitId : String = "148bbfd1ead04d5cbcdb952fe07c90e4";
+		private var iosInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY7b_SFgw"; //GENERAL iOS - Landscape Interstitial
+		//private var iosInterstitialUnitId : String = "2fbe130cdcdf43338bfbb7a719c62e6b"; //GENERAL iOS - Landscape Tablet Interstitial
+		//private var iosInterstitialUnitId : String = "319d6a997ebb4b8ebe582bfc9d8980a5"; //GENERAL iOS - Portrait Interstitial
+		//private var iosInterstitialUnitId : String = "2e229bf72c2740b2aa3f93a6d49d3c9f"; //GENERAL iOS - Portrait Tablet Interstitial
 		// Android
-		private var androidInterstitialUnitId : String = "ad0147367df942668b6c1bc0000f43f1";
+		private var androidInterstitialUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUY0cfSFgw"; //GENERAL Android - Landscape interstitial
+		//private var androidInterstitialUnitId : String = "ee0392c123c54167a42c3a70fbcd56ef"; //GENERAL Android - Portrait Interstitial
 		
 		public function get interstitialUnitId() : String
 		{

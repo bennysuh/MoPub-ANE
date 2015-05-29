@@ -7,7 +7,7 @@
 	<initialWindow>
 		<content>MoPubInterstitialTest.swf</content>
 		<visible>true</visible>
-		<aspectRatio>portrait</aspectRatio>
+		<aspectRatio>landscape</aspectRatio>
 		<autoOrients>true</autoOrients>
 		<fullScreen>true</fullScreen>
 		<renderMode>cpu</renderMode>

@@ -28,9 +28,11 @@
 		private var bannerCount : int = 0;
 		
 		//iOS
-		private var iosBannerUnitId : String = "f768795308a040cea86dc6eb6167fae6";
+		private var iosBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYsK-hFgw";//GENERAL iOS - Banner
+		//private var iosBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYwuitFgw";//GENERAL iOS - Leaderboard
 		// Android
-		private var androidBannerUnitId : String = "a3466174a82b4ea4809e55e95914f73f";
+		private var androidBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYjpepFgw"; //GENERAL Android - banner
+		//private var androidBannerUnitId : String = "agltb3B1Yi1pbmNyDQsSBFNpdGUYttOiFgw"; //GENERAL Android - leaderboard
 		
 		public function get bannerUnitId() : String
 		{
