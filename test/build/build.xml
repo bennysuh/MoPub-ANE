@@ -159,7 +159,7 @@
 			<arg value="vg_cta_disabled.png"/>
 			<arg value="vg_mute_off.png"/>
 			<arg value="vg_mute_on.png"/>
-			<arg value="vg_timer.png"/>
+			<arg value="vg_privacy.png"/>
 			<arg line="-extdir ../../bin/"/>
 		</java>
 	</target>

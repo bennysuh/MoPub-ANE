@@ -22,12 +22,16 @@
 			<arg value="--warnings" />
 			<arg value="--notices" />
 			<arg line="--output-format human-readable-text" />
-			<arg line="--compile ../temp/ios/MPAdBrowserController.nib" />
+			<arg line="--compile /Users/nick/Workspace/AIR/MoPub-ANE/temp/ios/MPAdBrowserController.nib" />
 			<arg value="${mopub.ios.sdk}/Internal/Common/MPAdBrowserController.xib" />
 		</exec>
 		
 		<copy todir="../temp/ios" overwrite="true">
 			<fileset dir="${mopub.ios.sdk}/Resources"/>
+		</copy>
+		
+		<copy todir="../temp/ios/GoogleMobileAds.framework" overwrite="true">
+			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/GoogleAdMob/SDK/GoogleMobileAds.framework"/>
 		</copy>
 		
 		<copy todir="../temp/ios" overwrite="true">
@@ -36,14 +40,6 @@
 		
 		<copy todir="../temp/ios/VungleSDK.framework" overwrite="true">
 			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Vungle/SDK/VungleSDK.embeddedframework/VungleSDK.framework"/>
-		</copy>
-		
-		<copy todir="../temp/ios/MillennialMedia.framework" overwrite="true">
-			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Millennial/SDK/MillennialMedia.framework"/>
-		</copy>
-		
-		<copy todir="../temp/ios/SpeechKit.framework" overwrite="true">
-			<fileset dir="${mopub.ios.sdk}/AdNetworkSupport/Millennial/SDK/SpeechKit/SpeechKit.framework"/>
 		</copy>
 
 		<delete dir="../temp/ios/build/" />
@@ -58,24 +54,27 @@
 			<src path="${mopub.android.sdk}/mopub-sdk/src/main/java" />
 			<src path="${mopub.android.sdk}/extras/src" />
  			<exclude name="com/mopub/mobileads/AdColonyInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/AdColonyRewardedVideo.java" />
  			<exclude name="com/mopub/mobileads/ChartboostInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/ChartboostRewardedVideo.java" />
+ 			<exclude name="com/mopub/mobileads/ChartboostShared.java" />
  			<exclude name="com/mopub/mobileads/FacebookBanner.java" />
  			<exclude name="com/mopub/mobileads/FacebookInterstitial.java" />
- 			<exclude name="com/mopub/mobileads/GoogleAdMobBanner.java" />
- 			<exclude name="com/mopub/mobileads/GoogleAdMobInterstitial.java" />
- 			<exclude name="com/mopub/mobileads/GreystripeBanner.java" />
- 			<exclude name="com/mopub/mobileads/GreystripeInterstitial.java" />
- 			<exclude name="com/mopub/mobileads/InMobiBanner.java" />
- 			<exclude name="com/mopub/mobileads/InMobiInterstitial.java" />
- 			<exclude name="com/mopub/nativeads/FacebookNative.java" />
- 			<exclude name="com/mopub/nativeads/InMobiNative.java" />
+ 			<exclude name="com/mopub/mobileads/MillennialBanner.java" />
+ 			<exclude name="com/mopub/mobileads/MillennialInterstitial.java" />
+ 			<exclude name="com/mopub/mobileads/VungleRewardedVideo.java" />
+ 			<exclude name="com/mopub/nativeads/**/" />
+ 			<exclude name="com/mopub/simpleadsdemo/**/" />
 			<classpath>
 				<pathelement location="${android.sdk}/android.jar" />
 				<pathelement location="../android/libs/FlashRuntimeExtensions.jar" />
 				<pathelement location="${gps.android.sdk}/libs/google-play-services.jar" />
-				<pathelement location="${millennial.android.jar}" />
+				<pathelement location="${mopub.volley.android.jar}" />
+				<pathelement location="${mopub.recyclerview.android.jar}" />
 				<pathelement location="${vungle.android.jar}" />
+				<pathelement location="${vungle.dagger.android.jar}" />
 				<pathelement location="${vungle.javax.inject.android.jar}" />
+				<pathelement location="${vungle.nineoldandroids.android.jar}" />
 				<pathelement location="${vungle.support.android.jar}" />
 			</classpath>
 		</javac>
@@ -99,10 +98,13 @@
 		<copy todir="../temp/android/res">
 			<fileset dir="../android/temp/zip/res" />
 		</copy>
+		<copy file="${mopub.volley.android.jar}" tofile="../temp/android/mopub.volley.jar" />
+		<copy file="${mopub.recyclerview.android.jar}" tofile="../temp/android/mopub.recyclerview.jar" />
 		<copy file="${gps.android.sdk}/libs/google-play-services.jar" tofile="../temp/android/google-play-services.jar" />
-		<copy file="${millennial.android.jar}" tofile="../temp/android/MMSDK.jar" />
 		<copy file="${vungle.android.jar}" tofile="../temp/android/vungle.jar" />
+		<copy file="${vungle.dagger.android.jar}" tofile="../temp/android/vungle.dagger.jar" />
 		<copy file="${vungle.javax.inject.android.jar}" tofile="../temp/android/javax.inject.jar" />
+		<copy file="${vungle.nineoldandroids.android.jar}" tofile="../temp/android/vungle.nineoldandroids.jar" />
 		<copy file="${vungle.support.android.jar}" tofile="../temp/android/android-support-v4.jar" />
 
 		<delete dir="../android/temp" />

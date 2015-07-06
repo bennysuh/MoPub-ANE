@@ -3,10 +3,13 @@
 
 	<packagedDependencies>
 
+		<packagedDependency>mopub.volley.jar</packagedDependency>
+		<packagedDependency>mopub.recyclerview.jar</packagedDependency>
 		<packagedDependency>google-play-services.jar</packagedDependency>
-		<packagedDependency>MMSDK.jar</packagedDependency>
 		<packagedDependency>vungle.jar</packagedDependency>
+		<packagedDependency>vungle.dagger.jar</packagedDependency>
 		<packagedDependency>javax.inject.jar</packagedDependency>
+		<packagedDependency>vungle.nineoldandroids.jar</packagedDependency>
 		<packagedDependency>android-support-v4.jar</packagedDependency>
 
 	</packagedDependencies>

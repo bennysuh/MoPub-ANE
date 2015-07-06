@@ -22,9 +22,8 @@
 
 	<packagedDependencies>
 
+		<packagedDependency>GoogleMobileAds.framework</packagedDependency>
 		<packagedDependency>VungleSDK.framework</packagedDependency>
-		<packagedDependency>MillennialMedia.framework</packagedDependency>
-		<packagedDependency>SpeechKit.framework</packagedDependency>
 
 	</packagedDependencies>
 
